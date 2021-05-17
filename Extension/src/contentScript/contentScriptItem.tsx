@@ -8,6 +8,7 @@ const App: React.FC<{}> = () => {
   const [options, setOptions] = useState<LocalStorageOptions | null>(null)
   const [isActive, setIsActive] = useState<boolean>(false)
   const [isEnabled, setIsEnabled] = useState<boolean>(false)
+  const [showDialog, setShowDialog] = useState<boolean>(false)
 
   useEffect(() => {
     getStoredOptions().then((options) => {
@@ -38,7 +39,7 @@ const App: React.FC<{}> = () => {
   if (!options) {
     return null
   }
-  isActive && console.log("render dialog")
+  isActive && console.log("render tag/dialog")
   return (
     <>
       {isActive && (
