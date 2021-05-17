@@ -31,8 +31,7 @@ export function getStoredOptions(): Promise<LocalStorageOptions> {
 
 
 export function setCurrentStore(currentStore: string): Promise<void> {
-  console.log("set current store");
-  console.log(currentStore);
+  console.log("set current store: " + currentStore);
   const vals: LocalStorage = {
     currentStore,
   }

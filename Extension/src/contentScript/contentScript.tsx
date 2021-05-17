@@ -49,6 +49,8 @@ class App extends Component<AppProps, AppState> {
   handleStoreSpecificDidMount = (store) => {
     switch(store){
       case SupportedSites.INSTACART:
+        //for instacart site, plugin to their view cart button
+        //add event listener for on click so if triggered means cart is opened and in view to user
         const pageButtons = document.getElementsByTagName('button');
         for(let i = 0; i < pageButtons.length; i++) {
         if(pageButtons[i].getAttribute("aria-label") && 
@@ -66,6 +68,8 @@ class App extends Component<AppProps, AppState> {
   }
 
   onInstaCartEnableCheckoutMode = (defaultPageCheckoutCartDiv) => {
+    //if cart is in view to user on instacart, tune into aria-label of view cart button to know when cart is closed.
+    //goes from 'close cart' back to 'view cart' means, checkout sidepanel cart has been closed.
     this.commonObserver = new MutationObserver((mutations) => {
       mutations.forEach((mutation) =>  {
         if(mutation.attributeName === "aria-label"){
@@ -76,7 +80,7 @@ class App extends Component<AppProps, AppState> {
         }
       });    
     });
-    // Notify me of style changes
+    // Notify if style changes
     let observerConfig = {
       attributes: true, 
       attributeFilter: ["aria-label"]
@@ -116,6 +120,7 @@ class App extends Component<AppProps, AppState> {
     if (!this.state.options) {
       return null
     }
+    //temp console logs
     this.state.showItemDialog && console.log("show item dialog");
     !this.state.showCheckoutDialog && console.log("not show checkout");
     this.state.showCheckoutDialog && console.log("show checkout");
