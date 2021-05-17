@@ -1,5 +1,6 @@
 export interface LocalStorage {
-  options?: LocalStorageOptions
+  options?: LocalStorageOptions,
+  currentStore?: string
 }
 
 export interface LocalStorageOptions {
@@ -24,6 +25,29 @@ export function getStoredOptions(): Promise<LocalStorageOptions> {
   return new Promise((resolve) => {
     chrome.storage.local.get(keys, (res: LocalStorage) => {
       resolve(res.options)
+    })
+  })
+}
+
+
+export function setCurrentStore(currentStore: string): Promise<void> {
+  console.log("set current store");
+  console.log(currentStore);
+  const vals: LocalStorage = {
+    currentStore,
+  }
+  return new Promise((resolve) => {
+    chrome.storage.local.set(vals, () => {
+      resolve()
+    })
+  })
+}
+
+export function getCurrentStore(): Promise<string> {
+  const keys: LocalStorageKeys[] = ['currentStore']
+  return new Promise((resolve) => {
+    chrome.storage.local.get(keys, (res: LocalStorage) => {
+      resolve(res.currentStore)
     })
   })
 }
