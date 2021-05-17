@@ -41,15 +41,15 @@ class App extends Component<AppProps, AppState> {
 
   handleMessages = (msg: Messages) => {
     console.log("received message: " + msg);
-    if (msg === Messages.ENABLE_OVERLAY) {
+    if (msg === Messages.ENABLE_ITEM_DIALOG) {
       this.setState(prevState => {
-        if(prevState.isEnabled && !prevState.isActive){
-          return {isActive: true}
+        if(prevState.isEnabled && !prevState.showItemDialog){
+          return {showItemDialog: true, isCheckout: false}
         } else { return null}})
-    } else if (msg === Messages.DISABLE_OVERLAY) {
+    } else if (msg === Messages.DISABLE_ITEM_DIALOG) {
       this.setState(prevState => {
-        if(prevState.isActive){
-          return {isActive: false}
+        if(prevState.showItemDialog){
+          return {showItemDialog: false, isCheckout: true}
         } else { return null}})
     } else if (msg === Messages.SET_IS_CHECKOUT) {
       this.setState(prevState => {
@@ -68,11 +68,15 @@ class App extends Component<AppProps, AppState> {
     if (!this.state.options) {
       return null
     }
-    this.state.isActive && console.log("contentScript is in the active state");
+    this.state.showItemDialog && console.log("show item dialog");
+    !this.state.isCheckout && console.log("not is checkout");
+    this.state.isCheckout && console.log("is checkout");
     return (
       <>
-        {this.state.isActive && (
-          <div>Active dom element</div>
+        {this.state.showItemDialog ? (
+          <div>Show Item dialog</div>
+        ) : (
+          <div>Show Checkout dialog</div>
         )}
       </>
     )
