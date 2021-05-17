@@ -3,9 +3,8 @@ import {
 } from '../utils/storage'
 import { Messages } from '../utils/messages'
 
-// TODO: background script
 chrome.runtime.onInstalled.addListener(() => {
-  // TODO: on installed function
+  //install script
   console.log("on install from background")
   setStoredOptions({
     hasAutoOverlay: true
