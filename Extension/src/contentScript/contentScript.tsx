@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { getStoredOptions, LocalStorageOptions, getCurrentStore } from '../utils/storage'
 import { Messages, SupportedSites } from '../utils/constants'
 import './contentScript.css'
+import SideTab from '../components/SideTab/SideTab'
 
 interface AppProps {
   //TODO
@@ -126,6 +127,7 @@ class App extends Component<AppProps, AppState> {
     this.state.showCheckoutDialog && console.log("show checkout");
     return (
       <>
+        <SideTab/>
         {this.state.showItemDialog ? (
           <div>Show Item dialog</div>
         ) : (
