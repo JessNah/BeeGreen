@@ -1,8 +1,7 @@
-  .side-tab{
-    border-radius: 8px 0 0 8px;
+  .take2-side-tab {
     overflow:hidden;
     position: fixed;  
-    right: 0;
+    right: -1px;
     top: 300px;
     width: 50px;
     transition: top 1s ease-in-out;
@@ -10,37 +9,48 @@
     justify-content: flex-end;
     display: inline-flex;
   }
-  .side-tab:hover{
+  .take2-side-tab:hover {
       width: 80px !important;
   }
 
-  .side-tab-open{
+  .take2-side-tab-open {
       width: 80px !important;
   }
   
-  .side-tab-icon{
+  .take2-side-tab-icon {
     height: 50px;
     font-size: 30px;
     text-align: left;
     padding-left: 8px;
     width: 50px;
-    cursor: pointer;
     transition: all 0.5s;
-    background: #0062ff;
-    color: white;
     z-index: 100000;
     transition: 70ms cubic-bezier(0, 0, 0.38, 0.9);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(66, 90, 112);
+    background-color: white;
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(244, 245, 247));
+    box-shadow: rgb(67 90 111 / 14%) 0px 0px 0px 1px inset, rgb(67 90 111 / 6%) 0px -1px 1px;
   }
 
-  .side-tab-icon:hover{
-    background: #0353e9 !important;
+  .take2-side-tab-icon:hover{
+    background-image: linear-gradient(rgb(255 255 255), rgb(229 238 254));
   }
 
-  .side-tab-close {
+  .take2-side-tab-default {
+    border-radius: 8px 0 0 8px;
+  }
+
+  .take2-side-tab-close {
       width: 30px !important;
       margin-right: -30px;
   }
-  .side-tab:hover .side-tab-close{
+  .take2-side-tab:hover .take2-side-tab-close{
     margin-right: 0px !important;
-}
-    
+  }
+  
+  .take2-close-svg{
+    margin-left: -3px;
+  }
