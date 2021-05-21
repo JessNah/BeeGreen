@@ -4,17 +4,18 @@ import { Modal } from "carbon-components-react"
 
 type permissionDialogProps = {
   onOK: () => void;
+  onClose: () => void;
   modalHeading: string,
   modalSubText: string,
   children?: ReactNode;
 }
 const PermissionDialog: React.FC<permissionDialogProps> = ({
-  onOK, modalHeading, modalSubText }) => {
+  onOK, onClose, modalHeading, modalSubText }) => {
 
-  const [closeModal, setCloseModal] = useState<boolean>(false)
-  if(closeModal){
-    return null;
-  }
+  // const [closeModal, setCloseModal] = useState<boolean>(false)
+  // if(closeModal){
+  //   return null;
+  // }
   return (
     <>
       <Modal
@@ -22,8 +23,8 @@ const PermissionDialog: React.FC<permissionDialogProps> = ({
         modalHeading={modalHeading}
         primaryButtonText={"OK"}
         secondaryButtonText={"Cancel"}
-        onRequestClose={() => setCloseModal(true)}
-        onRequestSubmit={() => {setCloseModal(true); onOK();}}
+        onRequestClose={() => onClose()}
+        onRequestSubmit={() => {onClose(); onOK();}}
       >
         <p style={{marginBottom: "1rem"}}>
           {modalSubText}

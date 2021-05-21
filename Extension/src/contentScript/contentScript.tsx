@@ -12,11 +12,10 @@ interface AppProps {
 
 interface AppState {
   options: {[key:string]: any} | null,
-  isCheckout: boolean,
   isEnabled: boolean,
   isActive: boolean,
-  showItemDialog: boolean,
-  showCheckoutDialog: boolean,
+  itemState: boolean,
+  checkoutState: boolean,
   currentStore: string,
   permissionGranted: boolean,
   showDialog: boolean
@@ -26,11 +25,10 @@ class App extends Component<AppProps, AppState> {
   state = {
     showDialog: false,
     options: null,
-    isCheckout: true,
-    isEnabled: false,
-    isActive: false,
-    showItemDialog: false,
-    showCheckoutDialog: false,
+    isEnabled: false, //enabled from options
+    isActive: true, //enabled from extention popup - if previously dismissed by user
+    itemState: false,
+    checkoutState: false,
     permissionGranted: false,
     currentStore: null
   }
@@ -62,7 +60,7 @@ class App extends Component<AppProps, AppState> {
         if(pageButtons[i].getAttribute("aria-label") && 
           pageButtons[i].getAttribute("aria-label").toLocaleLowerCase().includes("view cart")) {
             pageButtons[i].addEventListener("click", () => {
-              this.handleMessages(Messages.TOGGLE_CHECKOUT_DIALOG);
+              this.handleMessages(Messages.ENABLE_CHECKOUT_STATE);
               this.onInstaCartEnableCheckoutMode(pageButtons[i]);})
             break;
           }
@@ -81,7 +79,7 @@ class App extends Component<AppProps, AppState> {
         if(mutation.attributeName === "aria-label"){
           if(defaultPageCheckoutCartDiv.getAttribute("aria-label").toLocaleLowerCase().includes("view cart")){
             this.commonObserver.disconnect();
-            this.handleMessages(Messages.TOGGLE_CHECKOUT_DIALOG);
+            this.handleMessages(Messages.DISABLE_CHECKOUT_STATE);
           }
         }
       });    
@@ -95,55 +93,61 @@ class App extends Component<AppProps, AppState> {
   }
 
   handleMessages = (msg: Messages) => {
-    if (msg === Messages.ENABLE_ITEM_DIALOG) {
+    if (msg === Messages.ENABLE_ITEM_STATE) {
       this.setState(prevState => {
-        if(prevState.isEnabled && !prevState.showItemDialog){
-          return {showItemDialog: true, isCheckout: false}
+        if(prevState.isEnabled && !prevState.itemState){
+          return {itemState: true, checkoutState: false}
         } else { return null}})
-    } else if (msg === Messages.DISABLE_ITEM_DIALOG) {
+    } else if (msg === Messages.DISABLE_ITEM_STATE) {
       this.setState(prevState => {
-        if(prevState.showItemDialog){
-          return {showItemDialog: false, isCheckout: true}
+        if(prevState.itemState){
+          return {itemState: false}
         } else { return null}})
-    } else if (msg === Messages.SET_IS_CHECKOUT) {
+    } else if (msg === Messages.ENABLE_CHECKOUT_STATE) {
       this.setState(prevState => {
-        if(!prevState.isCheckout){
-          return {isCheckout: true}
-        } else { return null}})
-    } else if (msg === Messages.SET_IS_NOT_CHECKOUT) {
+        return {checkoutState: !prevState.checkoutState}
+      })
+    } else if (msg === Messages.DISABLE_CHECKOUT_STATE) {
       this.setState(prevState => {
-        if(prevState.isCheckout){
-          return {isCheckout: false}
-        } else { return null}})
-    } else if (msg === Messages.TOGGLE_CHECKOUT_DIALOG) {
+        return {checkoutState: !prevState.checkoutState}
+      })
+    } else if (msg === Messages.ACTIVATE_APP) {
       this.setState(prevState => {
-        return {showCheckoutDialog: !prevState.showCheckoutDialog}
+        return {isActive: true}
       })
     }
   }
 
   render() {
-    if (!this.state.options) {
+    if (!this.state.options || !this.state.isActive) {
       return null
     }
     //temp console logs
-    this.state.showItemDialog && console.log("show item dialog");
-    !this.state.showCheckoutDialog && console.log("not show checkout");
-    this.state.showCheckoutDialog && console.log("show checkout");
+    !this.state.itemState && console.log("not show item state");
+    this.state.itemState && console.log("show item state");
+    !this.state.checkoutState && console.log("not show checkout state");
+    this.state.checkoutState && console.log("show checkout state");
     return (
       <>
-        <SideTab onClick={() => {this.setState({showDialog: true})}}/>
-        {this.state.showItemDialog ? (
+        {(this.state.itemState || this.state.checkoutState) && 
+          <SideTab 
+            onClick={() => {this.setState({showDialog: true})}}
+            onClose={() => {this.setState({isActive: false})}}/>
+        }
+        {this.state.itemState &&
           <div>Show Item dialog</div>
-        ) : (
+        }
+        {
+          this.state.checkoutState &&
           this.state.showDialog ?
-          <PermissionDialog
-            onOK={() => {this.setState({permissionGranted: true})}}
-            modalHeading={"Hi there! May we take a peek at your cart?"}
-            modalSubText={"By analyzing your cart, we can evaluate it for carbon scoring and we'll try our best to help you make smarter choices."}
-          />
-          : null
-        )}
+            <PermissionDialog
+              onOK={() => {this.setState({permissionGranted: true})}}
+              onClose={() => {this.setState({showDialog: false})}}
+              modalHeading={"Hi there! May we take a peek at your cart?"}
+              modalSubText={"By analyzing your cart, we can evaluate it for carbon scoring and we'll try our best to help you make smarter choices."}
+            />
+            : null
+        }
       </>
     )
   }

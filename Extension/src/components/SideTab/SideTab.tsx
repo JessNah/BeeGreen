@@ -1,19 +1,19 @@
-import React, { useEffect, useState, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import "./SideTab.scss"
-import { Button } from "carbon-components-react"
 import { Close24 } from "@carbon/icons-react"
 
 type sideTabProps = {
   onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onClose: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   children?: ReactNode;
 }
 const SideTab: React.FC<sideTabProps> = ({
-  onClick }) => {
-
-  const [closeTab, setCloseTab] = useState<boolean>(false)
-  if(closeTab){
-    return null;
-  }
+  onClick, 
+  onClose }) => {
+  // const [closeTab, setCloseTab] = useState<boolean>(false)
+  // if(closeTab){
+  //   return null;
+  // }
   return (
     <>
       <div className="take2-side-tab">
@@ -21,7 +21,7 @@ const SideTab: React.FC<sideTabProps> = ({
           T2
         </div>
         <div className={"take2-side-tab-icon take2-side-tab-close"}
-          onClick={() => setCloseTab(true)}>
+          onClick={onClose}>
             <Close24 className={"take2-close-svg"} ariaLabel={"Close this tab"} />
         </div>
       </div>

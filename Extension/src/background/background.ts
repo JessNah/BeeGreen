@@ -24,9 +24,9 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
         const tab = tabs[0]
         if(tab.url.toLocaleLowerCase().includes("instacart.com/store/items/item")){
-          chrome.tabs.sendMessage(tab.id, Messages.ENABLE_ITEM_DIALOG);  
+          chrome.tabs.sendMessage(tab.id, Messages.ENABLE_ITEM_STATE);  
         } else {
-          chrome.tabs.sendMessage(tab.id, Messages.DISABLE_ITEM_DIALOG); 
+          chrome.tabs.sendMessage(tab.id, Messages.DISABLE_ITEM_STATE); 
         }
     });
   }
