@@ -8,16 +8,12 @@ type sideTabProps = {
   children?: ReactNode;
 }
 
-type sideTabState = {
-  animateIn: boolean
-}
 const SideTab: React.FC<sideTabProps> = ({
   onClick, 
   onClose }) => {
   const [animateIn, setAnimateIn] = useState<boolean>(false)
 
   useEffect(() => {
-    console.log("hmomomom");
     setAnimateIn(true)
   });
 

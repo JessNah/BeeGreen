@@ -21,6 +21,13 @@ class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContai
 
   componentWillUnmount() {
     clearTimeout(this.timeoutLoadSim);
+    console.log("checkout container unmount")
+  }
+
+  componentDidMount() {
+    if(this.props.isPermissionGranted) {
+      this.timeoutLoadSim = window.setTimeout(this.loadingSim, 2000);
+    }
   }
 
   loadingSim = () => {

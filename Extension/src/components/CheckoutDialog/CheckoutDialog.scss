@@ -4,7 +4,13 @@
     padding-right: 0px !important;
 }
 
-@media (min-width: 1400px){
+@media (min-width: 1300px){
+    .exp--tearsheet__container {
+        max-width: 80% !important;
+    }
+}
+
+@media (min-width: 1600px){
     .exp--tearsheet__container {
         max-width: 60% !important;
     }
