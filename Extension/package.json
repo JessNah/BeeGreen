@@ -8,6 +8,7 @@
   },
   "author": "",
   "devDependencies": {
+    "@carbon/ibm-cloud-cognitive": "^0.39.5",
     "@carbon/icons-react": "^10.21.0",
     "@types/carbon-components-react": "^7.24.0",
     "@types/chrome": "^0.0.134",

@@ -127,6 +127,7 @@ class App extends Component<AppProps, AppState> {
     this.state.itemState && console.log("show item state");
     !this.state.checkoutState && console.log("not show checkout state");
     this.state.checkoutState && console.log("show checkout state");
+    console.log("Permission " + this.state.isPermissionGranted)
     return (
       <>
         {(this.state.itemState || this.state.checkoutState) && 

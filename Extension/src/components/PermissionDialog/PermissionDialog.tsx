@@ -24,7 +24,7 @@ const PermissionDialog: React.FC<permissionDialogProps> = ({
         primaryButtonText={"OK"}
         secondaryButtonText={"Cancel"}
         onRequestClose={() => onClose()}
-        onRequestSubmit={() => {onClose(); onOK();}}
+        onRequestSubmit={() => onOK()}
       >
         <p style={{marginBottom: "1rem"}}>
           {modalSubText}
