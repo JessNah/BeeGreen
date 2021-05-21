@@ -4,6 +4,23 @@
     padding-right: 0px !important;
 }
 
+.exp--tearsheet__main {
+    background: #f7f7f7 !important;
+    border-right: 1px solid var(--cds-ui-03, #e0e0e0);
+}
+
+.exp--action-set {
+    background: #f7f7f7 !important;
+}
+
+.exp--tearsheet__header {
+    background: white;
+}
+
+.exp--tearsheet__influencer {
+    background: white;
+}
+
 @media (min-width: 1300px){
     .exp--tearsheet__container {
         max-width: 80% !important;
