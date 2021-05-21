@@ -3,6 +3,7 @@ import "./CheckoutDialog.scss"
 import { Tearsheet } from "@carbon/ibm-cloud-cognitive"
 
 interface CheckoutDialogProps {
+  closeCheckoutDialog: () => void;
 }
 
 interface CheckoutDialogState {
@@ -22,21 +23,21 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
     return (
       <>
         <Tearsheet
-          label={"Label"}
-          title={"Title"}
-          description={"Description"}
-          influencer={<div>what</div>}
+          label={""}
+          title={"Take2"}
+          description={"Keep it up! You're shopping smarter than 73% of shoppers visiting this site."}
+          influencer={<div>Insert shopping cart</div>}
           influencerPosition={'right'}
           influencerWidth={'wide'}
           actions={[{
             kind: 'secondary',
             label: "Back",
             loading: false,
-            onClick: () => {console.log("back button click")}
+            onClick: () => {this.props.closeCheckoutDialog()}
           }]
           }
           open={this.state.open}>
-            MainContent
+            TODO...
         </Tearsheet>
       </>
     )

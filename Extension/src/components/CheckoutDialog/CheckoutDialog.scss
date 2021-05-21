@@ -3,3 +3,9 @@
 .exp--tearsheet__body {
     padding-right: 0px !important;
 }
+
+@media (min-width: 1400px){
+    .exp--tearsheet__container {
+        max-width: 60% !important;
+    }
+}

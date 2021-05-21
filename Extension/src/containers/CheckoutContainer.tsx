@@ -47,7 +47,9 @@ class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContai
                 loading={true}
                 message={"Take2 is analyzing your cart... Thanks for trying your best to make smart choices."}
               />
-              : <CheckoutDialog/>
+              : <CheckoutDialog
+                closeCheckoutDialog={() => {this.props.endCheckoutSequence()}}
+                />
             )
         }
       </>
