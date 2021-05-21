@@ -127,7 +127,7 @@ class App extends Component<AppProps, AppState> {
     this.state.showCheckoutDialog && console.log("show checkout");
     return (
       <>
-        <SideTab/>
+        <SideTab onClick={() => {console.log("launch prompt")}}/>
         {this.state.showItemDialog ? (
           <div>Show Item dialog</div>
         ) : (

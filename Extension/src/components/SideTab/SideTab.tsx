@@ -1,7 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, ReactNode } from 'react'
 import "./SideTab.css"
 
-const SideTab: React.FC<{}> = () => {
+type sideTabProps = {
+  onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  children?: ReactNode;
+}
+const SideTab: React.FC<sideTabProps> = ({
+  onClick }) => {
+
   const [closeTab, setCloseTab] = useState<boolean>(false)
   if(closeTab){
     return null;
@@ -9,7 +15,7 @@ const SideTab: React.FC<{}> = () => {
   return (
     <>
       <div className="take2-side-tab">
-        <div className={"take2-side-tab-icon take2-side-tab-default"} aria-hidden="true">
+        <div onClick={onClick} className={"take2-side-tab-icon take2-side-tab-default"} aria-hidden="true">
           T2
         </div>
         <div className={"take2-side-tab-icon take2-side-tab-close"}
