@@ -4,7 +4,7 @@ import { getStoredOptions, LocalStorageOptions, getCurrentStore } from '../utils
 import { Messages, SupportedSites } from '../utils/constants'
 import './contentScript.scss'
 import SideTab from '../components/SideTab/SideTab'
-import PermissionDialog from '../components/PermissionDialog/PermissionDialog'
+import CheckoutContainer from "../containers/CheckoutContainer"
 
 interface AppProps {
   //TODO
@@ -17,19 +17,19 @@ interface AppState {
   itemState: boolean,
   checkoutState: boolean,
   currentStore: string,
-  permissionGranted: boolean,
-  showDialog: boolean
+  isPermissionGranted: boolean,
+  startScenarioSquence: boolean
 }
 
 class App extends Component<AppProps, AppState> {
   state = {
-    showDialog: false,
+    startScenarioSquence: false,
     options: null,
     isEnabled: false, //enabled from options
     isActive: true, //enabled from extention popup - if previously dismissed by user
     itemState: false,
     checkoutState: false,
-    permissionGranted: false,
+    isPermissionGranted: false,
     currentStore: null
   }
   commonObserver:MutationObserver = null;
@@ -131,20 +131,18 @@ class App extends Component<AppProps, AppState> {
       <>
         {(this.state.itemState || this.state.checkoutState) && 
           <SideTab 
-            onClick={() => {this.setState({showDialog: true})}}
+            onClick={() => {this.setState({startScenarioSquence: true})}}
             onClose={() => {this.setState({isActive: false})}}/>
         }
         {this.state.itemState &&
           <div>Show Item dialog</div>
         }
-        {
-          this.state.checkoutState &&
-          this.state.showDialog ?
-            <PermissionDialog
-              onOK={() => {this.setState({permissionGranted: true})}}
-              onClose={() => {this.setState({showDialog: false})}}
-              modalHeading={"Hi there! May we take a peek at your cart?"}
-              modalSubText={"By analyzing your cart, we can evaluate it for carbon scoring and we'll try our best to help you make smarter choices."}
+        { (this.state.checkoutState &&
+          this.state.startScenarioSquence) ?
+            <CheckoutContainer
+              isPermissionGranted={this.state.isPermissionGranted}
+              setPermission={() => {this.setState({isPermissionGranted: true})}}
+              endCheckoutSequence={() => {this.setState({startScenarioSquence: false})}}
             />
             : null
         }
