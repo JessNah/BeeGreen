@@ -4,13 +4,18 @@
     right: -1px;
     top: 300px;
     width: 50px;
-    transition: top 1s ease-in-out;
+    transition: margin 700ms ease-in-out;
+    transition-delay: 700ms;
     z-index: 100000;
     justify-content: flex-end;
     display: inline-flex;
+    margin-right: -80px;
   }
   .take2-side-tab:hover {
       width: 80px !important;
+  }
+  .take2-side-tab-active {
+    margin-right: 0px !important;
   }
 
   .take2-side-tab-open {

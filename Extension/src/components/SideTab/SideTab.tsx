@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import "./SideTab.scss"
 import { Close24 } from "@carbon/icons-react"
 
@@ -7,16 +7,23 @@ type sideTabProps = {
   onClose: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   children?: ReactNode;
 }
+
+type sideTabState = {
+  animateIn: boolean
+}
 const SideTab: React.FC<sideTabProps> = ({
   onClick, 
   onClose }) => {
-  // const [closeTab, setCloseTab] = useState<boolean>(false)
-  // if(closeTab){
-  //   return null;
-  // }
+  const [animateIn, setAnimateIn] = useState<boolean>(false)
+
+  useEffect(() => {
+    console.log("hmomomom");
+    setAnimateIn(true)
+  });
+
   return (
     <>
-      <div className="take2-side-tab">
+      <div className={!animateIn ? "take2-side-tab" : "take2-side-tab take2-side-tab-active"}>
         <div onClick={onClick} className={"take2-side-tab-icon take2-side-tab-default"} aria-hidden="true">
           T2
         </div>
