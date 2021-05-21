@@ -1,0 +1,99 @@
+//
+// Uncomment below to see correct styling if entire carbon-style sheet is imported wholesale.
+//
+@import '~carbon-components/scss/globals/scss/styles.scss';
+
+
+// Your entrypoint for including sass files from Carbon
+
+// /// If true, includes font face mixins in _css--font-face.scss depending on the css--plex feature flag
+// /// @access public
+// /// @type Bool
+// /// @group feature-flags
+// $css--font-face: false !default;
+
+// /// If true, includes the css-helpers() mixin
+// /// @access public
+// /// @type Bool
+// /// @group feature-flags
+// $css--helpers: false !default;
+
+// /// If true, includes the css-body() mixin
+// /// @access public
+// /// @type Bool
+// /// @group feature-flags
+// $css--body: false !default;
+
+// /// If true, the layer() mixin sets box-shadow values
+// /// @access public
+// /// @type Bool
+// /// @group feature-flags
+// $css--use-layer: true !default;
+
+// /// If true, include reset CSS
+// /// @access public
+// /// @type Bool
+// /// @group feature-flags
+// $css--reset: false !default;
+
+// /// If true, include default type
+// /// @access public
+// /// @type Bool
+// /// @group feature-flags
+// $css--default-type: false !default;
+
+// /// Used with css--font-face feature flag, if true, uses Plex font families instead of Helvetica
+// /// @access public
+// /// @type Bool
+// /// @group feature-flags
+// $css--plex: false !default;
+
+// $feature-flags: (
+//     grid-columns-16: true
+// );
+
+// // Include defaults typically provided through the styles.scss entrypoint
+// @import '~carbon-components/scss/globals/scss/_css--reset.scss';
+// @import '~carbon-components/scss/globals/scss/_css--font-face.scss';
+// @import '~carbon-components/scss/globals/scss/_css--helpers.scss';
+// @import '~carbon-components/scss/globals/scss/_css--body.scss';
+
+// @import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/_font-family';
+// @import '~carbon-components/scss/globals/scss/_typography.scss';
+
+// // Optionally include the grid
+// @import '~carbon-components/scss/globals/grid/_grid.scss';
+
+// // Base Elements
+// @import '~carbon-components/scss/components/button/_button.scss';
+// @import '~carbon-components/scss/components/link/_link.scss';
+// @import '~carbon-components/scss/components/checkbox/_checkbox.scss';
+// @import '~carbon-components/scss/components/radio-button/_radio-button.scss';
+// @import '~carbon-components/scss/components/select/_select.scss';
+
+// // Optionally include components that you need
+// @import '~carbon-components/scss/components/search/_search.scss';
+// @import '~carbon-components/scss/components/text-input/_text-input.scss';
+// @import '~carbon-components/scss/components/text-area/_text-area.scss';
+// @import '~carbon-components/scss/components/form/_form.scss';
+// @import '~carbon-components/scss/components/list-box/_list-box.scss';
+// @import '~carbon-components/scss/components/list/_list.scss';
+// @import '~carbon-components/scss/components/data-table/_data-table.scss';
+// @import '~carbon-components/scss/components/structured-list/_structured-list.scss';
+// @import '~carbon-components/scss/components/overflow-menu/_overflow-menu.scss';
+// @import '~carbon-components/scss/components/dropdown/_dropdown.scss';
+// @import '~carbon-components/scss/components/loading/_loading.scss';
+// @import '~carbon-components/scss/components/modal/_modal.scss';
+// @import '~carbon-components/scss/components/notification/_inline-notification.scss';
+// @import '~carbon-components/scss/components/notification/_toast-notification.scss';
+// @import '~carbon-components/scss/components/tooltip/_tooltip.scss';
+// @import '~carbon-components/scss/components/tag/_tag.scss';
+// @import '~carbon-components/scss/components/pagination/_pagination.scss';
+// @import '~carbon-components/scss/components/breadcrumb/_breadcrumb.scss';
+// @import '~carbon-components/scss/components/tile/_tile.scss';
+// @import '~carbon-components/scss/components/skeleton/_skeleton-placeholder.scss';
+// @import '~carbon-components/scss/components/inline-loading/_inline-loading.scss';
+// @import '~carbon-components/scss/components/inline-loading/_keyframes.scss';
+// @import '~carbon-components/scss/components/notification/_mixins.scss';
+// @import '~carbon-components/scss/components/tabs/_tabs.scss';
+// @import '~carbon-components/scss/components/toggle/_toggle.scss';

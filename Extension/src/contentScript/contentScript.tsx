@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { getStoredOptions, LocalStorageOptions, getCurrentStore } from '../utils/storage'
 import { Messages, SupportedSites } from '../utils/constants'
-import './contentScript.css'
+import './contentScript.scss'
 import SideTab from '../components/SideTab/SideTab'
+import PermissionDialog from '../components/PermissionDialog/PermissionDialog'
 
 interface AppProps {
   //TODO
@@ -16,17 +17,21 @@ interface AppState {
   isActive: boolean,
   showItemDialog: boolean,
   showCheckoutDialog: boolean,
-  currentStore: string
+  currentStore: string,
+  permissionGranted: boolean,
+  showDialog: boolean
 }
 
 class App extends Component<AppProps, AppState> {
   state = {
+    showDialog: false,
     options: null,
     isCheckout: true,
     isEnabled: false,
     isActive: false,
     showItemDialog: false,
     showCheckoutDialog: false,
+    permissionGranted: false,
     currentStore: null
   }
   commonObserver:MutationObserver = null;
@@ -127,11 +132,17 @@ class App extends Component<AppProps, AppState> {
     this.state.showCheckoutDialog && console.log("show checkout");
     return (
       <>
-        <SideTab onClick={() => {console.log("launch prompt")}}/>
+        <SideTab onClick={() => {this.setState({showDialog: true})}}/>
         {this.state.showItemDialog ? (
           <div>Show Item dialog</div>
         ) : (
-          <div>Show Checkout dialog</div>
+          this.state.showDialog ?
+          <PermissionDialog
+            onOK={() => {this.setState({permissionGranted: true})}}
+            modalHeading={"Hi there! May we take a peek at your cart?"}
+            modalSubText={"By analyzing your cart, we can evaluate it for carbon scoring and we'll try our best to help you make smarter choices."}
+          />
+          : null
         )}
       </>
     )
