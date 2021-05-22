@@ -8,9 +8,11 @@ export enum Messages {
 }
 
 export const SupportedSites = {
-  INSTACART: "INSTACART"
+  INSTACART: "INSTACART",
+  APPLESTORE: "APPLESTORE"
 }
 
 export const SupportedSitesUrls = {
-  [SupportedSites.INSTACART]: "instacart.com"
+  [SupportedSites.INSTACART]: "instacart.com",
+  [SupportedSites.APPLESTORE]: "apple.com"
 }

@@ -7,6 +7,7 @@ interface CheckoutContainerProps {
   isPermissionGranted: boolean;
   setPermission: () => void;
   endCheckoutSequence: () => void;
+  currentStore: string;
 }
 
 interface CheckoutContainerState {
@@ -55,7 +56,8 @@ class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContai
                 message={"Take2 is analyzing your cart...\n Thanks for trying your best to make smart choices."}
               />
               : <CheckoutDialog
-                closeCheckoutDialog={() => {this.props.endCheckoutSequence()}}
+                  currentStore={this.props.currentStore}
+                  closeCheckoutDialog={() => {this.props.endCheckoutSequence()}}
                 />
             )
         }

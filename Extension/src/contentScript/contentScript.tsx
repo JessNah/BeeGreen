@@ -66,6 +66,8 @@ class App extends Component<AppProps, AppState> {
           }
         }
         return;
+      case SupportedSites.APPLESTORE:
+        return;
       default:
         return;
     }
@@ -141,6 +143,7 @@ class App extends Component<AppProps, AppState> {
         { (this.state.checkoutState &&
           this.state.startScenarioSquence) ?
             <CheckoutContainer
+              currentStore={this.state.currentStore}
               isPermissionGranted={this.state.isPermissionGranted}
               setPermission={() => {this.setState({isPermissionGranted: true})}}
               endCheckoutSequence={() => {this.setState({startScenarioSquence: false})}}

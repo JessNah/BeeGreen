@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import "./CheckoutDialog.scss"
 import { Tearsheet } from "@carbon/ibm-cloud-cognitive"
-import { getInstaCart, getCartAverageRating } from "../../stores/getInstaCart" 
+import { getCartAverageRating, getCart } from "../../stores/storesCommon"
 import { Accordion, AccordionItem, Tag, TagTypeName } from "carbon-components-react"
 
 interface CheckoutDialogProps {
   closeCheckoutDialog: () => void;
+  currentStore: string;
 }
 
 interface CheckoutDialogState {
@@ -58,7 +59,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
   }
 
   render() {
-    const cart = getInstaCart();
+    const cart = getCart(this.props.currentStore);
     const cartRank = getCartAverageRating(cart);
     console.log(cart);
     return (

@@ -1,8 +1,10 @@
+import { analyzeCart } from "./storesCommon"
+
 export function getInstaCart() {
     // const _html = document.all[0].outerHTML;
     const _cart = document.getElementsByClassName("cart-container-inner")[0];
-    const _cartItems = _cart.getElementsByClassName("clamped-name");
-    const _cartImages = _cart.getElementsByTagName("img");
+    const _cartItems = _cart ? _cart.getElementsByClassName("clamped-name") : [];
+    const _cartImages = _cart ? _cart.getElementsByTagName("img") : [];
 
     let cart = [];
     let imageIndex = 0;
@@ -21,34 +23,4 @@ export function getInstaCart() {
     }
     cart = analyzeCart(cart);
     return cart;
-}
-
-export function analyzeCart(cart) {
-    for(let item of cart){
-        item.score = Math.floor(Math.random() * 10) + 1;
-        if(item.score > 10){
-            item.score = 10;
-        }
-    }
-    cart.sort(compare);
-    return cart;
-}
-
-function compare( a, b ) {
-    if ( a.score < b.score ){
-      return 1;
-    }
-    if ( a.score > b.score ){
-      return -1;
-    }
-    return 0;
-}
-
-export function getCartAverageRating(cart) {
-    let score = 0;
-    for(let item of cart){
-        score += item.score;
-    }
-    console.log(score);
-    return score/cart.length;
 }

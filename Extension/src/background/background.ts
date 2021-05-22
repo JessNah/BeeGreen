@@ -14,6 +14,11 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if(tab.url && tab.url.includes(SupportedSitesUrls[SupportedSites.INSTACART])){
     setCurrentStore(SupportedSites.INSTACART);
+  } else if(tab.url && tab.url.includes(SupportedSitesUrls[SupportedSites.APPLESTORE])){
+    setCurrentStore(SupportedSites.APPLESTORE);
+    if(tab.url && tab.url.includes("apple.com/ca/shop/bag")){
+      chrome.tabs.sendMessage(tab.id, Messages.ENABLE_CHECKOUT_STATE);  
+    }
   }
 });
 
