@@ -1,4 +1,7 @@
 
+.exp--action-set__action-button--ghost {
+    max-width: 100% !important;
+}
 
 .exp--tearsheet__body {
     padding-right: 0px !important;
@@ -21,7 +24,7 @@
     background: white;
     max-height: 100%;
     overflow-y: scroll;
-    width: 35%;
+    width: 35% !important;
 }
 
 @media (min-width: 1300px){
@@ -40,7 +43,6 @@
     display: inline-flex;
     justify-content: space-between;
     width: 100%;
-    padding-right: 10px;
 }
 
 .take2--checkout-dialog-cart-item-text {
@@ -49,7 +51,7 @@
     overflow: hidden;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    padding-left: 8px;
+    padding-left: 16px;
     text-align: left;
     display: -webkit-box;
     vertical-align: middle;
@@ -69,6 +71,7 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     padding-left: 8px;
+    padding-right: 16px;
     text-align: left;
 }
 
@@ -82,4 +85,17 @@
 
 .take2--checkout-dialog-cart-item-img {
     max-height: 40px;
+}
+
+.take2--checkout-dialog-cart-heading {
+    padding-right: 46px;
+    font-size: var(--cds-productive-heading-04-font-size, 1.45rem);
+    font-weight: var(--cds-productive-heading-04-font-weight, 400);
+    line-height: var(--cds-productive-heading-04-line-height, 1.29);
+    letter-spacing: var(--cds-productive-heading-04-letter-spacing, 0);
+}
+
+.take2--checkout-dialog-card-heading-wrapper {
+    display: inline-flex;
+    padding: 16px;
 }
