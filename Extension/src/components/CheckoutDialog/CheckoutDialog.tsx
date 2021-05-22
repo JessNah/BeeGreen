@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import "./CheckoutDialog.scss"
 import { Tearsheet } from "@carbon/ibm-cloud-cognitive"
+import { getInstaCart } from "../../stores/getInstaCart" 
+import { Accordion, AccordionItem } from "carbon-components-react"
 
 interface CheckoutDialogProps {
   closeCheckoutDialog: () => void;
@@ -20,13 +22,38 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
   }
 
   render() {
+    const cart = getInstaCart();
+    console.log(cart);
     return (
       <>
         <Tearsheet
           label={""}
           title={"Take2"}
           description={"Keep it up! You're shopping smarter than 73% of shoppers visiting this site."}
-          influencer={<div>Insert shopping cart</div>}
+          influencer={<>
+            <div>Insert shopping cart</div>
+            <Accordion>
+            {cart.map((item, index) => {
+              return (
+                <AccordionItem
+                  title={
+                    <div key={index + "_cart_item"} className={"take2--checkout-dialog-cart-item"}>
+                      <div>
+                        <img className={"take2--checkout-dialog-cart-item-img"} src={item.image.currentSrc}/>
+                      </div>
+                      <div className={"take2--checkout-dialog-cart-item-text-container"}>
+                        <span className={"take2--checkout-dialog-cart-item-text"}>{item.name}</span>
+                      </div>
+                      <div className={"take2--checkout-dialog-cart-item-text-container"}>
+                        <span className={"take2--checkout-dialog-cart-item-score"}>{"3000"}</span>
+                      </div>
+                    </div>
+                  }
+                />
+              )})
+            }
+            </Accordion>
+            </>}
           influencerPosition={'right'}
           influencerWidth={'wide'}
           actions={[{
