@@ -24,3 +24,19 @@ export function getInstaCart() {
     cart = analyzeCart(cart);
     return cart;
 }
+
+
+export function getInstaItem() {
+    const textElement = document.getElementsByClassName("item-title");
+    const textField = textElement && textElement.length > 0 ? textElement[0] : undefined;
+    const imageElement = document.getElementsByClassName("ic-image-zoomer");
+    const imageField = imageElement && imageElement.length > 0 ? imageElement[0].childNodes[0] : undefined;
+
+    let _item = {
+        id: textField ? textField.innerHTML?.trim() : "",
+        name: textField ? textField.innerHTML?.trim() : "",
+        price: "",
+        image: imageField ? imageField.currentSrc : ""
+    }
+    return _item;
+}

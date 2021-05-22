@@ -26,7 +26,8 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
       <div className={"take2--item-dialog-content-wrapper"}>
         <div className={"take2--item-dialog-content-selected-item"}>
           <div className={"take2--item-dialog-content-selected-item-img"}>
-            <img src={item?.image} />
+            <img className={"take2--item-dialog-content-selected-item-img-tag"}
+              src={item?.image} />
           </div>
           <div className={"take2--item-dialog-content-selected-item-container"}>
             <div className={"take2--item-dialog-content-selected-item-text-wrapper"}>

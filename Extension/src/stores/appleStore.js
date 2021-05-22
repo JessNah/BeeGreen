@@ -18,3 +18,17 @@ export function getAppleCart() {
     cart = analyzeCart(cart);
     return cart;
 }
+
+export function getAppleItem() {
+    const textField = document.title;
+    const imageElement = document.getElementsByClassName("ir hero-img");
+    const imageField = imageElement && imageElement.length > 0 ? imageElement[0] : undefined;
+
+    let _item = {
+        id: textField ? textField.trim() : "",
+        name: textField ? textField.trim() : "",
+        price: "",
+        image: imageField ? imageField.currentSrc : ""
+    }
+    return _item;
+}

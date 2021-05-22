@@ -36,12 +36,7 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
             label: "Close",
             loading: false,
             onClick: () => {this.props.closeItemDialog()}
-            }, {
-            kind: 'ghost',
-            label: "Make an impact! Donate to plant some trees and reduce the carbon footprint of your purchase!",
-            loading: false,
-            onClick: () => {window.open("https://carbonfund.org/product-category/plant-trees/")}
-          }]}
+            }]}
           onClose={() => {this.props.closeItemDialog()}}
           >
             <ItemDialogContent

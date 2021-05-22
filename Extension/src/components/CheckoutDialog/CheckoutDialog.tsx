@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import "./CheckoutDialog.scss"
-import { Tearsheet } from "@carbon/ibm-cloud-cognitive"
+import { Tearsheet, TearsheetNarrow } from "@carbon/ibm-cloud-cognitive"
 import { getCartAverageRating, getCart } from "../../stores/storesCommon"
 import CheckoutCart from "./CheckoutCart/CheckoutCart"
 import { productItem } from "../../utils/types"
@@ -37,6 +37,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
 
   render() {
     console.log(this.state.cart);
+    console.log(this.state);
     return (
       <>
         <Tearsheet
@@ -66,11 +67,12 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
               />}
           >
         </Tearsheet>
-        <Tearsheet
+        <TearsheetNarrow
           open={this.state.openComparison}
           label={""}
           title={"Take2"}
           description={"Carbon footprint comparison to other similar items"}
+          onClose={() => {this.setState({openComparison: false, currentComparisonItem: undefined})}}
           actions={[{
             kind: 'secondary',
             label: "Back",
@@ -80,7 +82,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
           >
            <ItemDialogContent
               item={this.state.currentComparisonItem}/>
-        </Tearsheet>
+        </TearsheetNarrow>
       </>
     )
   }
