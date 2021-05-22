@@ -11,7 +11,7 @@ export function getAmazonCart() {
             id: textItem ? textItem[0].innerHTML : "",
             name: textItem ? textItem[0].innerHTML : "",
             price: _cartItems[i].dataset.price,
-            image: imageItem ? imageItem[0] : imageItem
+            image: imageItem && imageItem.length > 0 ? imageItem[0].currentSrc : ""
         }
         cart.push(_item);
     }

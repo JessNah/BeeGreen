@@ -11,7 +11,7 @@ export function getAppleCart() {
             id: textItem[0].childNodes[0].innerText,
             name: textItem[0].childNodes[0].innerText,
             price: priceItem[0].childNodes[0].childNodes[1].innerText,
-            image: imageItem
+            image: imageItem ? imageItem.currentSrc : ""
         }
         cart.push(_item);
     }

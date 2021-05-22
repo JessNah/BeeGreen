@@ -102,7 +102,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
                         style={{display:"inline-flex", cursor:"pointer"}} 
                         onClick={() => {this.setState({openComparison: true, currentComparisonItem: item.name})}}>
                         <div>
-                          <img className={"take2--checkout-dialog-cart-item-img"} src={item.image ? item.image.currentSrc : ""}/>
+                          <img className={"take2--checkout-dialog-cart-item-img"} src={item.image}/>
                         </div>
                         <div className={"take2--checkout-dialog-cart-item-text-container"}>
                           <div className={"take2--checkout-dialog-cart-item-text-wrapper"}>
