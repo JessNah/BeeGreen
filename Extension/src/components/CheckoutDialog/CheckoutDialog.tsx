@@ -9,16 +9,20 @@ interface CheckoutDialogProps {
 }
 
 interface CheckoutDialogState {
-  open: boolean;
+  openCart: boolean;
+  openComparison: boolean;
+  currentComparisonItem: string
 }
 
 class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState> {
   state= {
-    open: false
+    openCart: false,
+    openComparison: false,
+    currentComparisonItem: ""
   }
 
   componentDidMount() {
-    this.setState({open: true});
+    this.setState({openCart: true});
   }
 
   getStyledTagScore = (score) => {
@@ -60,13 +64,13 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
     return (
       <>
         <Tearsheet
-          open={this.state.open}
+          open={this.state.openCart}
           label={""}
           title={"Take2"}
           description={"Keep it up! You're shopping smarter than 73% of shoppers visiting this site."}
           actions={[{
             kind: 'secondary',
-            label: "Back",
+            label: "Close",
             loading: false,
             onClick: () => {this.props.closeCheckoutDialog()}
             }, {
@@ -93,7 +97,9 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
                 <AccordionItem
                   title={
                     <div key={index + "_cart_item"} className={"take2--checkout-dialog-cart-item"}>
-                      <div style={{display:"inline-flex"}}>
+                      <div 
+                        style={{display:"inline-flex", cursor:"pointer"}} 
+                        onClick={() => {this.setState({openComparison: true, currentComparisonItem: item.name})}}>
                         <div>
                           <img className={"take2--checkout-dialog-cart-item-img"} src={item.image.currentSrc}/>
                         </div>
@@ -115,12 +121,34 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
                       </div>
                     </div>
                   }
-                />
+                >
+                  <div>{"This item scored " + item.score + "/10" }</div>
+                  <div></div>
+                  <div>{"185 kg carbon emissions3"}</div>
+                  <div>{"73% Production"}</div>
+                  <div>{"7% Transport"}</div>
+                  <div>{"19% Use"}</div>
+                  <div>{"<1% End-of-life processing"}</div>
+                </AccordionItem>
               )})
             }
             </Accordion>
             </>}
             >
+        </Tearsheet>
+        <Tearsheet
+          open={this.state.openComparison}
+          label={""}
+          title={"Let's take a look at " + this.state.currentComparisonItem}
+          description={""}
+          actions={[{
+            kind: 'secondary',
+            label: "Back",
+            loading: false,
+            onClick: () => {this.setState({openComparison: false, currentComparisonItem: ""})}
+            }]}
+          >
+           Similar items that compare...
         </Tearsheet>
       </>
     )
