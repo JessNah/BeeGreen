@@ -14,8 +14,8 @@ export function getInstaCart() {
             imageIndex++;
         }
         let _item = {
-            id: cartItem.id,
-            name: cartItem.innerText,
+            id: cartItem.id?.trim(),
+            name: cartItem.innerText?.trim(),
             image: _cartImages[imageIndex] ? _cartImages[imageIndex].currentSrc : ""
         }
         cart.push(_item);

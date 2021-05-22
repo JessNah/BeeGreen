@@ -150,6 +150,7 @@ class App extends Component<AppProps, AppState> {
               endCheckoutSequence={() => {this.setState({startScenarioSquence: false})}}
             />
           : <ItemContainer
+              currentStore={this.state.currentStore}
               endItemSequence={() => {this.setState({startScenarioSquence: false})}}
             />
           ) : null

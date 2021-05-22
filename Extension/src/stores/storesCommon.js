@@ -1,6 +1,6 @@
 import { getInstaCart } from "./getInstaCart"
 import { getAppleCart } from "./getAppleCart"
-import { getAmazonCart } from "./getAmazonCart";
+import { getAmazonCart, getAmazonItem } from "./getAmazonCart";
 import { SupportedSites } from "../utils/constants"
 
 export function getCart(currentStore) {
@@ -13,6 +13,19 @@ export function getCart(currentStore) {
             return getAmazonCart();
         default:
             return [];
+    }
+}
+
+export function getItem(currentStore) {
+    switch(currentStore){
+        case SupportedSites.INSTACART:
+            return {};
+        case SupportedSites.APPLESTORE:
+            return {};
+        case SupportedSites.AMAZON:
+            return getAmazonItem();
+        default:
+            return {};
     }
 }
 

@@ -4,6 +4,7 @@ import { Tearsheet } from "@carbon/ibm-cloud-cognitive"
 import { getCartAverageRating, getCart } from "../../stores/storesCommon"
 import CheckoutCart from "./CheckoutCart/CheckoutCart"
 import { productItem } from "../../utils/types"
+import ItemDialogContent from "../ItemDialog/ItemDialogContent/ItemDialogContent"
 
 interface CheckoutDialogProps {
   closeCheckoutDialog: () => void;
@@ -69,7 +70,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
           open={this.state.openComparison}
           label={""}
           title={"Take2"}
-          description={"Let's take a look at " + this.state.currentComparisonItem?.name}
+          description={"Carbon footprint comparison to other similar items"}
           actions={[{
             kind: 'secondary',
             label: "Back",
@@ -77,7 +78,8 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
             onClick: () => {this.setState({openComparison: false, currentComparisonItem: undefined})}
             }]}
           >
-           Similar items that compare...
+           <ItemDialogContent
+              item={this.state.currentComparisonItem}/>
         </Tearsheet>
       </>
     )

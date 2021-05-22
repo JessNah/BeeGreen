@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import "./ItemDialog.scss"
 import { TearsheetNarrow } from "@carbon/ibm-cloud-cognitive"
-import { Accordion, AccordionItem, Tag, TagTypeName } from "carbon-components-react"
-
+import { productItem } from "../../utils/types"
+import ItemDialogContent from "./ItemDialogContent/ItemDialogContent";
 
 interface ItemDialogProps {
-  item: {[key:string]: any}
+  item: productItem
   closeItemDialog: () => void;
 }
 
@@ -23,7 +23,6 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
   }
 
   render() {
-    console.log("item dialog");
     return (
       <>
         <TearsheetNarrow
@@ -31,7 +30,7 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           verticalPosition={"lower"}
           label={""}
           title={"Take2"}
-          description={"Let's take a look at " + this.props.item.name}
+          description={"Carbon footprint comparison to other similar items"}
           actions={[{
             kind: 'secondary',
             label: "Close",
@@ -45,7 +44,8 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           }]}
           onClose={() => {this.props.closeItemDialog()}}
           >
-            Similar items that compare...
+            <ItemDialogContent
+              item={this.props.item}/>
         </TearsheetNarrow>
       </>
     )
