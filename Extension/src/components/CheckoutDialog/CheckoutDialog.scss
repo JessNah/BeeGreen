@@ -19,6 +19,9 @@
 
 .exp--tearsheet__influencer {
     background: white;
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 35%;
 }
 
 @media (min-width: 1300px){

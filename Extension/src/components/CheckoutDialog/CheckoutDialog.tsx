@@ -38,12 +38,14 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
                 <AccordionItem
                   title={
                     <div key={index + "_cart_item"} className={"take2--checkout-dialog-cart-item"}>
-                      <div>
-                        <img className={"take2--checkout-dialog-cart-item-img"} src={item.image.currentSrc}/>
-                      </div>
-                      <div className={"take2--checkout-dialog-cart-item-text-container"}>
-                        <div className={"take2--checkout-dialog-cart-item-text-wrapper"}>
-                          <span className={"take2--checkout-dialog-cart-item-text"}>{item.name}</span>
+                      <div style={{display:"inline-flex"}}>
+                        <div>
+                          <img className={"take2--checkout-dialog-cart-item-img"} src={item.image.currentSrc}/>
+                        </div>
+                        <div className={"take2--checkout-dialog-cart-item-text-container"}>
+                          <div className={"take2--checkout-dialog-cart-item-text-wrapper"}>
+                            <span className={"take2--checkout-dialog-cart-item-text"}>{item.name}</span>
+                          </div>
                         </div>
                       </div>
                       <div className={"take2--checkout-dialog-cart-item-text-container"}>
@@ -66,7 +68,6 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
           }]
           }
           open={this.state.open}>
-            TODO...
         </Tearsheet>
       </>
     )
