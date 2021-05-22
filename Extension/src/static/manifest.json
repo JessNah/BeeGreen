@@ -20,7 +20,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.instacart.com/store/*", "https://www.apple.com/ca/shop/*"],
+      "matches": ["https://www.instacart.com/store/*",
+        "https://www.apple.com/ca/shop/*", 
+        "https://www.amazon.ca/*", 
+        "https://www.amazon.com/*"],
       "js": ["contentScript.js"]
     }
   ]

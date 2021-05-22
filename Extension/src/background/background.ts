@@ -18,6 +18,15 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     setCurrentStore(SupportedSites.APPLESTORE);
     if(tab.url && tab.url.includes("apple.com/ca/shop/bag")){
       chrome.tabs.sendMessage(tab.id, Messages.ENABLE_CHECKOUT_STATE);  
+    } else {
+      chrome.tabs.sendMessage(tab.id, Messages.DISABLE_CHECKOUT_STATE);  
+    }
+  } else if(tab.url && tab.url.includes(SupportedSitesUrls[SupportedSites.AMAZON])){
+    setCurrentStore(SupportedSites.AMAZON);
+    if(tab.url && tab.url.includes("/cart/view")){
+      chrome.tabs.sendMessage(tab.id, Messages.ENABLE_CHECKOUT_STATE);  
+    } else {
+      chrome.tabs.sendMessage(tab.id, Messages.DISABLE_CHECKOUT_STATE);  
     }
   }
 });

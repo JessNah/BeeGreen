@@ -68,6 +68,8 @@ class App extends Component<AppProps, AppState> {
         return;
       case SupportedSites.APPLESTORE:
         return;
+      case SupportedSites.AMAZON:
+        return;
       default:
         return;
     }

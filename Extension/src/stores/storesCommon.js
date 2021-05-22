@@ -1,5 +1,6 @@
 import { getInstaCart } from "./getInstaCart"
 import { getAppleCart } from "./getAppleCart"
+import { getAmazonCart } from "./getAmazonCart";
 import { SupportedSites } from "../utils/constants"
 
 export function getCart(currentStore) {
@@ -8,6 +9,8 @@ export function getCart(currentStore) {
             return getInstaCart();
         case SupportedSites.APPLESTORE:
             return getAppleCart();
+        case SupportedSites.AMAZON:
+            return getAmazonCart();
         default:
             return [];
     }
