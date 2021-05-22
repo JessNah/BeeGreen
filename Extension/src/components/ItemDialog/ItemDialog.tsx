@@ -1,37 +1,55 @@
-import React, { useEffect, useState } from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
+import "./ItemDialog.scss"
+import { TearsheetNarrow } from "@carbon/ibm-cloud-cognitive"
+import { Accordion, AccordionItem, Tag, TagTypeName } from "carbon-components-react"
 
-const ItemDialog: React.FC<{}> = () => {
-  const [isActive, setIsActive] = useState<boolean>(false)
 
-  // useEffect(() => {
-  //   getStoredOptions().then((options) => {
-  //     console.log("contentScript received options:")
-  //     console.log(options);
-  //     setOptions(options)
-  //     setIsEnabled(options.hasAutoOverlay)
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   chrome.runtime.onMessage.addListener(handleMessages)
-  //   return () => {
-  //     // clean up event listener
-  //     chrome.runtime.onMessage.removeListener(handleMessages)
-  //   }
-  // })
-
-  const togglePage = () => {
-    setIsActive(!isActive)
-  }
-
-  return (
-    <>
-      <div>dialog</div>
-    </>
-  )
+interface ItemDialogProps {
+  item: {[key:string]: any}
+  closeItemDialog: () => void;
 }
 
-const root = document.createElement('div')
-document.body.appendChild(root)
-ReactDOM.render(<ItemDialog />, root)
+interface ItemDialogState {
+  open: boolean
+}
+
+class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
+  state= {
+    open: false
+  }
+
+  componentDidMount() {
+    window.setTimeout(() => {this.setState({open: true})}, 500);
+  }
+
+  render() {
+    console.log("item dialog");
+    return (
+      <>
+        <TearsheetNarrow
+          open={this.state.open}
+          verticalPosition={"lower"}
+          label={""}
+          title={"Take2"}
+          description={"Let's take a look at " + this.props.item.name}
+          actions={[{
+            kind: 'secondary',
+            label: "Close",
+            loading: false,
+            onClick: () => {this.props.closeItemDialog()}
+            }, {
+            kind: 'ghost',
+            label: "Make an impact! Donate to plant some trees and reduce the carbon footprint of your purchase!",
+            loading: false,
+            onClick: () => {window.open("https://carbonfund.org/product-category/plant-trees/")}
+          }]}
+          onClose={() => {this.props.closeItemDialog()}}
+          >
+            Similar items that compare...
+        </TearsheetNarrow>
+      </>
+    )
+  }
+}
+
+export default ItemDialog

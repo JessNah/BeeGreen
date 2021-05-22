@@ -22,7 +22,6 @@ class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContai
 
   componentWillUnmount() {
     clearTimeout(this.timeoutLoadSim);
-    console.log("checkout container unmount")
   }
 
   componentDidMount() {

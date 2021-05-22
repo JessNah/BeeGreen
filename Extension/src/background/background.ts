@@ -12,21 +12,32 @@ chrome.runtime.onInstalled.addListener(() => {
 })
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  if(tab.url && tab.url.includes(SupportedSitesUrls[SupportedSites.INSTACART])){
-    setCurrentStore(SupportedSites.INSTACART);
-  } else if(tab.url && tab.url.includes(SupportedSitesUrls[SupportedSites.APPLESTORE])){
-    setCurrentStore(SupportedSites.APPLESTORE);
-    if(tab.url && tab.url.includes("apple.com/ca/shop/bag")){
-      chrome.tabs.sendMessage(tab.id, Messages.ENABLE_CHECKOUT_STATE);  
-    } else {
-      chrome.tabs.sendMessage(tab.id, Messages.DISABLE_CHECKOUT_STATE);  
-    }
-  } else if(tab.url && tab.url.includes(SupportedSitesUrls[SupportedSites.AMAZON])){
-    setCurrentStore(SupportedSites.AMAZON);
-    if(tab.url && tab.url.includes("/cart/view")){
-      chrome.tabs.sendMessage(tab.id, Messages.ENABLE_CHECKOUT_STATE);  
-    } else {
-      chrome.tabs.sendMessage(tab.id, Messages.DISABLE_CHECKOUT_STATE);  
+  if(tab && tab.url){
+    if(tab.url.includes(SupportedSitesUrls[SupportedSites.INSTACART])){
+      setCurrentStore(SupportedSites.INSTACART);
+      //cart open state does not happen on route level, see contentScript for logic
+      //inspecting dom to determine open cart
+      //view chrome.webNavigation code below to see item state logic
+    } else if(tab.url.includes(SupportedSitesUrls[SupportedSites.APPLESTORE])){
+      setCurrentStore(SupportedSites.APPLESTORE);
+      if(tab.url.includes("apple.com/ca/shop/bag")){
+        chrome.tabs.sendMessage(tab.id, Messages.ENABLE_CHECKOUT_STATE);  
+      } else if(tab.url.includes("/shop/buy-")){
+        chrome.tabs.sendMessage(tab.id, Messages.ENABLE_ITEM_STATE); 
+      } else {
+        chrome.tabs.sendMessage(tab.id, Messages.DISABLE_CHECKOUT_STATE);  
+        chrome.tabs.sendMessage(tab.id, Messages.DISABLE_ITEM_STATE);  
+      }
+    } else if(tab.url.includes(SupportedSitesUrls[SupportedSites.AMAZON])){
+      setCurrentStore(SupportedSites.AMAZON);
+      if(tab.url.includes("/cart/view")){
+        chrome.tabs.sendMessage(tab.id, Messages.ENABLE_CHECKOUT_STATE);  
+      } else if(tab.url.includes("/product/")){
+        chrome.tabs.sendMessage(tab.id, Messages.ENABLE_ITEM_STATE); 
+      } else {
+        chrome.tabs.sendMessage(tab.id, Messages.DISABLE_CHECKOUT_STATE); 
+        chrome.tabs.sendMessage(tab.id, Messages.DISABLE_ITEM_STATE);  
+      }
     }
   }
 });

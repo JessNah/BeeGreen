@@ -5,6 +5,7 @@ import { Messages, SupportedSites } from '../utils/constants'
 import './contentScript.scss'
 import SideTab from '../components/SideTab/SideTab'
 import CheckoutContainer from "../containers/CheckoutContainer"
+import ItemContainer from "../containers/ItemContainer"
 
 interface AppProps {
   //TODO
@@ -109,12 +110,14 @@ class App extends Component<AppProps, AppState> {
         } else { return null}})
     } else if (msg === Messages.ENABLE_CHECKOUT_STATE) {
       this.setState(prevState => {
-        return {checkoutState: !prevState.checkoutState}
-      })
+        if(prevState.isEnabled && !prevState.checkoutState){
+          return {checkoutState: true}
+        } else { return null}})
     } else if (msg === Messages.DISABLE_CHECKOUT_STATE) {
       this.setState(prevState => {
-        return {checkoutState: !prevState.checkoutState}
-      })
+        if(prevState.checkoutState){
+          return {checkoutState: false}
+        } else { return null}})
     } else if (msg === Messages.ACTIVATE_APP) {
       this.setState(prevState => {
         return {isActive: true}
@@ -131,7 +134,6 @@ class App extends Component<AppProps, AppState> {
     this.state.itemState && console.log("show item state");
     !this.state.checkoutState && console.log("not show checkout state");
     this.state.checkoutState && console.log("show checkout state");
-    console.log("Permission " + this.state.isPermissionGranted)
     return (
       <>
         {(this.state.itemState || this.state.checkoutState) && 
@@ -139,18 +141,18 @@ class App extends Component<AppProps, AppState> {
             onClick={() => {this.setState({startScenarioSquence: true})}}
             onClose={() => {this.setState({isActive: false})}}/>
         }
-        {this.state.itemState &&
-          <div>Show Item dialog</div>
-        }
-        { (this.state.checkoutState &&
-          this.state.startScenarioSquence) ?
+        {(this.state.startScenarioSquence && (this.state.checkoutState || this.state.itemState)) ?
+          (this.state.checkoutState ? 
             <CheckoutContainer
               currentStore={this.state.currentStore}
               isPermissionGranted={this.state.isPermissionGranted}
               setPermission={() => {this.setState({isPermissionGranted: true})}}
               endCheckoutSequence={() => {this.setState({startScenarioSquence: false})}}
             />
-            : null
+          : <ItemContainer
+              endItemSequence={() => {this.setState({startScenarioSquence: false})}}
+            />
+          ) : null
         }
       </>
     )
