@@ -68,8 +68,8 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
         <Tearsheet
           open={this.state.openComparison}
           label={""}
-          title={"Let's take a look at " + this.state.currentComparisonItem?.name}
-          description={""}
+          title={"Take2"}
+          description={"Let's take a look at " + this.state.currentComparisonItem?.name}
           actions={[{
             kind: 'secondary',
             label: "Back",
