@@ -42,7 +42,9 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
                         <img className={"take2--checkout-dialog-cart-item-img"} src={item.image.currentSrc}/>
                       </div>
                       <div className={"take2--checkout-dialog-cart-item-text-container"}>
-                        <span className={"take2--checkout-dialog-cart-item-text"}>{item.name}</span>
+                        <div className={"take2--checkout-dialog-cart-item-text-wrapper"}>
+                          <span className={"take2--checkout-dialog-cart-item-text"}>{item.name}</span>
+                        </div>
                       </div>
                       <div className={"take2--checkout-dialog-cart-item-text-container"}>
                         <span className={"take2--checkout-dialog-cart-item-score"}>{"3000"}</span>

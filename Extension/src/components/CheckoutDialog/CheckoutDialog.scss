@@ -35,19 +35,26 @@
 
 .take2--checkout-dialog-cart-item {
     display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 10px;
 }
 
 .take2--checkout-dialog-cart-item-text {
     max-width: 160px;
     word-wrap: break-word;
-    line-height: normal;
-    vertical-align: middle;
     overflow: hidden;
-    display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     padding-left: 8px;
     text-align: left;
+    display: -webkit-box;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.take2--checkout-dialog-cart-item-text-wrapper {
+    display: inline-block;
 }
 
 .take2--checkout-dialog-cart-item-score {
@@ -67,6 +74,7 @@
     height: 40px;
     // line-height: 40px;
     text-align: center;
+    line-height: 40px;
 }
 
 .take2--checkout-dialog-cart-item-img {
