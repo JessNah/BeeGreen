@@ -27,7 +27,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
   getWorstItem = (cart) => {
     let worstItem: productItem = cart.length > 0 ? cart[0] : {score: 0, name:""};
     for(let item of cart){
-      if(item.score < worstItem.score){
+      if(item.score <= worstItem.score){
         worstItem = item;
       }
     }
