@@ -5,6 +5,7 @@ import { getCartAverageRating, getCart } from "../../stores/storesCommon"
 import CheckoutCart from "./CheckoutCart/CheckoutCart"
 import { productItem } from "../../utils/types"
 import ItemDialogContent from "../ItemDialog/ItemDialogContent/ItemDialogContent"
+import CheckoutDialogContent from "./CheckoutDialogContent/CheckoutDialogContent"
 
 interface CheckoutDialogProps {
   closeCheckoutDialog: () => void;
@@ -66,6 +67,8 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
               selectItem={(item) => {this.setState({openComparison: true, currentComparisonItem: item})}}
               />}
           >
+            <CheckoutDialogContent
+              cart={this.state.cart}/>
         </Tearsheet>
         <TearsheetNarrow
           open={this.state.openComparison}
