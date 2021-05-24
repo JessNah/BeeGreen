@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import "./CheckoutDialogContent.scss"
-import { Tile } from "carbon-components-react"
+import { Tile, TooltipDefinition } from "carbon-components-react"
 import { productItem } from "../../../utils/types"
 import { Badge32, WarningAlt32 } from "@carbon/icons-react"
 
 interface CheckoutDialogContentProps {
   cart: productItem[],
+  selectItem: (item: productItem) => void;
 }
 
 interface CheckoutDialogContentState {
@@ -64,6 +65,13 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
               {this.getWorstItem(this.props.cart).score}
             </div>
           </div>
+          <TooltipDefinition
+            className={"take2--checkout-dialog-content-suggest"}
+            onClick={() => {this.props.selectItem(this.getWorstItem(this.props.cart))}}
+            tooltipText={"Take2 will do our best to recommend some alternatives that would be friendlier on our planet!"}
+          >
+            Suggest a substitute
+          </TooltipDefinition>
         </Tile>
       </>
     )

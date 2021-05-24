@@ -6,6 +6,7 @@ import { productItem } from "../../../utils/types"
 
 interface ItemDialogProps {
   item?: productItem
+  subText: string
 }
 
 interface ItemDialogState {
@@ -38,7 +39,7 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           </div>
         </div>
         <div className={"take2--item-dialog-content-compare-header"}>
-          Here's how other similar items compare
+          {this.props.subText}
         </div>
       </div>
       </>

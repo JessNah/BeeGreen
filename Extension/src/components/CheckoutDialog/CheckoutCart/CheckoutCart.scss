@@ -1,3 +1,7 @@
+.bx--tag {
+    white-space: nowrap;
+}
+
 .take2--checkout-cart-item {
     display: inline-flex;
     justify-content: space-between;
@@ -40,8 +44,8 @@
 }
 
 .take2--checkout-cart-heading {
-    padding-left: 20px;
-    padding-right: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
     font-size: var(--cds-productive-heading-04-font-size, 1.45rem);
     font-weight: var(--cds-productive-heading-04-font-weight, 400);
     line-height: var(--cds-productive-heading-04-line-height, 1.29);

@@ -68,6 +68,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
               />}
           >
             <CheckoutDialogContent
+              selectItem={(item) => {this.setState({openComparison: true, currentComparisonItem: item})}}
               cart={this.state.cart}/>
         </Tearsheet>
         <TearsheetNarrow
@@ -84,6 +85,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
             }]}
           >
            <ItemDialogContent
+              subText={"Consider making a substitution"}
               item={this.state.currentComparisonItem}/>
         </TearsheetNarrow>
       </>

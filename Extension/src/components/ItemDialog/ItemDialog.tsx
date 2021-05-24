@@ -40,6 +40,7 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           onClose={() => {this.props.closeItemDialog()}}
           >
             <ItemDialogContent
+              subText={"Here's how other similar items compare"}
               item={this.props.item}/>
         </TearsheetNarrow>
       </>
