@@ -18,7 +18,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
   getBestItem = (cart) => {
     let bestItem: productItem = cart.length > 0 ? cart[0] : {score: 0, name:""};
     for(let item of cart){
-      if(item.score > bestItem.score){
+      if(item.score < bestItem.score){
         bestItem = item;
       }
     }
@@ -28,7 +28,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
   getWorstItem = (cart) => {
     let worstItem: productItem = cart.length > 0 ? cart[0] : {score: 0, name:""};
     for(let item of cart){
-      if(item.score <= worstItem.score){
+      if(item.score >= worstItem.score){
         worstItem = item;
       }
     }
@@ -36,6 +36,10 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
   }
 
   render() {
+    const bestItem = this.getBestItem(this.props.cart);
+    const worstItem = this.getWorstItem(this.props.cart);
+    const bestScore = (100 - Math.floor(bestItem.score * 10)) + "%"; 
+    const worstScore = (100 - Math.floor(worstItem.score * 10)) + "%"; 
     return (
       <>
         <Tile>
@@ -46,9 +50,14 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
             </div>
           </div>
           <div className={"take2--checkout-dialog-content-tile-score-wrapper "}>
-            <div>{this.getBestItem(this.props.cart).name}</div>
+            <div>
+              <img className={"take2--checkout-dialog-content-tile-img"} src={bestItem.image}/>
+            </div>
+            <div style={{paddingLeft:"16px"}}>{bestItem.name}</div>
             <div className={"take2--checkout-dialog-content-tile-score"}>
-              {this.getBestItem(this.props.cart).score}
+              <div className="take2--checkout-cart-stat-bar-container">
+                <div style={{width: bestScore}}className="take2--checkout-cart-stat-bar">{bestScore}</div>
+              </div>
             </div>
           </div>
         </Tile>
@@ -60,9 +69,14 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
             </div>
           </div>
           <div className={"take2--checkout-dialog-content-tile-score-wrapper "}>
-            <div>{this.getWorstItem(this.props.cart).name}</div>
+            <div>
+              <img className={"take2--checkout-dialog-content-tile-img"} src={worstItem.image}/>
+            </div>
+            <div style={{paddingLeft:"16px"}}>{worstItem.name}</div>
             <div className={"take2--checkout-dialog-content-tile-score"}>
-              {this.getWorstItem(this.props.cart).score}
+              <div className="take2--checkout-cart-stat-bar-container">
+                <div style={{width: worstScore}}className="take2--checkout-cart-stat-bar">{worstScore}</div>
+              </div>
             </div>
           </div>
           <TooltipDefinition

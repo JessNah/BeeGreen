@@ -31,9 +31,9 @@ export function getItem(currentStore) {
 
 export function analyzeCart(cart) {
     for(let item of cart){
-        item.score = Math.floor(Math.random() * 10) + 1;
-        if(item.score > 10){
-            item.score = 10;
+        item.score = (Math.random() * 10) - 1; //Math.floor?
+        if(item.score < 0){
+            item.score = 0;
         }
     }
     cart.sort(compare);
@@ -41,10 +41,10 @@ export function analyzeCart(cart) {
 }
 
 export function compare( a, b ) {
-    if ( a.score < b.score ){
+    if ( a.score > b.score ){
       return 1;
     }
-    if ( a.score > b.score ){
+    if ( a.score < b.score ){
       return -1;
     }
     return 0;

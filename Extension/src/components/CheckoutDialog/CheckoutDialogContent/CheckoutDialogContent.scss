@@ -21,6 +21,37 @@
     padding-left: 24px;
 }
 
+.take2--checkout-dialog-content-tile-img {
+    max-height: 40px;
+    max-width: 40px;
+}
+
 .take2--checkout-dialog-content-suggest {
     color: #0f62fe;
+    button {
+        color: #0f62fe !important;
+    }
+}
+
+.take2--checkout-cart-stat-bar-container {
+    min-width: 140px;
+    width: 100%; /* Full width */
+    // background-color: #e5e5e5; /* Grey background */
+    background: linear-gradient(270deg, rgba(250,77,86,1) 0%, rgba(241,194,27,1) 50%, rgba(66,190,101,1) 100%);
+    box-sizing: border-box;
+}
+
+.take2--checkout-cart-stat-bar {
+    box-sizing: border-box;
+    text-align: right; /* Right-align text */
+    padding-top: 0px; /* Add top padding */
+    padding-bottom: 0px; /* Add bottom padding */
+    // background-color: #0f62fe;
+    background: none;
+    color: white; /* White text color */
+    border-right: 7px solid #393939;
+}
+
+.take2--checkout-cart-stat-bar-col {
+    background: linear-gradient(270deg, rgba(250,77,86,1) 0%, rgba(241,194,27,1) 50%, rgba(66,190,101,1) 100%);
 }

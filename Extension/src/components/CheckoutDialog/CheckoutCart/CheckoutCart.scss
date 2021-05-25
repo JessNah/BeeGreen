@@ -56,3 +56,33 @@
     display: inline-flex;
     padding: 16px;
 }
+
+/* Container for skill bars */
+.take2--checkout-cart-stat-bar-container {
+    width: 100%; /* Full width */
+    background-color: #e5e5e5; /* Grey background */
+    box-sizing: border-box;
+}
+
+.take2--checkout-cart-stat-bar {
+    box-sizing: border-box;
+    text-align: right; /* Right-align text */
+    padding-top: 0px; /* Add top padding */
+    padding-bottom: 0px; /* Add bottom padding */
+    color: white; /* White text color */
+}
+
+.take2--checkout-cart-stat-bar-1 {
+    width: 80%; 
+    background-color: #0f62fe;
+}
+
+.take2--checkout-cart-stat-bar-2 {
+    width: 100%; 
+    background-color: #04AA6D;
+}
+
+.take2--checkout-cart-stat-bar-3 {
+    width: 100%; 
+    background-color: #04AA6D;
+}

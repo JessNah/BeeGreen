@@ -12,14 +12,14 @@ interface CheckoutCartProps {
 
 class CheckoutCart extends Component<CheckoutCartProps> {
   getStyledTagScore = (score) => {
-    let style = "red";
-    if(score >= 8){
+    let style = "green";
+    if(score <= 2){
       style = "green";
-    } else if (score >= 6){
+    } else if (score <= 4){
       style = "teal";
-    } else if (score >= 4) {
+    } else if (score <= 6) {
       style = "purple";
-    } else if (score >= 2) {
+    } else if (score <= 8) {
       style = "magenta";
     } else {
       style = "red";
@@ -29,13 +29,13 @@ class CheckoutCart extends Component<CheckoutCartProps> {
 
   getScoreText = (score) => {
     let text = "Excellent";
-    if(score >= 8){
+    if(score <= 2){
       text = "Excellent";
-    } else if (score >= 6){
+    } else if (score <= 4){
       text = "Very good";
-    } else if (score >= 4) {
+    } else if (score <= 6) {
       text = "Good";
-    } else if (score >= 2) {
+    } else if (score <= 8) {
       text = "Fair";
     } else {
       text = "Low";
@@ -87,6 +87,9 @@ class CheckoutCart extends Component<CheckoutCartProps> {
                     </div>
                   </div>
                 }>
+                <div className="take2--checkout-cart-stat-bar-container">
+                  <div className="take2--checkout-cart-stat-bar take2--checkout-cart-stat-bar-1">90%</div>
+                </div>
                 <div>{"This item scored " + item.score + "/10" }</div>
                 <div></div>
                 <div>{"185 kg carbon emissions3"}</div>
