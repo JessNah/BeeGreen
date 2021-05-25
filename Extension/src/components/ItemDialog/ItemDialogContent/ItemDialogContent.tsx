@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./ItemDialogContent.scss"
 import { Accordion, AccordionItem, Tag, TagTypeName } from "carbon-components-react"
 import { productItem } from "../../../utils/types"
+import ItemDetails from "./ItemDetails/ItemDetails"
 
 
 interface ItemDialogProps {
@@ -38,6 +39,7 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
             </div>
           </div>
         </div>
+        <ItemDetails item={item} />
         <div className={"take2--item-dialog-content-compare-header"}>
           {this.props.subText}
         </div>
