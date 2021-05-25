@@ -57,11 +57,21 @@
     padding: 16px;
 }
 
-/* Container for skill bars */
+
 .take2--checkout-cart-stat-bar-container {
-    width: 100%; /* Full width */
-    background-color: #e5e5e5; /* Grey background */
+    width: 180px; /* Full width */
     box-sizing: border-box;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.take2--checkout-cart-stat-bar-container-grad {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background: linear-gradient(270deg, rgba(66,190,101,1) 0%, rgba(241,194,27,1) 50%, rgba(250,77,86,1) 100%);
+}
+
+.take2--checkout-cart-stat-bar-container-grey {
+    background-color: #e5e5e5; /* Grey background */
 }
 
 .take2--checkout-cart-stat-bar {
@@ -69,20 +79,30 @@
     text-align: right; /* Right-align text */
     padding-top: 0px; /* Add top padding */
     padding-bottom: 0px; /* Add bottom padding */
+    background: none;
     color: white; /* White text color */
+    border-right: 7px solid #393939;
+    white-space: nowrap;
+    font-size: 12px;
 }
 
 .take2--checkout-cart-stat-bar-1 {
-    width: 80%; 
+    box-sizing: border-box;
+    text-align: right; /* Right-align text */
+    padding-top: 0px; /* Add top padding */
+    padding-bottom: 0px; /* Add bottom padding */
     background-color: #0f62fe;
+    color: white; /* White text color */
+    white-space: nowrap;
+    height: 8px;
 }
 
-.take2--checkout-cart-stat-bar-2 {
-    width: 100%; 
-    background-color: #04AA6D;
+.take2--checkout-cart-stat-bar-1-label {
+    margin-top: 4px;
+    color: #808080;
+    font-weight: 600;
 }
 
-.take2--checkout-cart-stat-bar-3 {
-    width: 100%; 
-    background-color: #04AA6D;
+.take2--checkout-cart-notes {
+    margin-top: 6px;
 }

@@ -3,6 +3,22 @@
     margin: 24px;
 }
 
+.take2--checkout-dialog-content-top-text {
+    margin-top: 24px;
+    margin-left: 24px;
+}
+
+.take2--checkout-dialog-content-top-text-rank {
+    padding-left: 8px;
+    font-weight: 600;
+}
+
+.take2--checkout-dialog-content-gratitude {
+    color: #808080;
+    font-size: 26px;
+    letter-spacing: 0.03rem;
+}
+
 .take2--checkout-dialog-content-tile-header-wrapper {
     display: inline-flex;
     padding-bottom: 8px;
@@ -33,14 +49,15 @@
     }
 }
 
-.take2--checkout-cart-stat-bar-container {
+.take2--checkout-dialog-content-stat-bar-container {
     width: 180px; /* Full width */
     // background-color: #e5e5e5; /* Grey background */
-    background: linear-gradient(270deg, rgba(250,77,86,1) 0%, rgba(241,194,27,1) 50%, rgba(66,190,101,1) 100%);
+    background: linear-gradient(270deg, rgba(66,190,101,1) 0%, rgba(241,194,27,1) 50%, rgba(250,77,86,1) 100%);
     box-sizing: border-box;
+    border-radius: 4px 4px 4px 4px;
 }
 
-.take2--checkout-cart-stat-bar {
+.take2--checkout-dialog-content-stat-bar {
     box-sizing: border-box;
     text-align: right; /* Right-align text */
     padding-top: 0px; /* Add top padding */
@@ -49,8 +66,6 @@
     background: none;
     color: white; /* White text color */
     border-right: 7px solid #393939;
-}
-
-.take2--checkout-cart-stat-bar-col {
-    background: linear-gradient(270deg, rgba(250,77,86,1) 0%, rgba(241,194,27,1) 50%, rgba(66,190,101,1) 100%);
+    white-space: nowrap;
+    font-size: 12px;
 }

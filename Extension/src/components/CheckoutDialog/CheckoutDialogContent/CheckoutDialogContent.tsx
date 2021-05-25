@@ -6,6 +6,7 @@ import { Badge32, WarningAlt32 } from "@carbon/icons-react"
 
 interface CheckoutDialogContentProps {
   cart: productItem[],
+  cartRank: number,
   selectItem: (item: productItem) => void;
 }
 
@@ -35,6 +36,22 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
     return worstItem;
   }
 
+  getScoreText = (score) => {
+    let text = "Excellent";
+    if(score <= 2){
+      text = "Excellent";
+    } else if (score <= 4){
+      text = "Very good";
+    } else if (score <= 6) {
+      text = "Good";
+    } else if (score <= 8) {
+      text = "Fair";
+    } else {
+      text = "Low";
+    }
+    return text;
+  }
+
   render() {
     const bestItem = this.getBestItem(this.props.cart);
     const worstItem = this.getWorstItem(this.props.cart);
@@ -42,6 +59,27 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
     const worstScore = (100 - Math.floor(worstItem.score * 10)) + "%"; 
     return (
       <>
+        <div className={"take2--checkout-dialog-content-top-text"}>
+          <div className={"take2--checkout-dialog-content-gratitude"}>
+            Well done!
+          </div>
+          <div>
+            <div style={{display: "inline-flex"}}>
+              <div>This cart ranked:</div>
+              <div className={"take2--checkout-dialog-content-top-text-rank"}>
+                {this.getScoreText(this.props.cartRank)}
+              </div>
+            </div>
+          </div>
+          <div>
+            <div style={{display: "inline-flex"}}>
+              <div>Your average carts at this store rank:</div>
+              <div className={"take2--checkout-dialog-content-top-text-rank"}>
+                Fair
+              </div>
+            </div>
+          </div>
+        </div>
         <Tile>
           <div className={"take2--checkout-dialog-content-tile-header-wrapper"}>
             <Badge32 />
@@ -55,8 +93,10 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
             </div>
             <div style={{paddingLeft:"16px"}}>{bestItem.name}</div>
             <div className={"take2--checkout-dialog-content-tile-score"}>
-              <div className="take2--checkout-cart-stat-bar-container">
-                <div style={{width: bestScore}}className="take2--checkout-cart-stat-bar">{bestScore}</div>
+              <div className="take2--checkout-dialog-content-stat-bar-container">
+                <div style={{width: bestScore}} className="take2--checkout-dialog-content-stat-bar">
+                  {bestScore}
+                </div>
               </div>
             </div>
           </div>
@@ -74,8 +114,8 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
             </div>
             <div style={{paddingLeft:"16px"}}>{worstItem.name}</div>
             <div className={"take2--checkout-dialog-content-tile-score"}>
-              <div className="take2--checkout-cart-stat-bar-container">
-                <div style={{width: worstScore}}className="take2--checkout-cart-stat-bar">{worstScore}</div>
+              <div className="take2--checkout-dialog-content-stat-bar-container">
+                <div style={{width: worstScore}}className="take2--checkout-dialog-content-stat-bar">{worstScore}</div>
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ interface CheckoutDialogProps {
 
 interface CheckoutDialogState {
   cart: {[key:string]: any}[];
-  cartRank: string;
+  cartRank: number;
   openCart: boolean;
   openComparison: boolean;
   currentComparisonItem?: productItem
@@ -61,13 +61,14 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
           influencerPosition={'right'}
           influencerWidth={'wide'}
           influencer={
-            <CheckoutCart 
+            <CheckoutCart
               cart={this.state.cart} 
               cartRank={this.state.cartRank}
               selectItem={(item) => {this.setState({openComparison: true, currentComparisonItem: item})}}
               />}
           >
             <CheckoutDialogContent
+              cartRank={this.state.cartRank}
               selectItem={(item) => {this.setState({openComparison: true, currentComparisonItem: item})}}
               cart={this.state.cart}/>
         </Tearsheet>

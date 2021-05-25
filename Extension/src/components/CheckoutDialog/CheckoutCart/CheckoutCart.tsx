@@ -6,7 +6,7 @@ import { ShoppingCart32 } from "@carbon/icons-react"
 
 interface CheckoutCartProps {
   cart: productItem[],
-  cartRank: string,
+  cartRank: number;
   selectItem: (item: productItem) => void;
 }
 
@@ -87,16 +87,45 @@ class CheckoutCart extends Component<CheckoutCartProps> {
                     </div>
                   </div>
                 }>
-                <div className="take2--checkout-cart-stat-bar-container">
-                  <div className="take2--checkout-cart-stat-bar take2--checkout-cart-stat-bar-1">90%</div>
+                <div className="take2--checkout-cart-stat-bar-container take2--checkout-cart-stat-bar-container-grad">
+                  <div style={{width: (100 - Math.floor(item.score * 10)) + "%"}} className="take2--checkout-cart-stat-bar">
+                    {(100 - Math.floor(item.score * 10)) + "%"}
+                  </div>
                 </div>
-                <div>{"This item scored " + item.score + "/10" }</div>
-                <div></div>
                 <div>{"185 kg carbon emissions3"}</div>
-                <div>{"73% Production"}</div>
-                <div>{"7% Transport"}</div>
-                <div>{"19% Use"}</div>
-                <div>{"<1% End-of-life processing"}</div>
+                <div>
+                  <div className={"take2--checkout-cart-stat-bar-1-label"}>
+                    {"Farm: " + "70%"}
+                  </div>
+                  <div>
+                    <div className="take2--checkout-cart-stat-bar-container take2--checkout-cart-stat-bar-container-grey">
+                      <div style={{width:"70%"}} className="take2--checkout-cart-stat-bar-1"/>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className={"take2--checkout-cart-stat-bar-1-label"}>
+                    {"Processing: " + "33%"}
+                  </div>
+                  <div>
+                    <div className="take2--checkout-cart-stat-bar-container take2--checkout-cart-stat-bar-container-grey">
+                      <div style={{width:"33%"}} className="take2--checkout-cart-stat-bar-1"/>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className={"take2--checkout-cart-stat-bar-1-label"}>
+                    {"Transport: " + "56%"}
+                  </div>
+                  <div>
+                    <div className="take2--checkout-cart-stat-bar-container take2--checkout-cart-stat-bar-container-grey">
+                      <div style={{width:"56%"}} className="take2--checkout-cart-stat-bar-1"/>
+                    </div>
+                  </div>
+                </div>
+                <div className={"take2--checkout-cart-notes"}>
+                  {"This product is known to use more energy to mill than other similar items. Additionally, this item consumes more land for use in production when compared to other similar items."}
+                </div>
               </AccordionItem>
             )})
           }
