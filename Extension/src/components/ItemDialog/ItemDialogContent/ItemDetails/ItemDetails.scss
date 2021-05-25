@@ -45,5 +45,16 @@
 }
 
 .take2--item-details-notes {
-    margin-top: 6px;
+    margin-top: 8px;
+}
+
+.take2--item-details-substitute {
+    max-width: 50%;
+    padding-right: 16px;
+    min-width: 240px;
+}
+
+.take2--item-details-sub-wrapper {
+    display: inline-flex;
+    flex-wrap: wrap;
 }

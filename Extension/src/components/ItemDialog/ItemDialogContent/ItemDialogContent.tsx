@@ -23,6 +23,16 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
 
   render() {
     const { item } = this.props;
+    const substitute_1: productItem = {
+      name: "Soy flour",
+      id: "soy_flour",
+      score: 2.6
+    } 
+    const substitute_2: productItem = {
+      name: "Wheat flour",
+      id: "wheat_flour",
+      score: 7.2
+    } 
     return (
       <>
       <div className={"take2--item-dialog-content-wrapper"}>
@@ -40,8 +50,22 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           </div>
         </div>
         <ItemDetails item={item} />
-        <div className={"take2--item-dialog-content-compare-header"}>
-          {this.props.subText}
+          <div className={"take2--item-dialog-content-compare-header"}>
+            {this.props.subText}
+          </div>
+        <div className={"take2--item-details-sub-wrapper"}>
+          <div className={"take2--item-details-substitute"}>
+            <div className={"take2--item-dialog-content-compare-substitute-name"}>
+              {substitute_1.name}
+            </div>
+            <ItemDetails item={substitute_1} />
+          </div>
+          <div className={"take2--item-details-substitute"}>
+            <div className={"take2--item-dialog-content-compare-substitute-name"}>
+              {substitute_2.name}
+            </div>
+            <ItemDetails item={substitute_2} />
+          </div>
         </div>
       </div>
       </>

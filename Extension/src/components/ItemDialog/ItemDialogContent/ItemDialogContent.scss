@@ -38,12 +38,20 @@
     display: -webkit-box;
     vertical-align: middle;
     line-height: normal;
+    font-size: 1.025rem;
 }
 
 .take2--item-dialog-content-compare-header {
     margin-top: 16px;
+    margin-bottom: 16px;
     font-size: var(--cds-productive-heading-04-font-size, 1.25rem);
     font-weight: var(--cds-productive-heading-04-font-weight, 400);
     line-height: var(--cds-productive-heading-04-line-height, 1.29);
     letter-spacing: var(--cds-productive-heading-04-letter-spacing, 0);
+}
+
+.take2--item-dialog-content-compare-substitute-name {
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 1.025rem;
 }

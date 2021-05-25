@@ -14,7 +14,7 @@ interface ItemContainerState {
 
 class ItemContainer extends Component<ItemContainerProps, ItemContainerState> {
   state = {
-    currentItem: {name: "", image: "", id: ""} as productItem
+    currentItem: {name: "", image: "", id: "", score: 0.56} as productItem
   }
 
   componentDidMount() {
