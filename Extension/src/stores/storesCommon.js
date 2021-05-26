@@ -31,7 +31,8 @@ export function getItem(currentStore) {
 
 export function analyzeCart(cart) {
     for(let item of cart){
-        item.score = (Math.random() * 10) - 1; //Math.floor?
+        item.score = (Math.random() * 10) - 1; //Math.floor?, 
+        //-1 so closer to 'good'.. smaller num, big number is bad
         if(item.score < 0){
             item.score = 0;
         }
