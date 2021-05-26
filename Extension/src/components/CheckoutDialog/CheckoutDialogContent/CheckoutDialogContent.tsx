@@ -3,6 +3,7 @@ import "./CheckoutDialogContent.scss"
 import { Tile, TooltipDefinition } from "carbon-components-react"
 import { productItem } from "../../../utils/types"
 import { Badge32, WarningAlt32 } from "@carbon/icons-react"
+import RatingTag from "../../RatingTag/RatingTag";
 
 interface CheckoutDialogContentProps {
   cart: productItem[],
@@ -36,22 +37,6 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
     return worstItem;
   }
 
-  getScoreText = (score) => {
-    let text = "Excellent";
-    if(score <= 2){
-      text = "Excellent";
-    } else if (score <= 4){
-      text = "Very good";
-    } else if (score <= 6) {
-      text = "Good";
-    } else if (score <= 8) {
-      text = "Fair";
-    } else {
-      text = "Low";
-    }
-    return text;
-  }
-
   render() {
     const bestItem = this.getBestItem(this.props.cart);
     const worstItem = this.getWorstItem(this.props.cart);
@@ -67,7 +52,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
             <div style={{display: "inline-flex"}}>
               <div>This cart ranked:</div>
               <div className={"take2--checkout-dialog-content-top-text-rank"}>
-                {this.getScoreText(this.props.cartRank)}
+                <RatingTag item={{score: this.props.cartRank, id: "", name: ""}} />
               </div>
             </div>
           </div>
@@ -75,7 +60,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
             <div style={{display: "inline-flex"}}>
               <div>Your average carts at this store rank:</div>
               <div className={"take2--checkout-dialog-content-top-text-rank"}>
-                Fair
+                <RatingTag item={{score: 7.6, id: "", name: ""}} />
               </div>
             </div>
           </div>
@@ -87,16 +72,22 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
               {"Best scoring item"}
             </div>
           </div>
-          <div className={"take2--checkout-dialog-content-tile-score-wrapper "}>
+          <div className={"take2--checkout-dialog-content-tile-title-wrapper "}>
             <div>
               <img className={"take2--checkout-dialog-content-tile-img"} src={bestItem.image}/>
             </div>
-            <div style={{paddingLeft:"16px"}}>{bestItem.name}</div>
-            <div className={"take2--checkout-dialog-content-tile-score"}>
-              <div className="take2--checkout-dialog-content-stat-bar-container">
-                <div style={{width: bestScore}} className="take2--checkout-dialog-content-stat-bar">
-                  {bestScore}
-                </div>
+            <div className={"take2--checkout-dialog-content-text-container"}>
+              <div className={"take2--checkout-dialog-content-text-wrapper"}>
+                <span className={"take2--checkout-dialog-content-text"}>
+                  {bestItem.name}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className={"take2--checkout-dialog-content-tile-score"}>
+            <div className="take2--checkout-dialog-content-stat-bar-container">
+              <div style={{width: bestScore}} className="take2--checkout-dialog-content-stat-bar">
+                {bestScore}
               </div>
             </div>
           </div>
@@ -108,15 +99,21 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
               {"Lowest scoring item"}
             </div>
           </div>
-          <div className={"take2--checkout-dialog-content-tile-score-wrapper "}>
+          <div className={"take2--checkout-dialog-content-tile-title-wrapper "}>
             <div>
               <img className={"take2--checkout-dialog-content-tile-img"} src={worstItem.image}/>
             </div>
-            <div style={{paddingLeft:"16px"}}>{worstItem.name}</div>
-            <div className={"take2--checkout-dialog-content-tile-score"}>
-              <div className="take2--checkout-dialog-content-stat-bar-container">
-                <div style={{width: worstScore}}className="take2--checkout-dialog-content-stat-bar">{worstScore}</div>
+            <div className={"take2--checkout-dialog-content-text-container"}>
+              <div className={"take2--checkout-dialog-content-text-wrapper"}>
+                <span className={"take2--checkout-dialog-content-text"}>
+                  {worstItem.name}
+                </span>
               </div>
+            </div>
+          </div>
+          <div className={"take2--checkout-dialog-content-tile-score"}>
+            <div className="take2--checkout-dialog-content-stat-bar-container">
+              <div style={{width: worstScore}}className="take2--checkout-dialog-content-stat-bar">{worstScore}</div>
             </div>
           </div>
           <TooltipDefinition

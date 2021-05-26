@@ -40,7 +40,6 @@ class RatingStars extends Component<RatingStarsProps, RatingStarsState> {
   }
 
   getColor = (score) => {
-    return "#0f62fe";
     const green = "#42be65"; //(4-5]
     const blue = "#4589ff"; //(3-4]
     const purple = "#A569FF"; //(2-3]

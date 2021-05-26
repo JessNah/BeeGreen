@@ -4,6 +4,7 @@ import { Accordion, AccordionItem, Tag, TagTypeName } from "carbon-components-re
 import { productItem } from "../../../utils/types"
 import { ShoppingCart32 } from "@carbon/icons-react"
 import ItemDetails from "../../ItemDialog/ItemDialogContent/ItemDetails/ItemDetails"
+import RatingTag from "../../RatingTag/RatingTag"
 
 interface CheckoutCartProps {
   cart: productItem[],
@@ -12,38 +13,6 @@ interface CheckoutCartProps {
 }
 
 class CheckoutCart extends Component<CheckoutCartProps> {
-  getStyledTagScore = (score) => {
-    let style = "green";
-    if(score <= 2){
-      style = "green";
-    } else if (score <= 4){
-      style = "teal";
-    } else if (score <= 6) {
-      style = "purple";
-    } else if (score <= 8) {
-      style = "magenta";
-    } else {
-      style = "red";
-    }
-    return style as TagTypeName;
-  }
-
-  getScoreText = (score) => {
-    let text = "Excellent";
-    if(score <= 2){
-      text = "Excellent";
-    } else if (score <= 4){
-      text = "Very good";
-    } else if (score <= 6) {
-      text = "Good";
-    } else if (score <= 8) {
-      text = "Fair";
-    } else {
-      text = "Low";
-    }
-    return text;
-  }
-
   render() {
     return (
       <>
@@ -53,10 +22,8 @@ class CheckoutCart extends Component<CheckoutCartProps> {
             Shopping cart
           </div>
           {this.props.cartRank && 
-            <Tag
-              type={this.getStyledTagScore(this.props.cartRank)}>
-              {this.getScoreText(this.props.cartRank)}
-            </Tag>}
+            <RatingTag item={{score: this.props.cartRank, name: "", id: ""}}/>
+          }
         </div>
         <Accordion>
           {this.props.cart.map((item: productItem, index) => {
@@ -79,10 +46,7 @@ class CheckoutCart extends Component<CheckoutCartProps> {
                     <div className={"take2--checkout-cart-item-text-container"}>
                       <div className={"take2--checkout-cart-item-text-wrapper"}>
                         <span className={"take2--checkout-cart-item-score"}>
-                            <Tag
-                              type={this.getStyledTagScore(item.score)} >
-                              {this.getScoreText(item.score)}
-                            </Tag>
+                          <RatingTag item={item}/>
                         </span>
                       </div>
                     </div>

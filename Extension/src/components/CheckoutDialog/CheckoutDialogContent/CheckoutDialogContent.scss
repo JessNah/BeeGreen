@@ -29,12 +29,14 @@
     padding-left: 16px;
 }
 
-.take2--checkout-dialog-content-tile-score-wrapper {
+.take2--checkout-dialog-content-tile-title-wrapper {
     display: flex;
 }
 
 .take2--checkout-dialog-content-tile-score {
-    padding-left: 24px;
+    padding-left: 0px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .take2--checkout-dialog-content-tile-img {
@@ -68,4 +70,26 @@
     border-right: 7px solid #393939;
     white-space: nowrap;
     font-size: 12px;
+}
+
+
+.take2--checkout-dialog-content-text-wrapper {
+    display: inline-block;
+}
+
+.take2--checkout-dialog-content-text-container {
+    height: 40px;
+    line-height: 40px;
+}
+
+.take2--checkout-dialog-content-text {
+    word-wrap: break-word;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding-left: 16px;
+    text-align: left;
+    display: -webkit-box;
+    vertical-align: middle;
+    line-height: normal;
 }

@@ -33,7 +33,6 @@
     overflow: hidden;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    padding-top: 40px;
     text-align: left;
     display: -webkit-box;
     vertical-align: middle;
@@ -54,4 +53,26 @@
     margin-bottom: 16px;
     font-weight: 600;
     font-size: 1.025rem;
+}
+
+.take2--item-dialog-content-text-sub-wrapper {
+    display: inline-block;
+}
+
+.take2--item-dialog-content-text-sub-container {
+    height: 40px;
+    line-height: 40px;
+}
+
+.take2--item-dialog-content-text-sub {
+    font-weight: 600;
+    font-size: 1.025rem;
+    word-wrap: break-word;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    display: -webkit-box;
+    vertical-align: middle;
+    line-height: normal;
 }

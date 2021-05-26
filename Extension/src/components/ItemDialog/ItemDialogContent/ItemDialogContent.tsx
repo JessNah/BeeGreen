@@ -55,14 +55,22 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           </div>
         <div className={"take2--item-details-sub-wrapper"}>
           <div className={"take2--item-details-substitute"}>
-            <div className={"take2--item-dialog-content-compare-substitute-name"}>
-              {substitute_1.name}
+            <div className={"take2--item-dialog-content-text-sub-container"}>
+              <div className={"take2--item-dialog-content-text-sub-wrapper"}>
+                <span className={"take2--item-dialog-content-text-sub"}>
+                  {substitute_1.name}
+                </span>
+              </div>
             </div>
             <ItemDetails item={substitute_1} />
           </div>
           <div className={"take2--item-details-substitute"}>
-            <div className={"take2--item-dialog-content-compare-substitute-name"}>
-              {substitute_2.name}
+            <div className={"take2--item-dialog-content-text-sub-container"}>
+              <div className={"take2--item-dialog-content-text-sub-wrapper"}>
+                <span className={"take2--item-dialog-content-text-sub"}>
+                  {substitute_2.name}
+                </span>
+              </div>
             </div>
             <ItemDetails item={substitute_2} />
           </div>
