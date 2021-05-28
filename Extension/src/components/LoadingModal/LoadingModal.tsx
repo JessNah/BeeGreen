@@ -31,15 +31,15 @@ const LoadingModal: React.FC<loadingModalProps> = ({
         modalHeading={"One moment please."}
       >
         <>
-          <div className={"take2-loading-modal-content"}>
-            <div className={"take2-loading-modal-loader"}>
+          <div className={"beegreen-loading-modal-content"}>
+            <div className={"beegreen-loading-modal-loader"}>
               <Loading withOverlay={false}/>
             </div>
-            <p className={"take2-loading-modal-loader-message"}>
+            <p className={"beegreen-loading-modal-loader-message"}>
               {message}
             </p>
           </div>
-          <div className={"take2-loading-modal-fact-heading"}>
+          <div className={"beegreen-loading-modal-fact-heading"}>
             Did you know?
           </div>
           {getRandomFact()}

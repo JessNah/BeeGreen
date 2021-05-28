@@ -35,39 +35,39 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
     } 
     return (
       <>
-      <div className={"take2--item-dialog-content-wrapper"}>
-        <div className={"take2--item-dialog-content-selected-item"}>
-          <div className={"take2--item-dialog-content-selected-item-img"}>
-            <img className={"take2--item-dialog-content-selected-item-img-tag"}
+      <div className={"beegreen--item-dialog-content-wrapper"}>
+        <div className={"beegreen--item-dialog-content-selected-item"}>
+          <div className={"beegreen--item-dialog-content-selected-item-img"}>
+            <img className={"beegreen--item-dialog-content-selected-item-img-tag"}
               src={item?.image} />
           </div>
-          <div className={"take2--item-dialog-content-selected-item-container"}>
-            <div className={"take2--item-dialog-content-selected-item-text-wrapper"}>
-              <span className={"take2--item-dialog-content-selected-item-text"}>
+          <div className={"beegreen--item-dialog-content-selected-item-container"}>
+            <div className={"beegreen--item-dialog-content-selected-item-text-wrapper"}>
+              <span className={"beegreen--item-dialog-content-selected-item-text"}>
                 {item?.name}
               </span>
             </div>
           </div>
         </div>
         <ItemDetails item={item} />
-          <div className={"take2--item-dialog-content-compare-header"}>
+          <div className={"beegreen--item-dialog-content-compare-header"}>
             {this.props.subText}
           </div>
-        <div className={"take2--item-details-sub-wrapper"}>
-          <div className={"take2--item-details-substitute"}>
-            <div className={"take2--item-dialog-content-text-sub-container"}>
-              <div className={"take2--item-dialog-content-text-sub-wrapper"}>
-                <span className={"take2--item-dialog-content-text-sub"}>
+        <div className={"beegreen--item-details-sub-wrapper"}>
+          <div className={"beegreen--item-details-substitute"}>
+            <div className={"beegreen--item-dialog-content-text-sub-container"}>
+              <div className={"beegreen--item-dialog-content-text-sub-wrapper"}>
+                <span className={"beegreen--item-dialog-content-text-sub"}>
                   {substitute_1.name}
                 </span>
               </div>
             </div>
             <ItemDetails item={substitute_1} />
           </div>
-          <div className={"take2--item-details-substitute"}>
-            <div className={"take2--item-dialog-content-text-sub-container"}>
-              <div className={"take2--item-dialog-content-text-sub-wrapper"}>
-                <span className={"take2--item-dialog-content-text-sub"}>
+          <div className={"beegreen--item-details-substitute"}>
+            <div className={"beegreen--item-dialog-content-text-sub-container"}>
+              <div className={"beegreen--item-dialog-content-text-sub-wrapper"}>
+                <span className={"beegreen--item-dialog-content-text-sub"}>
                   {substitute_2.name}
                 </span>
               </div>

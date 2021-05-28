@@ -44,7 +44,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
         <Tearsheet
           open={this.state.openCart}
           label={""}
-          title={"Take2"}
+          title={"Bee Green"}
           description={"Keep it up! You're shopping smarter than 73% of shoppers visiting this site."}
           actions={[{
             kind: 'secondary',
@@ -75,7 +75,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
         <TearsheetNarrow
           open={this.state.openComparison}
           label={""}
-          title={"Take2"}
+          title={"Bee Green"}
           description={"Carbon footprint comparison to other similar items"}
           onClose={() => {this.setState({openComparison: false, currentComparisonItem: undefined})}}
           actions={[{

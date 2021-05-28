@@ -46,13 +46,13 @@ class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContai
             <PermissionDialog
               onOK={() => {this.onPermissionOK()}}
               onClose={() => this.props.endCheckoutSequence()}
-              modalHeading={"Hi there! Take2 would like to take a peek at your cart"}
+              modalHeading={"Hi there! Bee Green would like to take a peek at your cart"}
               modalSubText={"By analyzing your cart, we can evaluate it for carbon scoring and we'll try our best to help you make smarter choices."}
             />
           : (this.state.loading ? 
               <LoadingModal
                 loading={true}
-                message={"Take2 is analyzing your cart...\n Thanks for trying your best to make smart choices."}
+                message={"Bee Green is analyzing your cart...\n Thanks for trying your best to make smart choices."}
               />
               : <CheckoutDialog
                   currentStore={this.props.currentStore}

@@ -62,7 +62,7 @@ module.exports = {
 
 function getHtmlPlugins(chunks) {
   return chunks.map(chunk => new HtmlPlugin({
-    title: 'Take2',
+    title: 'BeeGreen',
     filename: `${chunk}.html`,
     chunks: [chunk],
   }))

@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import "./SideTab.scss"
-import { Close24 } from "@carbon/icons-react"
+import { Close24, Bee32 } from "@carbon/icons-react"
 
 type sideTabProps = {
   onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
@@ -19,13 +19,13 @@ const SideTab: React.FC<sideTabProps> = ({
 
   return (
     <>
-      <div className={!animateIn ? "take2-side-tab" : "take2-side-tab take2-side-tab-active"}>
-        <div onClick={onClick} className={"take2-side-tab-icon take2-side-tab-default"} aria-hidden="true">
-          T2
+      <div className={!animateIn ? "beegreen-side-tab" : "beegreen-side-tab beegreen-side-tab-active"}>
+        <div onClick={onClick} className={"beegreen-side-tab-icon beegreen-side-tab-default"} aria-hidden="true">
+          <Bee32 className={"beegreen-side-tab-bee"} />
         </div>
-        <div className={"take2-side-tab-icon take2-side-tab-close"}
+        <div className={"beegreen-side-tab-icon beegreen-side-tab-close"}
           onClick={onClose}>
-            <Close24 className={"take2-close-svg"} ariaLabel={"Close this tab"} />
+            <Close24 className={"beegreen-close-svg"} ariaLabel={"Close this tab"} />
         </div>
       </div>
     </>

@@ -16,9 +16,9 @@ class CheckoutCart extends Component<CheckoutCartProps> {
   render() {
     return (
       <>
-        <div className={"take2--checkout-cart-heading-wrapper"}>
+        <div className={"beegreen--checkout-cart-heading-wrapper"}>
           <ShoppingCart32 />
-          <div className={"take2--checkout-cart-heading"}>
+          <div className={"beegreen--checkout-cart-heading"}>
             Shopping cart
           </div>
           {this.props.cartRank && 
@@ -30,22 +30,22 @@ class CheckoutCart extends Component<CheckoutCartProps> {
             return (
               <AccordionItem
                 title={
-                  <div key={index + "_cart_item"} className={"take2--checkout-cart-item"}>
+                  <div key={index + "_cart_item"} className={"beegreen--checkout-cart-item"}>
                     <div 
                       style={{display:"inline-flex", cursor:"pointer"}} 
                       onClick={(event) => {this.props.selectItem(item); event.stopPropagation();}}>
                       <div>
-                        <img className={"take2--checkout-cart-item-img"} src={item.image}/>
+                        <img className={"beegreen--checkout-cart-item-img"} src={item.image}/>
                       </div>
-                      <div className={"take2--checkout-cart-item-text-container"}>
-                        <div className={"take2--checkout-cart-item-text-wrapper"}>
-                          <span className={"take2--checkout-cart-item-text"}>{item.name}</span>
+                      <div className={"beegreen--checkout-cart-item-text-container"}>
+                        <div className={"beegreen--checkout-cart-item-text-wrapper"}>
+                          <span className={"beegreen--checkout-cart-item-text"}>{item.name}</span>
                         </div>
                       </div>
                     </div>
-                    <div className={"take2--checkout-cart-item-text-container"}>
-                      <div className={"take2--checkout-cart-item-text-wrapper"}>
-                        <span className={"take2--checkout-cart-item-score"}>
+                    <div className={"beegreen--checkout-cart-item-text-container"}>
+                      <div className={"beegreen--checkout-cart-item-text-wrapper"}>
+                        <span className={"beegreen--checkout-cart-item-score"}>
                           <RatingTag item={item}/>
                         </span>
                       </div>

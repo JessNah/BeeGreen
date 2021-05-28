@@ -44,14 +44,14 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
     const worstScore = (100 - Math.floor(worstItem.score * 10)) + "%"; 
     return (
       <>
-        <div className={"take2--checkout-dialog-content-top-text"}>
-          <div className={"take2--checkout-dialog-content-gratitude"}>
+        <div className={"beegreen--checkout-dialog-content-top-text"}>
+          <div className={"beegreen--checkout-dialog-content-gratitude"}>
             Well done!
           </div>
           <div>
             <div style={{display: "inline-flex"}}>
               <div>This cart ranked:</div>
-              <div className={"take2--checkout-dialog-content-top-text-rank"}>
+              <div className={"beegreen--checkout-dialog-content-top-text-rank"}>
                 <RatingTag item={{score: this.props.cartRank, id: "", name: ""}} />
               </div>
             </div>
@@ -59,67 +59,67 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
           <div>
             <div style={{display: "inline-flex"}}>
               <div>Your average carts at this store rank:</div>
-              <div className={"take2--checkout-dialog-content-top-text-rank"}>
+              <div className={"beegreen--checkout-dialog-content-top-text-rank"}>
                 <RatingTag item={{score: 7.6, id: "", name: ""}} />
               </div>
             </div>
           </div>
         </div>
         <Tile>
-          <div className={"take2--checkout-dialog-content-tile-header-wrapper"}>
+          <div className={"beegreen--checkout-dialog-content-tile-header-wrapper"}>
             <Badge32 />
-            <div className={"take2--checkout-dialog-content-tile-header"}>
+            <div className={"beegreen--checkout-dialog-content-tile-header"}>
               {"Best scoring item"}
             </div>
           </div>
-          <div className={"take2--checkout-dialog-content-tile-title-wrapper "}>
+          <div className={"beegreen--checkout-dialog-content-tile-title-wrapper "}>
             <div>
-              <img className={"take2--checkout-dialog-content-tile-img"} src={bestItem.image}/>
+              <img className={"beegreen--checkout-dialog-content-tile-img"} src={bestItem.image}/>
             </div>
-            <div className={"take2--checkout-dialog-content-text-container"}>
-              <div className={"take2--checkout-dialog-content-text-wrapper"}>
-                <span className={"take2--checkout-dialog-content-text"}>
+            <div className={"beegreen--checkout-dialog-content-text-container"}>
+              <div className={"beegreen--checkout-dialog-content-text-wrapper"}>
+                <span className={"beegreen--checkout-dialog-content-text"}>
                   {bestItem.name}
                 </span>
               </div>
             </div>
           </div>
-          <div className={"take2--checkout-dialog-content-tile-score"}>
-            <div className="take2--checkout-dialog-content-stat-bar-container">
-              <div style={{width: bestScore}} className="take2--checkout-dialog-content-stat-bar">
+          <div className={"beegreen--checkout-dialog-content-tile-score"}>
+            <div className="beegreen--checkout-dialog-content-stat-bar-container">
+              <div style={{width: bestScore}} className="beegreen--checkout-dialog-content-stat-bar">
                 {bestScore}
               </div>
             </div>
           </div>
         </Tile>
         <Tile>
-          <div className={"take2--checkout-dialog-content-tile-header-wrapper"}>
+          <div className={"beegreen--checkout-dialog-content-tile-header-wrapper"}>
             <WarningAlt32 />
-            <div className={"take2--checkout-dialog-content-tile-header"}>
+            <div className={"beegreen--checkout-dialog-content-tile-header"}>
               {"Lowest scoring item"}
             </div>
           </div>
-          <div className={"take2--checkout-dialog-content-tile-title-wrapper "}>
+          <div className={"beegreen--checkout-dialog-content-tile-title-wrapper "}>
             <div>
-              <img className={"take2--checkout-dialog-content-tile-img"} src={worstItem.image}/>
+              <img className={"beegreen--checkout-dialog-content-tile-img"} src={worstItem.image}/>
             </div>
-            <div className={"take2--checkout-dialog-content-text-container"}>
-              <div className={"take2--checkout-dialog-content-text-wrapper"}>
-                <span className={"take2--checkout-dialog-content-text"}>
+            <div className={"beegreen--checkout-dialog-content-text-container"}>
+              <div className={"beegreen--checkout-dialog-content-text-wrapper"}>
+                <span className={"beegreen--checkout-dialog-content-text"}>
                   {worstItem.name}
                 </span>
               </div>
             </div>
           </div>
-          <div className={"take2--checkout-dialog-content-tile-score"}>
-            <div className="take2--checkout-dialog-content-stat-bar-container">
-              <div style={{width: worstScore}}className="take2--checkout-dialog-content-stat-bar">{worstScore}</div>
+          <div className={"beegreen--checkout-dialog-content-tile-score"}>
+            <div className="beegreen--checkout-dialog-content-stat-bar-container">
+              <div style={{width: worstScore}}className="beegreen--checkout-dialog-content-stat-bar">{worstScore}</div>
             </div>
           </div>
           <TooltipDefinition
-            className={"take2--checkout-dialog-content-suggest"}
+            className={"beegreen--checkout-dialog-content-suggest"}
             onClick={() => {this.props.selectItem(this.getWorstItem(this.props.cart))}}
-            tooltipText={"Take2 will do our best to recommend some alternatives that would be friendlier on our planet!"}
+            tooltipText={"Bee Green will do our best to recommend some alternatives that would be friendlier on our planet!"}
           >
             Suggest a substitute
           </TooltipDefinition>

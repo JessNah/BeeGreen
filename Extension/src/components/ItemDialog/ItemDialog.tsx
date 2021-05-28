@@ -29,7 +29,7 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           open={this.state.open}
           verticalPosition={"lower"}
           label={""}
-          title={"Take2"}
+          title={"Bee Green"}
           description={"Carbon footprint comparison to other similar items"}
           actions={[{
             kind: 'secondary',

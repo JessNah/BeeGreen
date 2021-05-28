@@ -1,21 +1,21 @@
 
-.take2--item-details-stat-bar-container {
+.beegreen--item-details-stat-bar-container {
     width: 180px; /* Full width */
     box-sizing: border-box;
     border-radius: 4px 4px 4px 4px;
 }
 
-.take2--item-details-stat-bar-container-grad {
+.beegreen--item-details-stat-bar-container-grad {
     margin-top: 8px;
     margin-bottom: 8px;
     background: linear-gradient(270deg, rgba(66,190,101,1) 0%, rgba(241,194,27,1) 50%, rgba(250,77,86,1) 100%);
 }
 
-.take2--item-details-stat-bar-container-grey {
+.beegreen--item-details-stat-bar-container-grey {
     background-color: #e5e5e5; /* Grey background */
 }
 
-.take2--item-details-stat-bar {
+.beegreen--item-details-stat-bar {
     box-sizing: border-box;
     text-align: right; /* Right-align text */
     padding-top: 0px; /* Add top padding */
@@ -27,7 +27,7 @@
     font-size: 12px;
 }
 
-.take2--item-details-stat-bar-1 {
+.beegreen--item-details-stat-bar-1 {
     box-sizing: border-box;
     text-align: right; /* Right-align text */
     padding-top: 0px; /* Add top padding */
@@ -38,23 +38,23 @@
     height: 8px;
 }
 
-.take2--item-details-stat-bar-1-label {
+.beegreen--item-details-stat-bar-1-label {
     margin-top: 4px;
     color: #808080;
     font-weight: 600;
 }
 
-.take2--item-details-notes {
+.beegreen--item-details-notes {
     margin-top: 8px;
 }
 
-.take2--item-details-substitute {
+.beegreen--item-details-substitute {
     max-width: 50%;
     padding-right: 16px;
     min-width: 240px;
 }
 
-.take2--item-details-sub-wrapper {
+.beegreen--item-details-sub-wrapper {
     display: inline-flex;
     flex-wrap: wrap;
 }
