@@ -25,13 +25,15 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
     const substitute_1: productItem = {
       name: "Soy flour",
       id: "soy_flour",
-      score: 2.6
+      score: 2.6, //low is good
+      top3Metrics: {"Farm": 43, "Processing": 15, "Transport": 26}
     } 
     const substitute_2: productItem = {
       name: "Wheat flour",
       id: "wheat_flour",
-      score: 7.2
-    } 
+      score: 7.2, //high is bad
+      top3Metrics: {"Farm": 70, "Processing": 33, "Transport": 56}
+    }
     return (
       <>
       <div className={"beegreen--item-dialog-content-wrapper"}>

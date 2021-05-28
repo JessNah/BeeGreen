@@ -5,4 +5,5 @@ export interface productItem {
     price?: string
     quantity?: string
     score?: number
+    top3Metrics?: {[key:string]: any}
   }

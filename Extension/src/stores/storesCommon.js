@@ -36,6 +36,11 @@ export function analyzeCart(cart) {
         if(item.score < 0){
             item.score = 0;
         }
+        item.top3Metrics = {
+            "Farm": Math.floor(Math.random() * 100),
+            "Processing": Math.floor(Math.random() * 100),
+            "Transport": Math.floor(Math.random() * 100)
+        }
     }
     cart.sort(compare);
     return cart;

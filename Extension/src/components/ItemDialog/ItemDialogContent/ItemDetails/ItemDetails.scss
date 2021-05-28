@@ -32,10 +32,23 @@
     text-align: right; /* Right-align text */
     padding-top: 0px; /* Add top padding */
     padding-bottom: 0px; /* Add bottom padding */
-    background-color: #0f62fe;
+    // background-color: #42be65; //#0f62fe
     color: white; /* White text color */
     white-space: nowrap;
     height: 8px;
+}
+
+
+.beegreen--item-details-stat-bar-green {
+    background-color: #42be65;
+}
+
+.beegreen--item-details-stat-bar-red {
+    background-color: #fa4d56;
+}
+
+.beegreen--item-details-stat-bar-yellow {
+    background-color: #f1c21b;
 }
 
 .beegreen--item-details-stat-bar-1-label {

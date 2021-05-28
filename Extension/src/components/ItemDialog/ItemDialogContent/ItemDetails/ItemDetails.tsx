@@ -18,6 +18,17 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
   componentDidMount() {
   }
 
+  getBarClass = (score) => {
+    console.log("score is " + score);
+    if(score < 35) {
+      return "beegreen--item-details-stat-bar-green";
+    } else if (score < 65) {
+      return "beegreen--item-details-stat-bar-yellow";
+    } else {
+      return "beegreen--item-details-stat-bar-red";
+    }
+  }
+
   render() {
     const { item } = this.props;
     if(!item){
@@ -31,36 +42,21 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
           </div>
         </div>
         <div>{messages_en.itemDetailsCarbonEmissions}</div>
-        <div>
-          <div className={"beegreen--item-details-stat-bar-1-label"}>
-            {messages_en.itemDetailsCarbonFieldFarm + "70%"}
-          </div>
-          <div>
-            <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grey">
-              <div style={{width:"70%"}} className="beegreen--item-details-stat-bar-1"/>
+        { this.props.item.top3Metrics && Object.keys(this.props.item.top3Metrics).map((field: string, index) => {
+          return (
+            <div>
+              <div className={"beegreen--item-details-stat-bar-1-label"}>
+                {messages_en.itemDetailsCarbonFieldFarm + this.props.item.top3Metrics[field] + "%"}
+              </div>
+              <div>
+                <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grey">
+                  <div style={{width: this.props.item.top3Metrics[field] + "%"}}
+                    className={"beegreen--item-details-stat-bar-1 " + this.getBarClass(this.props.item.top3Metrics[field])}/>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div>
-          <div className={"beegreen--item-details-stat-bar-1-label"}>
-            {messages_en.itemDetailsCarbonFieldProcessing + "33%"}
-          </div>
-          <div>
-            <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grey">
-              <div style={{width:"33%"}} className="beegreen--item-details-stat-bar-1"/>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className={"beegreen--item-details-stat-bar-1-label"}>
-            {messages_en.itemDetailsCarbonFieldTransport + "56%"}
-          </div>
-          <div>
-            <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grey">
-              <div style={{width:"56%"}} className="beegreen--item-details-stat-bar-1"/>
-            </div>
-          </div>
-        </div>
+          )
+        })}
         <div className={"beegreen--item-details-notes"}>
           {messages_en.itemDetailsCarbonDescription}
         </div>
