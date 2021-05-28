@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import './LoadingModal.scss'
 import { Modal, Loading } from 'carbon-components-react'
+import { messages_en } from "../../messages/messages_en"
 
 type loadingModalProps = {
   message: string;
@@ -15,10 +16,10 @@ const LoadingModal: React.FC<loadingModalProps> = ({
 
   const getRandomFact = () => {
     const facts = [
-      "Up to 12.7 million tonnes of plastic enters the oceans every year.",
-      "In the Canadian Arctic, 87% of birds have ingested plastics of some sort.",
-      "Scientists have documented 700 marine species affected by ocean plastic.",
-      "The equivalent of a truckload of plastic enters the oceans every minute."
+      messages_en.loadingModalFunFact1,
+      messages_en.loadingModalFunFact2,
+      messages_en.loadingModalFunFact3,
+      messages_en.loadingModalFunFact4
     ]
     return facts[Math.floor(Math.random()*facts.length)]
   }
@@ -28,7 +29,7 @@ const LoadingModal: React.FC<loadingModalProps> = ({
       <Modal
         open
         passiveModal
-        modalHeading={"One moment please."}
+        modalHeading={messages_en.loadingModalOneMoment}
       >
         <>
           <div className={"beegreen-loading-modal-content"}>
@@ -40,7 +41,7 @@ const LoadingModal: React.FC<loadingModalProps> = ({
             </p>
           </div>
           <div className={"beegreen-loading-modal-fact-heading"}>
-            Did you know?
+            {messages_en.loadingModalDidYouKnow}
           </div>
           {getRandomFact()}
         </>

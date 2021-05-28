@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PermissionDialog from '../components/PermissionDialog/PermissionDialog'
 import LoadingModal from '../components/LoadingModal/LoadingModal'
 import CheckoutDialog from '../components/CheckoutDialog/CheckoutDialog'
+import { messages_en } from "../messages/messages_en";
+
 
 interface CheckoutContainerProps {
   isPermissionGranted: boolean;
@@ -46,13 +48,13 @@ class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContai
             <PermissionDialog
               onOK={() => {this.onPermissionOK()}}
               onClose={() => this.props.endCheckoutSequence()}
-              modalHeading={"Hi there! Bee Green would like to take a peek at your cart"}
-              modalSubText={"By analyzing your cart, we can evaluate it for carbon scoring and we'll try our best to help you make smarter choices."}
+              modalHeading={messages_en.checkoutContainerModalHeading}
+              modalSubText={messages_en.checkoutContainerModalSubText}
             />
           : (this.state.loading ? 
               <LoadingModal
                 loading={true}
-                message={"Bee Green is analyzing your cart...\n Thanks for trying your best to make smart choices."}
+                message={messages_en.checkoutContainerLoadingMessage}
               />
               : <CheckoutDialog
                   currentStore={this.props.currentStore}

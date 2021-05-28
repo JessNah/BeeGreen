@@ -129,11 +129,6 @@ class App extends Component<AppProps, AppState> {
     if (!this.state.options || !this.state.isActive) {
       return null
     }
-    //temp console logs
-    !this.state.itemState && console.log("not show item state");
-    this.state.itemState && console.log("show item state");
-    !this.state.checkoutState && console.log("not show checkout state");
-    this.state.checkoutState && console.log("show checkout state");
     return (
       <>
         {(this.state.itemState || this.state.checkoutState) && 

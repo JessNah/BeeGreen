@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import "./PermissionDialog.scss"
 import { Modal } from "carbon-components-react"
 

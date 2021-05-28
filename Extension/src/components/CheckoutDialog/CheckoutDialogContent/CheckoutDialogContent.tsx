@@ -4,6 +4,7 @@ import { Tile, TooltipDefinition } from "carbon-components-react"
 import { productItem } from "../../../utils/types"
 import { Badge32, WarningAlt32 } from "@carbon/icons-react"
 import RatingTag from "../../RatingTag/RatingTag";
+import { messages_en } from "../../../messages/messages_en";
 
 interface CheckoutDialogContentProps {
   cart: productItem[],
@@ -46,11 +47,11 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
       <>
         <div className={"beegreen--checkout-dialog-content-top-text"}>
           <div className={"beegreen--checkout-dialog-content-gratitude"}>
-            Well done!
+            {messages_en.checkoutDialogContentCongratsText}
           </div>
           <div>
             <div style={{display: "inline-flex"}}>
-              <div>This cart ranked:</div>
+              <div>{messages_en.checkoutDialogContentCartRank}</div>
               <div className={"beegreen--checkout-dialog-content-top-text-rank"}>
                 <RatingTag item={{score: this.props.cartRank, id: "", name: ""}} />
               </div>
@@ -58,7 +59,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
           </div>
           <div>
             <div style={{display: "inline-flex"}}>
-              <div>Your average carts at this store rank:</div>
+              <div>{messages_en.checkoutDialogContentAvgCartRank}</div>
               <div className={"beegreen--checkout-dialog-content-top-text-rank"}>
                 <RatingTag item={{score: 7.6, id: "", name: ""}} />
               </div>
@@ -69,7 +70,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
           <div className={"beegreen--checkout-dialog-content-tile-header-wrapper"}>
             <Badge32 />
             <div className={"beegreen--checkout-dialog-content-tile-header"}>
-              {"Best scoring item"}
+              {messages_en.checkoutDialogContentBestTile}
             </div>
           </div>
           <div className={"beegreen--checkout-dialog-content-tile-title-wrapper "}>
@@ -96,7 +97,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
           <div className={"beegreen--checkout-dialog-content-tile-header-wrapper"}>
             <WarningAlt32 />
             <div className={"beegreen--checkout-dialog-content-tile-header"}>
-              {"Lowest scoring item"}
+              {messages_en.checkoutDialogContentLowestTile}
             </div>
           </div>
           <div className={"beegreen--checkout-dialog-content-tile-title-wrapper "}>
@@ -119,9 +120,9 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
           <TooltipDefinition
             className={"beegreen--checkout-dialog-content-suggest"}
             onClick={() => {this.props.selectItem(this.getWorstItem(this.props.cart))}}
-            tooltipText={"Bee Green will do our best to recommend some alternatives that would be friendlier on our planet!"}
+            tooltipText={messages_en.checkoutDialogContentLowestTileTooltip}
           >
-            Suggest a substitute
+            {messages_en.checkoutDialogContentLowestTileTooltipLabel}
           </TooltipDefinition>
         </Tile>
       </>

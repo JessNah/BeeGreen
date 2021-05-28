@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import "./ItemDialogContent.scss"
-import { Accordion, AccordionItem, Tag, TagTypeName } from "carbon-components-react"
 import { productItem } from "../../../utils/types"
 import ItemDetails from "./ItemDetails/ItemDetails"
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import "./CheckoutCart.scss"
-import { Accordion, AccordionItem, Tag, TagTypeName } from "carbon-components-react"
+import { Accordion, AccordionItem } from "carbon-components-react"
 import { productItem } from "../../../utils/types"
 import { ShoppingCart32 } from "@carbon/icons-react"
 import ItemDetails from "../../ItemDialog/ItemDialogContent/ItemDetails/ItemDetails"
 import RatingTag from "../../RatingTag/RatingTag"
+import { messages_en } from "../../../messages/messages_en"
 
 interface CheckoutCartProps {
   cart: productItem[],
@@ -19,7 +20,7 @@ class CheckoutCart extends Component<CheckoutCartProps> {
         <div className={"beegreen--checkout-cart-heading-wrapper"}>
           <ShoppingCart32 />
           <div className={"beegreen--checkout-cart-heading"}>
-            Shopping cart
+            {messages_en.checkoutCartTitle}
           </div>
           {this.props.cartRank && 
             <RatingTag item={{score: this.props.cartRank, name: "", id: ""}}/>

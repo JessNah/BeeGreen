@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { productItem } from "../../utils/types"
 import { Tag, TagTypeName } from "carbon-components-react"
 import "./RatingTag.scss"
+import { messages_en } from "../../messages/messages_en"
 
 
 interface RatingTagProps {
@@ -35,17 +36,17 @@ class RatingTag extends Component<RatingTagProps, RatingTagState> {
   }
 
   getScoreText = (score) => {
-    let text = "Excellent";
+    let text = messages_en.ratingTagExcellent;
     if(score <= 2){
-      text = "Excellent";
+      text = messages_en.ratingTagExcellent;
     } else if (score <= 4){
-      text = "Very good";
+      text = messages_en.ratingTagVGood;
     } else if (score <= 6) {
-      text = "Good";
+      text = messages_en.ratingTagGood;
     } else if (score <= 8) {
-      text = "Fair";
+      text = messages_en.ratingTagFair;
     } else {
-      text = "Low";
+      text = messages_en.ratingTagLow;
     }
     return text;
   }

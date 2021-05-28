@@ -3,6 +3,7 @@ import "./ItemDialog.scss"
 import { TearsheetNarrow } from "@carbon/ibm-cloud-cognitive"
 import { productItem } from "../../utils/types"
 import ItemDialogContent from "./ItemDialogContent/ItemDialogContent";
+import { messages_en } from "../../messages/messages_en"
 
 interface ItemDialogProps {
   item: productItem
@@ -29,8 +30,8 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           open={this.state.open}
           verticalPosition={"lower"}
           label={""}
-          title={"Bee Green"}
-          description={"Carbon footprint comparison to other similar items"}
+          title={messages_en.appTitle}
+          description={messages_en.itemDialogDescription}
           actions={[{
             kind: 'secondary',
             label: "Close",
@@ -40,7 +41,7 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           onClose={() => {this.props.closeItemDialog()}}
           >
             <ItemDialogContent
-              subText={"Here's how other similar items compare"}
+              subText={messages_en.itemDialogSubText}
               item={this.props.item}/>
         </TearsheetNarrow>
       </>

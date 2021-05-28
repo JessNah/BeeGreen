@@ -6,6 +6,7 @@ import CheckoutCart from "./CheckoutCart/CheckoutCart"
 import { productItem } from "../../utils/types"
 import ItemDialogContent from "../ItemDialog/ItemDialogContent/ItemDialogContent"
 import CheckoutDialogContent from "./CheckoutDialogContent/CheckoutDialogContent"
+import { messages_en } from "../../messages/messages_en";
 
 interface CheckoutDialogProps {
   closeCheckoutDialog: () => void;
@@ -44,8 +45,8 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
         <Tearsheet
           open={this.state.openCart}
           label={""}
-          title={"Bee Green"}
-          description={"Keep it up! You're shopping smarter than 73% of shoppers visiting this site."}
+          title={messages_en.appTitle}
+          description={messages_en.checkoutDialogModal1SubLabel}
           actions={[{
             kind: 'secondary',
             label: "Close",
@@ -53,7 +54,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
             onClick: () => {this.props.closeCheckoutDialog()}
             }, {
             kind: 'ghost',
-            label: "Make an impact! Donate to plant some trees and reduce the carbon footprint of your purchase!",
+            label: messages_en.checkoutDialogModal1DonationBtn,
             loading: false,
             onClick: () => {window.open("https://carbonfund.org/product-category/plant-trees/")}
           }]}
@@ -75,8 +76,8 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
         <TearsheetNarrow
           open={this.state.openComparison}
           label={""}
-          title={"Bee Green"}
-          description={"Carbon footprint comparison to other similar items"}
+          title={messages_en.appTitle}
+          description={messages_en.checkoutDialogModal2Description}
           onClose={() => {this.setState({openComparison: false, currentComparisonItem: undefined})}}
           actions={[{
             kind: 'secondary',
@@ -86,7 +87,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
             }]}
           >
            <ItemDialogContent
-              subText={"Consider making a substitution"}
+              subText={messages_en.checkoutDialogModal2Subtext}
               item={this.state.currentComparisonItem}/>
         </TearsheetNarrow>
       </>

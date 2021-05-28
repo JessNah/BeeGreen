@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./ItemDetails.scss"
 import { productItem } from "../../../../utils/types"
+import { messages_en } from "../../../../messages/messages_en"
 
 
 interface ItemDetailsProps {
@@ -29,10 +30,10 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
             {(100 - Math.floor(item.score * 10)) + "%"}
           </div>
         </div>
-        <div>{"185 kg carbon emissions3"}</div>
+        <div>{messages_en.itemDetailsCarbonEmissions}</div>
         <div>
           <div className={"beegreen--item-details-stat-bar-1-label"}>
-            {"Farm: " + "70%"}
+            {messages_en.itemDetailsCarbonFieldFarm + "70%"}
           </div>
           <div>
             <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grey">
@@ -42,7 +43,7 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
         </div>
         <div>
           <div className={"beegreen--item-details-stat-bar-1-label"}>
-            {"Processing: " + "33%"}
+            {messages_en.itemDetailsCarbonFieldProcessing + "33%"}
           </div>
           <div>
             <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grey">
@@ -52,7 +53,7 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
         </div>
         <div>
           <div className={"beegreen--item-details-stat-bar-1-label"}>
-            {"Transport: " + "56%"}
+            {messages_en.itemDetailsCarbonFieldTransport + "56%"}
           </div>
           <div>
             <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grey">
@@ -61,7 +62,7 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
           </div>
         </div>
         <div className={"beegreen--item-details-notes"}>
-          {"This product is known to use more energy to mill than other similar items. Additionally, this item consumes more land for use in production when compared to other similar items."}
+          {messages_en.itemDetailsCarbonDescription}
         </div>
       </>
     )
