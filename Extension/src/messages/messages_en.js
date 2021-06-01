@@ -3,10 +3,10 @@ export const messages_en = {
 
     //permissions
     checkoutContainerModalHeading: "Hi there! Bee Green would like to take a peek at your cart",
-    checkoutContainerModalSubText: "By analyzing your cart, we can evaluate it for carbon scoring and we'll try our best to help you make smarter choices.",
+    checkoutContainerModalSubText: "By analyzing your cart, we can evaluate it for carbon scoring and we'll guide you to make the most sustainable choices.",
     
     //loading
-    checkoutContainerLoadingMessage: "Bee Green is analyzing your cart...\n Thanks for trying your best to make smart choices.",
+    checkoutContainerLoadingMessage: "Bee Green is analyzing your cart...\n Thanks for shopping sustainably.",
     //loading modal
     loadingModalFunFact1: "Up to 12.7 million tonnes of plastic enters the oceans every year.",
     loadingModalFunFact2: "In the Canadian Arctic, 87% of birds have ingested plastics of some sort.",
@@ -23,12 +23,12 @@ export const messages_en = {
     checkoutDialogContentAvgCartRank: "Your average carts at this store rank:",
     checkoutDialogContentBestTile: "Best scoring item",
     checkoutDialogContentLowestTile: "Lowest scoring item",
-    checkoutDialogContentLowestTileTooltip: "Bee Green will do our best to recommend some alternatives that would be friendlier on our planet!",
+    checkoutDialogContentLowestTileTooltip: "Would you like to consider alternatives that would be friendlier to our planet?",
     checkoutDialogContentLowestTileTooltipLabel: "Suggest a substitute",
     //checkout dialog
-    checkoutDialogModal1SubLabel: "Keep it up! You're shopping smarter than 73% of shoppers visiting this site.",
-    checkoutDialogModal1DonationBtn: "Make an impact! Donate to plant some trees and reduce the carbon footprint of your purchase!",
-    checkoutDialogModal2Description: "Carbon footprint comparison to other similar items",
+    checkoutDialogModal1SubLabel: "Keep it up! You're shopping more sustainably than 73% of shoppers visiting this site.",
+    checkoutDialogModal1DonationBtn: "Make a bigger impact! Your donation plants a tree to offset more carbon.",
+    checkoutDialogModal2Description: "Carbon score comparison to other similar items",
     checkoutDialogModal2Subtext: "Consider making a substitution",
 
     //item details
@@ -36,9 +36,9 @@ export const messages_en = {
     itemDetailsCarbonFieldFarm: "Farm: ",
     itemDetailsCarbonFieldProcessing: "Processing: ",
     itemDetailsCarbonFieldTransport: "Transport: ",
-    itemDetailsCarbonDescription: "This product is known to use more energy to mill than other similar items. Additionally, this item consumes more land for use in production when compared to other similar items.",
+    itemDetailsCarbonDescription: "This product is known to use more energy in milling than other similar items. Additionally, this item consumes more land for use in production when compared to other similar items.",
     //item dialog
-    itemDialogDescription: "Carbon footprint comparison to other similar items",
+    itemDialogDescription: "Carbon score comparison to other similar items",
     itemDialogSubText: "Here's how other similar items compare",
 
     //rating tag
