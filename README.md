@@ -3,7 +3,7 @@
   Bee Green
 </h1>
 <h3 align="center" style="border-bottom: 1px solid #eaecef;">
-  Empower individuals to Innovate and BuildUP a resilient society together
+  Empower individuals to Bee Green together
 </h3>
 
 
@@ -35,32 +35,51 @@
 ## Table of Contents
 - [Authors](#authors)
 - [Overview](#overview)
-  - [Background](#background)
+  - [Problem Background](#problem-background)
+- [The Solution](#the-solution)
+  - [Demo](#demo)
+- [How it works](#how-it-works)
+- [Architecture](#architecture)
+- [Technology](#technology)
+- [Roadmap](#roadmap)
 - [Try out our Extension yourself!](#try-out-our-extension-yourself)
 - [Contributing](#contributing)
   - [Prerequisites](#prerequisites)
   - [Starting the Extension dev server](#starting-the-extension-dev-server)
   - [Loading The Extension on Chrome](#loading-the-extension-on-chrome)
   - [Start contributing code](#start-contributing-code)
-  - [1. Understand our Git workflow model](#1-understand-our-git-workflow-model)
-  - [2. Always work on a branch](#2-always-work-on-a-branch)
+    - [1. Understand our Git workflow model](#1-understand-our-git-workflow-model)
+    - [2. Always work on a branch](#2-always-work-on-a-branch)
     - [Branch Naming Conventions](#branch-naming-conventions)
+- [License](#license)
 
 ----
 
 ## Overview
 
-### Background
+### Problem Background
+
+## The Solution
+
+### Demo
+
+## How it works
+
+## Architecture
+
+## Technology
+
+## Roadmap
 
 ## Try out our Extension yourself!
 
 Do you want to try out our extension, without needing to connect to a server and without having to set up a dev environment? Then follow these steps:
 
-1. Download the `Extension/productionDist` zip file found in this repository, and unzip the folder.
+1. Download the `Extension/distProduction` zip file found in this repository, and unzip the folder.
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Toggle on `Developer mode` in the top right corner
 4. Click `Load unpacked`
-5. Select the entire `productionDist` folder
+5. Select the entire `distProduction` folder
 
 ## Contributing
 
@@ -98,32 +117,38 @@ This will build and transpile the Extension code, the output will be placed in t
 
 ### Start contributing code
 
-### 1. Understand our Git workflow model
+#### 1. Understand our Git workflow model
 
 When it comes to code contributions, we generally follow the Gitflow workflow model: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow.
 
-### 2. Always work on a branch
+#### 2. Always work on a branch
 
-When contributing to this package, your work should always be done in a new branch. For all development of this library we use feature branches.
+When contributing to this package, your work should always be done in a new branch. We use feature branches.
 
 What are feature branches: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 
-Each new feature should always reside in its own branch. But, instead of branching off of master, feature branches use development branch as their parent branch. When a feature is complete, it gets merged back into development. Features should never interact directly with master.
+Each new feature should always reside in its own branch. When a feature is complete, it gets merged back into the master branch.
 
-When your work is done, submit your pull request and once it has been approved, you can merge your branch with the development branch.
+When your work is done, submit your pull request and once it has been approved, you can merge your branch.
+
 
 #### Branch Naming Conventions
 Follow this pattern exactly so that searching is easier:
-<prefix>/<usecase>-<summary> 
-
+`<prefix>/<summary>` 
 
 Prefix  |   Use Case
 ---     |   ---
 feature |   New feature addition
 defect	|   Bug or defect fix
 wip	    |   Works in progress
-junk    |	Throwaway branch created to experiment
+junk    |	  Throwaway branch created to experiment
 
 Example branch name:
 
-feature/new-component
+```bash
+feature/rewards-page
+```
+
+## License
+
+Bee Green is made available under the [Apache 2 License](LICENSE).
