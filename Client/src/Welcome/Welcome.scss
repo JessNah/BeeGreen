@@ -1,0 +1,60 @@
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/_styles.scss';
+// @import '~carbon-components/scss/globals/scss/styles.scss';
+// uncomment above to be able to use color variables
+
+
+.HeaderGradient {
+  @include carbon--type-style('expressive-heading-06');
+  color: white; //$ui-background;
+  width: 100%;
+  background: linear-gradient( 135deg, #1ba545, #9fd0c1);
+  padding: 160px; //was 220px
+  // border-bottom-right-radius: 200px;
+  // border-bottom-left-radius: 50% 40%;
+  border-bottom-right-radius: 50% 40%;
+  margin-bottom:40px;
+}
+@media (max-width: 1000px) {
+  .HeaderGradient {
+    padding: 135px;
+  }
+}
+@media (max-width: 850px) {
+  .HeaderGradient {
+    padding: 110px;
+  }
+}
+@media (max-width: 400px) {
+  .HeaderGradient {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 850px) {
+  .Phone_Graphic_Handle{
+    margin-top:220px;
+  }
+}
+@media (max-width: 500px) {
+  .Phone_Graphic_Handle{
+    margin-top:140px;
+  }
+}
+
+.ImageWrapper{
+    position: absolute;
+    top: 180px;
+    left: calc(50% - 400px);
+}
+
+.WelcomeImage{
+  svg {
+    width: 800px !important;
+  }
+}
+
+.ApplicationName{
+  @include carbon--type-style('expressive-heading-04');
+  color: white;
+  margin-bottom: 40px;
+}

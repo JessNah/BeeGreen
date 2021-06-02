@@ -1,0 +1,13 @@
+.fade_in {
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+
+  &.visible {
+    transition: opacity 0.8s ease-in;
+    opacity: 1;
+  }
+}
+
+.visible {
+
+}
