@@ -10,10 +10,9 @@ export class InventoryItem extends Entity {
   id?: string;
 
   @property({
-    type: 'array',
-    itemType: 'object',
+    type: 'object',
   })
-  stats?: object[];
+  stats?: object;
 
   @property({
     type: 'number',
@@ -24,6 +23,11 @@ export class InventoryItem extends Entity {
     type: 'string',
   })
   category?: string;
+
+  @property({
+    type: 'string',
+  })
+  name?: string;
 
   @property({
     type: 'array',
