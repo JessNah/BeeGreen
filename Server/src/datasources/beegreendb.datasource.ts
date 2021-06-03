@@ -4,10 +4,10 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'beegreendb',
   connector: 'cloudant',
-  url: '<insert-credentials>',
+  url: 'xxx',
   database: 'beegreendb',
-  username: 'apikey-v2-xgib05bdw5p0j3bd4qjux4mlfb02lw950ipkty7s35k',
-  password: '<insert-credentials>',
+  username: 'xxx',
+  password: 'xxx',
   modelIndex: 'loopback__model__beegreendb',
   globalLimit: 1000
 };
