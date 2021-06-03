@@ -60,6 +60,8 @@ export class AddDataObserver implements LifeCycleObserver {
       finalNormalized = normalizeField('Farm', finalNormalized, uniqueTypes, []);
       finalNormalized = normalizeField('Processing', finalNormalized, uniqueTypes, []);
       finalNormalized = normalizeField('Transport', finalNormalized, uniqueTypes, []);
+      finalNormalized = normalizeField('Packaging', finalNormalized, uniqueTypes, []);
+      finalNormalized = normalizeField('Retail', finalNormalized, uniqueTypes, []);
 
       let purchaseArray = [{
         purchaseDate: '2020-04-14',
