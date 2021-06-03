@@ -25,11 +25,11 @@ const csv = require('csv-parser');
 @lifeCycleObserver('AddDataGroup')
 export class AddDataObserver implements LifeCycleObserver {
 
-  importCSV = () => {
-    let inventoryArray: InventoryItem[] = [];
+  importCSV = (inventoryArray: InventoryItem[], uniqueTypes: string[]) => {
     fs.createReadStream('../Data/Food_Production.csv')
     .pipe(csv())
     .on('data', (row: any) => {
+      // console.log(row);
       const inventoryItem = new InventoryItem({
         name: row["Food product"],
         totalScore: parseFloat(row["Normalized"]),
@@ -51,45 +51,45 @@ export class AddDataObserver implements LifeCycleObserver {
       inventoryArray.push(inventoryItem);;
     })
     .on('end', () => {
-      let uniqueTypes: string[] = [];
       uniqueTypes = inventoryArray.filter((x) =>
         !uniqueTypes.includes(x.category as string)).map(
           (row: InventoryItem) => (row.category as string));
-      let finalNormalized: InventoryItem[] = [];
-      finalNormalized = normalizeTotalScore('totalScore', inventoryArray, uniqueTypes, []);
-      finalNormalized = normalizeField('Farm', finalNormalized, uniqueTypes, []);
-      finalNormalized = normalizeField('Processing', finalNormalized, uniqueTypes, []);
-      finalNormalized = normalizeField('Transport', finalNormalized, uniqueTypes, []);
-      finalNormalized = normalizeField('Packaging', finalNormalized, uniqueTypes, []);
-      finalNormalized = normalizeField('Retail', finalNormalized, uniqueTypes, []);
-
-      let purchaseArray = [{
-        purchaseDate: '2020-04-14',
-        buyerUsername: 'KimPeppermint',
-        items: [ inventoryArray[0], inventoryArray[12], inventoryArray[16], inventoryArray[36], inventoryArray[40] ],
-        score: 4,
-        store: "INSTACART",
-        totalCost: 34,
-        buyerIp: 'xxx'
-      },
-      {
-        purchaseDate: '2020-04-14',
-        buyerUsername: 'KimPeppermint',
-        items: [ inventoryArray[5], inventoryArray[7], inventoryArray[9], inventoryArray[11], inventoryArray[22], inventoryArray[29] ],
-        score: 4,
-        store: "INSTACART",
-        totalCost: 34,
-        buyerIp: 'xxx'
-      }]
-      purchaseArray.forEach(purchase => {
-        this.purchaseRepo.create(new Purchase(purchase));
-      });
-
-      this.writeNext(0, inventoryArray);
-
       console.log('CSV file successfully processed');
     });
   };
+
+  processRest = (inventoryArray: InventoryItem[], uniqueTypes: string[]) => {
+    let finalNormalized: InventoryItem[] = [];
+    finalNormalized = normalizeTotalScore('totalScore', inventoryArray, uniqueTypes, []);
+    finalNormalized = normalizeField('Farm', finalNormalized, uniqueTypes, []);
+    finalNormalized = normalizeField('Processing', finalNormalized, uniqueTypes, []);
+    finalNormalized = normalizeField('Transport', finalNormalized, uniqueTypes, []);
+    finalNormalized = normalizeField('Packaging', finalNormalized, uniqueTypes, []);
+    finalNormalized = normalizeField('Retail', finalNormalized, uniqueTypes, []);
+    let purchaseArray = [{
+      purchaseDate: '2020-04-14',
+      buyerUsername: 'KimPeppermint',
+      items: [ inventoryArray[0], inventoryArray[12], inventoryArray[16], inventoryArray[36], inventoryArray[40] ],
+      score: 4,
+      store: "INSTACART",
+      totalCost: 34,
+      buyerIp: 'xxx'
+    },
+    {
+      purchaseDate: '2020-04-14',
+      buyerUsername: 'KimPeppermint',
+      items: [ inventoryArray[5], inventoryArray[7], inventoryArray[9], inventoryArray[11], inventoryArray[22], inventoryArray[29] ],
+      score: 4,
+      store: "INSTACART",
+      totalCost: 34,
+      buyerIp: 'xxx'
+    }]
+    purchaseArray.forEach(purchase => {
+      this.purchaseRepo.create(new Purchase(purchase));
+    });
+
+    this.writeNext(0, inventoryArray);
+  }
 
   writeNext = (start: number, array: InventoryItem[]) =>
   {
@@ -149,7 +149,10 @@ export class AddDataObserver implements LifeCycleObserver {
     });
     this.userRepo.create(userData);    
 
-    this.importCSV();
+    let inventoryArray: InventoryItem[] = [];
+    let uniqueTypes: string[] = [];
+    this.importCSV(inventoryArray, uniqueTypes);    
+    this.processRest(inventoryArray, uniqueTypes);
   }
 
   /**
