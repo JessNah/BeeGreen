@@ -13,6 +13,7 @@ import {PurchaseRepository} from '../repositories';
 import {Purchase} from '../models';
 import {InventoryItemRepository} from '../repositories';
 import {InventoryItem} from '../models';
+import {normalizeTotalScore, normalizeField} from '../dataprocessing/dataprocessing';
 
 import fs = require('fs');
 const csv = require('csv-parser');
@@ -36,6 +37,8 @@ export class AddDataObserver implements LifeCycleObserver {
         associatedStores: [
           "INSTACART"
         ],
+        details: row["Details"],
+        comments: (row["Comments"] && row["Comments"] !== "") ? JSON.parse(row["Comments"]) : undefined,
         stats: {
           Farm:  parseFloat(row["Farm"]),
           Processing:  parseFloat(row["Processing"]),
@@ -53,45 +56,10 @@ export class AddDataObserver implements LifeCycleObserver {
         !uniqueTypes.includes(x.category as string)).map(
           (row: InventoryItem) => (row.category as string));
       let finalNormalized: InventoryItem[] = [];
-      for(let i = 0; i < uniqueTypes.length; i++){
-        let typedArr = inventoryArray.filter((x) =>
-          x.category === uniqueTypes[i]);
-        let max = -99999999999999;
-        let min = 9999999999999;
-        for(let j = 0; j < typedArr.length; j++){
-          if(typedArr[j].totalScore && (typedArr[j].totalScore as number < min)) {
-            min = typedArr[j].totalScore as number;
-          }          
-          if(typedArr[j].totalScore && (typedArr[j].totalScore as number > max)) {
-            max = typedArr[j].totalScore as number;
-          }
-        }        
-        for(let j = 0; j < typedArr.length; j++){
-          const typedObj:{[key:string]:any} = {...typedArr[j]};
-          if(typedObj){
-            if(min === max){
-              continue;
-            } else if(typedObj.totalScore) {
-              //remember, lower is good.
-              //pretty good items... rate them on the lower side
-              if(max < 1){
-                const equilibriumVal = ((typedObj.totalScore as number - min)/(max - min))*10;
-                typedObj.totalScore = (equilibriumVal * 3) / 10; //give a good low score.. out of 3.
-              } else if(max < 2){
-                const equilibriumVal = ((typedObj.totalScore as number - min)/(max - min))*10;
-                typedObj.totalScore = (equilibriumVal * 5) / 10; //give avg score.. around 5 max
-              } else if(max < 3){
-                const equilibriumVal = ((typedObj.totalScore as number - min)/(max - min))*10;
-                typedObj.totalScore = (equilibriumVal * 6) / 10; //give avg score.. around 6 max
-              } else {
-                const equilibriumVal = ((typedObj.totalScore as number - min)/(max - min))*10;
-                typedObj.totalScore = (equilibriumVal * 10) / 10; //leave out of 10
-              }
-            }
-          }
-          finalNormalized = [...finalNormalized, typedObj as InventoryItem];
-        }
-      }
+      finalNormalized = normalizeTotalScore('totalScore', inventoryArray, uniqueTypes, []);
+      finalNormalized = normalizeField('Farm', finalNormalized, uniqueTypes, []);
+      finalNormalized = normalizeField('Processing', finalNormalized, uniqueTypes, []);
+      finalNormalized = normalizeField('Transport', finalNormalized, uniqueTypes, []);
 
       let purchaseArray = [{
         purchaseDate: '2020-04-14',
