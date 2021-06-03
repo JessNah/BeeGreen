@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import "./CheckoutDialog.scss"
 import { Tearsheet, TearsheetNarrow } from "@carbon/ibm-cloud-cognitive"
-import { getCartAverageRating, getCart } from "../../stores/storesCommon"
+import { getCartAverageRating } from "../../stores/storesCommon"
 import CheckoutCart from "./CheckoutCart/CheckoutCart"
 import { productItem } from "../../utils/types"
 import ItemDialogContent from "../ItemDialog/ItemDialogContent/ItemDialogContent"
@@ -11,6 +11,7 @@ import { messages_en } from "../../messages/messages_en";
 interface CheckoutDialogProps {
   closeCheckoutDialog: () => void;
   currentStore: string;
+  cart: {[key:string]: any}[];
 }
 
 interface CheckoutDialogState {
@@ -31,7 +32,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
   }
 
   componentDidMount() {
-    const cart = getCart(this.props.currentStore);
+    const cart = this.props.cart;
     const cartRank = getCartAverageRating(cart);
     this.setState({cart: cart, cartRank: cartRank});
     window.setTimeout(() => {this.setState({openCart: true})}, 500);

@@ -19,7 +19,6 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
   }
 
   getBarClass = (score) => {
-    console.log("score is " + score);
     if(score < 35) {
       return "beegreen--item-details-stat-bar-green";
     } else if (score < 65) {
