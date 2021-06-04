@@ -236,28 +236,32 @@ export function getTopSubstitute(inventory, item, second) {
     if(typedArr.length <= 0){
         return undefined;
     }
-    let bestItem = typedArr[0];
-    let bestItem2 = typedArr[0];
+    let bestItem = undefined
+    let bestItem2 = undefined;
     for(let i = 0; i < typedArr.length; i++){
-        if(typedArr[i].name === "Poultry Meat" || typedArr[i].name === "Pig Meat"){
+        if(typedArr[i].name === "Poultry Meat" || typedArr[i].name === "Pig Meat" ||
+            typedArr[i].name === "Beef (dairy herd)"){
             continue;
         }
-        if(typedArr[i].totalScore <= bestItem.totalScore) {
+        if(inventoryContains([typedArr[i]], item.name) > -1 && !(item.name.toLowerCase().includes("oil"))){
+            continue;
+        }
+        if(bestItem === undefined || typedArr[i].totalScore <= bestItem.totalScore) {
             bestItem2 = bestItem;
             bestItem = typedArr[i];
-        } else if(typedArr[i].totalScore <= bestItem2.totalScore) {
+        } else if(bestItem2 === undefined || typedArr[i].totalScore <= bestItem2.totalScore) {
             bestItem2 = typedArr[i];
         }
     }
     if(second){
-        if(bestItem2.name === item.name){
+        if(!bestItem2){
             return undefined;
         }
         findTop3(bestItem2);
         bestItem2.score = bestItem2.totalScore;
         return bestItem2;
     }
-    if(bestItem.name === item.name){
+    if(!bestItem){
         return undefined;
     }
     findTop3(bestItem);
