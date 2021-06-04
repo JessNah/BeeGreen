@@ -126,6 +126,11 @@ export class AddDataObserver implements LifeCycleObserver {
           }
         });
         inventoryArray.push(inventoryItem);
+        if(inventoryItem.name?.toLocaleLowerCase().includes("poultry")){
+          const inventoryItemTurkey = new InventoryItem(inventoryItem);
+          inventoryItemTurkey.name = "Turkey";
+          inventoryArray.push(inventoryItemTurkey);
+        }
       })
       .on('end', () => {
         console.log('CSV file successfully processed');

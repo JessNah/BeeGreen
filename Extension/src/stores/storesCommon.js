@@ -99,6 +99,7 @@ export function processCart(cart, inventory) {
             item.details = inventoryItem.details;
             item.comments = inventoryItem.comments;
             item.stats = inventoryItem.stats;
+            findTop3(item);
         }
     }
 }
@@ -124,9 +125,11 @@ function findTop3(item) {
         return a[1] - b[1];
     });
     sortable.reverse();
-    item.top3Metrics = {}; //clear random fill
-    for(let i = 0; i < 3; i++){
-        item.top3Metrics[sortable[0]] = sortable[1];
+    if(sortable.length > 2){
+        item.top3Metrics = {}; //clear random fill
+        for(let i = 0; i < 3; i++){
+            item.top3Metrics[sortable[0]] = sortable[1] * 10;
+        }
     }
 }
 
@@ -142,6 +145,9 @@ function inventoryContains(inventory, itemName) {
         //special cases
         if(invName.includes("poultry") && itName.includes("chicken")){
             return i;
+        }
+        if(itName.includes("nutrioli") && !invName.includes("oil")){
+            continue;
         }
         if(invName.includes(itName) || itName.includes(invName)){
             return i;
