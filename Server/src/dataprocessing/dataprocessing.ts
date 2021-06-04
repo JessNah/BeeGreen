@@ -19,7 +19,14 @@ export const normalizeTotalScore = (field: string, inventoryArray: InventoryItem
       const typedObj:{[key:string]:any} = {...typedArr[j]};
       if(typedObj){
         if(min === max){
-          continue;
+          //likely single item.
+          if(typedObj.stats[field] > 10){
+            typedObj[field] = 10;
+          } else if(typedObj.stats[field] < 0) {
+            typedObj[field] = 0;
+          } else {
+            typedObj[field] = typedObj.stats[field];
+          }
         } else if(typedObj[field]) {
           //remember, lower is good.
           //pretty good items... rate them on the lower side
@@ -57,7 +64,7 @@ export const normalizeField = (field: string, inventoryArray: InventoryItem[], u
       if(typedArr[j].stats[field]  && (typedArr[j].stats[field] as number > max)) {
         max = typedArr[j].stats[field] as number;
       }
-    }        
+    }    
     for(let j = 0; j < typedArr.length; j++){
       const typedObj:{[key:string]:any} = {...typedArr[j]};
       if(typedObj){

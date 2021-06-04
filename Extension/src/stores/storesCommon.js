@@ -1,7 +1,8 @@
 import { getInstaCart, getInstaItem } from "./instacartStore"
 import { getAppleCart, getAppleItem} from "./appleStore"
 import { getAmazonCart, getAmazonItem } from "./amazonStore"
-import { SupportedSites, settings } from "../utils/constants"
+import { SupportedSites } from "../utils/constants"
+import { settings } from "../settings"
 import { baseUrl } from '../../../Client/src/config';
 
 export function getCart(currentStore, onSuccessHandler) {

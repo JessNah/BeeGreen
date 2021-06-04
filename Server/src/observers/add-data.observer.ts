@@ -25,38 +25,6 @@ const csv = require('csv-parser');
 @lifeCycleObserver('AddDataGroup')
 export class AddDataObserver implements LifeCycleObserver {
 
-  importCSV = (inventoryArray: InventoryItem[], uniqueTypes: string[]) => {
-    fs.createReadStream('../Data/Food_Production.csv')
-    .pipe(csv())
-    .on('data', (row: any) => {
-      // console.log(row);
-      const inventoryItem = new InventoryItem({
-        name: row["Food product"],
-        totalScore: parseFloat(row["Normalized"]),
-        category: row["Type"],
-        associatedStores: [
-          "INSTACART"
-        ],
-        details: row["Details"],
-        comments: (row["Comments"] && row["Comments"] !== "") ? JSON.parse(row["Comments"]) : undefined,
-        stats: {
-          Farm:  parseFloat(row["Farm"]),
-          Processing:  parseFloat(row["Processing"]),
-          Transport:  parseFloat(row["Transport"]),
-          Packaging:  parseFloat(row["Packaging"]),
-          Retail:  parseFloat(row["Retail"]),
-          Total_emissions:  parseFloat(row["Total_emissions"]),
-        }
-      });
-      inventoryArray.push(inventoryItem);;
-    })
-    .on('end', () => {
-      uniqueTypes = inventoryArray.filter((x) =>
-        !uniqueTypes.includes(x.category as string)).map(
-          (row: InventoryItem) => (row.category as string));
-      console.log('CSV file successfully processed');
-    });
-  };
 
   processRest = (inventoryArray: InventoryItem[], uniqueTypes: string[]) => {
     let finalNormalized: InventoryItem[] = [];
@@ -69,7 +37,7 @@ export class AddDataObserver implements LifeCycleObserver {
     let purchaseArray = [{
       purchaseDate: '2020-04-14',
       buyerUsername: 'KimPeppermint',
-      items: [ inventoryArray[0], inventoryArray[12], inventoryArray[16], inventoryArray[36], inventoryArray[40] ],
+      items: [ finalNormalized[0], finalNormalized[12], finalNormalized[16], finalNormalized[36], finalNormalized[40] ],
       score: 4,
       store: "INSTACART",
       totalCost: 34,
@@ -78,7 +46,7 @@ export class AddDataObserver implements LifeCycleObserver {
     {
       purchaseDate: '2020-04-14',
       buyerUsername: 'KimPeppermint',
-      items: [ inventoryArray[5], inventoryArray[7], inventoryArray[9], inventoryArray[11], inventoryArray[22], inventoryArray[29] ],
+      items: [ finalNormalized[5], finalNormalized[7], finalNormalized[9], finalNormalized[11], finalNormalized[22], finalNormalized[29] ],
       score: 4,
       store: "INSTACART",
       totalCost: 34,
@@ -88,7 +56,7 @@ export class AddDataObserver implements LifeCycleObserver {
       this.purchaseRepo.create(new Purchase(purchase));
     });
 
-    this.writeNext(0, inventoryArray);
+    this.writeNext(0, finalNormalized);
   }
 
   writeNext = (start: number, array: InventoryItem[]) =>
@@ -133,6 +101,40 @@ export class AddDataObserver implements LifeCycleObserver {
    * This method will be invoked when the application starts.
    */
   async start(): Promise<void> {
+    
+  function importCSV(inventoryArray: InventoryItem[]): Promise<InventoryItem[]> {
+    return new Promise(resolve => {
+      fs.createReadStream('../Data/Food_Production.csv')
+      .pipe(csv())
+      .on('data', (row: any) => {
+        const inventoryItem = new InventoryItem({
+          name: row["Food product"],
+          totalScore: parseFloat(row["Normalized"]),
+          category: row["Type"],
+          associatedStores: [
+            "INSTACART"
+          ],
+          details: row["Details"],
+          comments: (row["Comments"] && row["Comments"] !== "") ? JSON.parse(row["Comments"]) : undefined,
+          stats: {
+            Farm:  parseFloat(row["Farm"]),
+            Processing:  parseFloat(row["Processing"]),
+            Transport:  parseFloat(row["Transport"]),
+            Packaging:  parseFloat(row["Packaging"]),
+            Retail:  parseFloat(row["Retail"]),
+            Total_emissions:  parseFloat(row["Total_emissions"]),
+          }
+        });
+        inventoryArray.push(inventoryItem);
+      })
+      .on('end', () => {
+        console.log('CSV file successfully processed');
+        resolve(inventoryArray);
+      });
+
+    });
+  };
+
     // Add your logic for start
     //seed the repository
     let count: number = (await this.userRepo.count()).count;
@@ -150,9 +152,13 @@ export class AddDataObserver implements LifeCycleObserver {
     this.userRepo.create(userData);    
 
     let inventoryArray: InventoryItem[] = [];
-    let uniqueTypes: string[] = [];
-    this.importCSV(inventoryArray, uniqueTypes);    
-    this.processRest(inventoryArray, uniqueTypes);
+    let uniqueTypes: string[] = [];    
+    inventoryArray = await importCSV(inventoryArray);      
+    uniqueTypes = [...new Set(inventoryArray.map(
+      item => item.category as string
+    ))];
+      
+    this.processRest(inventoryArray, uniqueTypes as string[]);
   }
 
   /**
