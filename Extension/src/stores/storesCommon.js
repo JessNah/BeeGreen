@@ -99,16 +99,34 @@ export function processCart(cart, inventory) {
             item.details = inventoryItem.details;
             item.comments = inventoryItem.comments;
             item.stats = inventoryItem.stats;
-            if(item.stats["Farm"]){
-                item.top3Metrics["Farm"] = item.stats["Farm"];
-            }
-            if(item.stats["Processing"]){
-                item.top3Metrics["Processing"] = item.stats["Processing"];
-            }
-            if(item.stats["Transport"]){
-                item.top3Metrics["Transport"] = item.stats["Transport"];
-            }
         }
+    }
+}
+
+function findTop3(item) {
+    let sortable = [];
+    if(item.stats["Farm_normalized"]){
+        sortable.push([["Farm"], item.stats["Farm_normalized"]]);
+    }
+    if(item.stats["Processing_normalized"]){
+        sortable.push([["Processing"], item.stats["Processing_normalized"]]);
+    }
+    if(item.stats["Transport_normalized"]){
+        sortable.push([["Transport"], item.stats["Transport_normalized"]]);
+    }
+    if(item.stats["Packaging_normalized"]){
+        sortable.push([["Packaging"], item.stats["Packaging_normalized"]]);
+    }
+    if(item.stats["Retail_normalized"]){
+        sortable.push([["Retail"], item.stats["Retail_normalized"]]);
+    }
+    sortable.sort(function(a, b) {
+        return a[1] - b[1];
+    });
+    sortable.reverse();
+    item.top3Metrics = {}; //clear random fill
+    for(let i = 0; i < 3; i++){
+        item.top3Metrics[sortable[0]] = sortable[1];
     }
 }
 

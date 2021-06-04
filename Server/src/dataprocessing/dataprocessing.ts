@@ -58,13 +58,13 @@ export const normalizeField = (field: string, inventoryArray: InventoryItem[], u
     let max = -99999999999999;
     let min = 9999999999999;
     for(let j = 0; j < typedArr.length; j++){
-      if(typedArr[j].stats[field] && (typedArr[j].stats[field] as number < min)) {
+      if(typedArr[j].stats[field] !== undefined && (typedArr[j].stats[field] as number < min)) {
         min = typedArr[j].stats[field] as number;
       }          
-      if(typedArr[j].stats[field]  && (typedArr[j].stats[field] as number > max)) {
+      if(typedArr[j].stats[field] !== undefined && (typedArr[j].stats[field] as number > max)) {
         max = typedArr[j].stats[field] as number;
       }
-    }    
+    }
     for(let j = 0; j < typedArr.length; j++){
       const typedObj:{[key:string]:any} = {...typedArr[j]};
       if(typedObj){
