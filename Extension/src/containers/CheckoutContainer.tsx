@@ -3,6 +3,7 @@ import PermissionDialog from '../components/PermissionDialog/PermissionDialog'
 import LoadingModal from '../components/LoadingModal/LoadingModal'
 import CheckoutDialog from '../components/CheckoutDialog/CheckoutDialog'
 import { messages_en } from "../messages/messages_en";
+import { getInventory } from "../stores/storesCommon";
 import { getCart } from "../stores/storesCommon";
 
 
@@ -17,13 +18,15 @@ interface CheckoutContainerState {
   loading: boolean;
   cart: {[key:string]: any}[];
   minLoadTimePassed: boolean;
+  inventory: undefined | {[key:string]: any}[]
 }
 
 class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContainerState> {
   state = {
     loading: true,
     minLoadTimePassed: false,
-    cart: []
+    cart: [],
+    inventory: undefined
   }
   timeoutLoadSim:any;
 
@@ -33,9 +36,14 @@ class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContai
 
   componentDidMount() {
     if(this.props.isPermissionGranted) {
-      getCart(this.props.currentStore, this.setCart);
+      getInventory(this.setInventory);
       this.timeoutLoadSim = window.setTimeout(this.loadingSim, 2000);
     }
+  }
+
+  setInventory = (inventory) => {
+    this.setState({inventory: inventory});
+    getCart(this.props.currentStore, this.setCart, inventory);
   }
 
   setCart = (cart) => {
@@ -48,7 +56,7 @@ class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContai
 
   onPermissionOK = () => {
     this.props.setPermission();
-    getCart(this.props.currentStore, this.setCart);
+    getInventory(this.setInventory);
     this.timeoutLoadSim = window.setTimeout(this.loadingSim, 2000);
   }
 
@@ -68,6 +76,7 @@ class CheckoutContainer extends Component<CheckoutContainerProps, CheckoutContai
                 message={messages_en.checkoutContainerLoadingMessage}
               />
               : <CheckoutDialog
+                  inventory={this.state.inventory}
                   cart={this.state.cart}
                   currentStore={this.props.currentStore}
                   closeCheckoutDialog={() => {this.props.endCheckoutSequence()}}

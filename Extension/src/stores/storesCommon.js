@@ -5,23 +5,32 @@ import { SupportedSites } from "../utils/constants"
 import { settings } from "../settings"
 import { baseUrl } from '../../../Client/src/config';
 
-export function getCart(currentStore, onSuccessHandler) {
-    let cart = getDOMCart(currentStore);
+export function getInventory(onSuccessHandler) {
     if(!settings.devMode){
         //use server data
-        getInventory(cart, onSuccessHandler);
+        getInventoryInternal(onSuccessHandler);
+    } else {
+        onSuccessHandler(undefined);
+    }
+}
+
+export function getCart(currentStore, onSuccessHandler, inventory) {
+    let cart = getDOMCart(currentStore);
+    if(!settings.devMode && !(inventory === undefined)){
+        //use server data
+        processCart(cart, inventory);
+        onSuccessHandler(cart);
     } else {
         onSuccessHandler(cart);
     }
 }
 
-async function getInventory(cart, onSuccessHandler) {
+async function getInventoryInternal(onSuccessHandler) {
     const [ inventroyItems ] = await Promise.all([
         fetch(`${baseUrl}/inventory-items`).then(res => res.json()).catch(err => err)
       ]);
     console.log(inventroyItems);
-    processCart(cart, inventroyItems);
-    onSuccessHandler(cart);
+    onSuccessHandler(inventroyItems);
 }
 
 export function getDOMCart(currentStore) {
@@ -99,9 +108,11 @@ export function processCart(cart, inventory) {
             item.details = inventoryItem.details;
             item.comments = inventoryItem.comments;
             item.stats = inventoryItem.stats;
+            item.category = inventoryItem.category;
             findTop3(item);
         }
-    }
+    }    
+    cart.sort(compare);
 }
 
 function findTop3(item) {
@@ -128,7 +139,7 @@ function findTop3(item) {
     if(sortable.length > 2){
         item.top3Metrics = {}; //clear random fill
         for(let i = 0; i < 3; i++){
-            item.top3Metrics[sortable[0]] = sortable[1] * 10;
+            item.top3Metrics[sortable[i][0]] = Math.round(sortable[i][1] * 10);
         }
     }
 }
@@ -217,4 +228,39 @@ function inventoryContains(inventory, itemName) {
         return bestMatchingInventoryIndex;
     }
     return -1;
+}
+
+export function getTopSubstitute(inventory, item, second) {
+    let typedArr = inventory.filter((x) =>
+      x.category === item.category);
+    if(typedArr.length <= 0){
+        return undefined;
+    }
+    let bestItem = typedArr[0];
+    let bestItem2 = typedArr[0];
+    for(let i = 0; i < typedArr.length; i++){
+        if(typedArr[i].name === "Poultry Meat" || typedArr[i].name === "Pig Meat"){
+            continue;
+        }
+        if(typedArr[i].totalScore <= bestItem.totalScore) {
+            bestItem2 = bestItem;
+            bestItem = typedArr[i];
+        } else if(typedArr[i].totalScore <= bestItem2.totalScore) {
+            bestItem2 = typedArr[i];
+        }
+    }
+    if(second){
+        if(bestItem2.name === item.name){
+            return undefined;
+        }
+        findTop3(bestItem2);
+        bestItem2.score = bestItem2.totalScore;
+        return bestItem2;
+    }
+    if(bestItem.name === item.name){
+        return undefined;
+    }
+    findTop3(bestItem);
+    bestItem.score = bestItem.totalScore;
+    return bestItem;
 }

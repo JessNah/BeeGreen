@@ -57,7 +57,7 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
           )
         })}
         <div className={"beegreen--item-details-notes"}>
-          {messages_en.itemDetailsCarbonDescription}
+          {this.props.item.details ? this.props.item.details : messages_en.itemDetailsCarbonDescription}
         </div>
       </>
     )

@@ -11,7 +11,8 @@ import { messages_en } from "../../messages/messages_en";
 interface CheckoutDialogProps {
   closeCheckoutDialog: () => void;
   currentStore: string;
-  cart: {[key:string]: any}[];
+  cart: {[key:string]: any}[];  
+  inventory?: undefined | {[key:string]: any}[];
 }
 
 interface CheckoutDialogState {
@@ -39,8 +40,6 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
   }
 
   render() {
-    console.log(this.state.cart);
-    console.log(this.state);
     return (
       <>
         <Tearsheet
@@ -88,6 +87,7 @@ class CheckoutDialog extends Component<CheckoutDialogProps, CheckoutDialogState>
             }]}
           >
            <ItemDialogContent
+              inventory={this.props.inventory}
               subText={messages_en.checkoutDialogModal2Subtext}
               item={this.state.currentComparisonItem}/>
         </TearsheetNarrow>
