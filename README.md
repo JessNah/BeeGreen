@@ -85,7 +85,7 @@ Do you want to try out our extension and get a preview of the experience, withou
 4. Click `Load unpacked`
 5. Select the entire `distProduction` folder
 
-Note**: For real data, you'd have to follow the instructions in the contributing section, as you'd need to connect to a database.
+**Note: For real data, you'd have to follow the instructions in the contributing section, as you'd need to connect to a database.
 
 ## Contributing
 
@@ -114,7 +114,7 @@ npm run start
 
 This will build and transpile the Extension code, the output will be placed in the `Extension/dist` folder.
 
-If you do not have the database up and connected to the server code, then you'd need to first navigate to `Extension/src/settings.ts` and update the `devMode` attribute to `true` before you run the above commands. Otherwise you could follow the steps below to get your server and database up and working.
+If you do not have the database up and connected to the server code, and do not wish to use the real data from the database, then you'd need to first navigate to `Extension/src/settings.ts` and update the `devMode` attribute to `true` before you run the above commands. Otherwise you could follow the steps below to get your server and database up and working.
 
 ### Loading The Extension on Chrome
 

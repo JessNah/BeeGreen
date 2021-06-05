@@ -1,0 +1,33 @@
+
+.beegreen--item-reviews-content-wrapper {
+    padding: 32px;
+}
+
+.beegreen--item-reviews-content-card {
+    margin-bottom: 16px;
+    position: relative;
+    padding: 10px 20px;
+    background: rgb(255 255 255 / 90%);
+    color: #3f3f3f;
+    border-radius: 10px;
+    line-height: 20px;
+}
+
+.beegreen--item-reviews-content-title {
+    padding-bottom: 8px;
+}
+
+.beegreen--item-reviews-content-name {
+    margin-top: 8px;
+    text-transform: capitalize;
+    font-style: italic;
+    text-align: right;
+    margin-right: 20px
+}
+
+.beegreen--item-reviews-content-date {
+    text-transform: capitalize;
+    font-style: italic;
+    text-align: right;
+    margin-right: 20px
+}

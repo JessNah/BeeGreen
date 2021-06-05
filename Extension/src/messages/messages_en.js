@@ -47,4 +47,11 @@ export const messages_en = {
     ratingTagGood: "Good",
     ratingTagFair: "Fair",
     ratingTagLow: "Low",
+
+    //tabs
+    detailsTab: "Details",
+    reviewsTab: "Reviews",
+
+    //reviews
+    noReviews: "No reviews have been left for this item"
 }

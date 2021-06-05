@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import "./ItemDialogContent.scss"
 import { productItem } from "../../../utils/types"
-import ItemDetails from "./ItemDetails/ItemDetails"
-import { getTopSubstitute } from "../../../stores/storesCommon"
+import ItemDetailsContent from "./ItemDetailsContent/ItemDetailsContent";
+import ItemReviewsContent from "./ItemReviewsContent/ItemReviewsContent";
+import { Tab, Tabs } from 'carbon-components-react';
+import { messages_en } from "../../../messages/messages_en";
 
 
 interface ItemDialogProps {
@@ -12,10 +14,14 @@ interface ItemDialogProps {
 }
 
 interface ItemDialogState {
+  open: boolean;
+  currentTab1?: boolean;
 }
 
 class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
   state= {
+    open: false,
+    currentTab1: true
   }
 
   componentDidMount() {
@@ -23,83 +29,34 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
   }
 
   render() {
-    let { item, inventory } = this.props;
-    let substitute_1: productItem = {
-      name: "Soy flour",
-      id: "soy_flour",
-      score: 2.6, //low is good
-      top3Metrics: {"Farm": 43, "Processing": 15, "Transport": 26}
-    } 
-    let substitute_2: productItem = {
-      name: "Wheat flour",
-      id: "wheat_flour",
-      score: 7.2, //high is bad
-      top3Metrics: {"Farm": 70, "Processing": 33, "Transport": 56}
-    }
-    if(item && !item.category){
-      item.category = "Oil";
-    }
-    if(inventory && item && item.category) {
-      if(getTopSubstitute(inventory, item) !== undefined){
-        substitute_1 = getTopSubstitute(inventory, item);
-        //manually set substitute's top 3 metrics to match that of main item.
-        substitute_1.top3Metrics = {};
-        for (const property in item.top3Metrics) {
-          substitute_1.top3Metrics[property] = Math.round(substitute_1.stats[property + "_normalized"] * 10);
-        }
-      }
-      if(getTopSubstitute(inventory, item, true) !== undefined){
-        substitute_2 = getTopSubstitute(inventory, item, true);
-        //manually set substitute's top 3 metrics to match that of main item.
-        substitute_2.top3Metrics = {};
-        for (const property in item.top3Metrics) {
-          substitute_2.top3Metrics[property] = Math.round(substitute_2.stats[property + "_normalized"] * 10);
-        }
-      }
-    }
+    let { item, subText, inventory } = this.props;
     return (
       <>
-      <div className={"beegreen--item-dialog-content-wrapper"}>
-        <div className={"beegreen--item-dialog-content-selected-item"}>
-          <div className={"beegreen--item-dialog-content-selected-item-img"}>
-            <img className={"beegreen--item-dialog-content-selected-item-img-tag"}
-              src={item?.image} />
-          </div>
-          <div className={"beegreen--item-dialog-content-selected-item-container"}>
-            <div className={"beegreen--item-dialog-content-selected-item-text-wrapper"}>
-              <span className={"beegreen--item-dialog-content-selected-item-text"}>
-                {item?.name}
-              </span>
-            </div>
-          </div>
-        </div>
-        <ItemDetails item={item} />
-          <div className={"beegreen--item-dialog-content-compare-header"}>
-            {this.props.subText}
-          </div>
-        <div className={"beegreen--item-details-sub-wrapper"}>
-          <div className={"beegreen--item-details-substitute"}>
-            <div className={"beegreen--item-dialog-content-text-sub-container"}>
-              <div className={"beegreen--item-dialog-content-text-sub-wrapper"}>
-                <span className={"beegreen--item-dialog-content-text-sub"}>
-                  {substitute_1.name}
-                </span>
-              </div>
-            </div>
-            <ItemDetails item={substitute_1} />
-          </div>
-          <div className={"beegreen--item-details-substitute"}>
-            <div className={"beegreen--item-dialog-content-text-sub-container"}>
-              <div className={"beegreen--item-dialog-content-text-sub-wrapper"}>
-                <span className={"beegreen--item-dialog-content-text-sub"}>
-                  {substitute_2.name}
-                </span>
-              </div>
-            </div>
-            <ItemDetails item={substitute_2} />
-          </div>
-        </div>
+      <div style={{marginLeft: "32px", marginBottom: "-18px"}}>
+        <Tabs
+          selected={this.state.currentTab1 ? 0 : 1}
+          >
+          <Tab
+            label={messages_en.detailsTab}
+            onClick={() => {this.setState({currentTab1: true})}}
+            />
+          <Tab
+            label={messages_en.reviewsTab}
+            onClick={() => {this.setState({currentTab1: false})}}
+            />
+        </Tabs>
       </div>
+      { this.state.currentTab1 ?
+        <ItemDetailsContent
+          item={item}
+          inventory={inventory}
+          subText={subText}
+        />
+        :
+        <ItemReviewsContent
+          item={item}
+        />
+      }
       </>
     )
   }
