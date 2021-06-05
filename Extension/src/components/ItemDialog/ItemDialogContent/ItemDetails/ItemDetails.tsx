@@ -33,6 +33,9 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
     if(!item){
       return null;
     }
+    if(!this.props.item.top3Metrics){
+      return null;
+    }
     this.props.item.top3Metrics = Object.keys(this.props.item.top3Metrics).sort().reduce(
       (obj, key) => { 
         obj[key] = this.props.item.top3Metrics[key]; 
