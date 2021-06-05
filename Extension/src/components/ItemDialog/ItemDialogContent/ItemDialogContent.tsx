@@ -23,7 +23,7 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
   }
 
   render() {
-    const { item, inventory } = this.props;
+    let { item, inventory } = this.props;
     let substitute_1: productItem = {
       name: "Soy flour",
       id: "soy_flour",
@@ -35,6 +35,9 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
       id: "wheat_flour",
       score: 7.2, //high is bad
       top3Metrics: {"Farm": 70, "Processing": 33, "Transport": 56}
+    }
+    if(item && !item.category){
+      item.category = "Oil";
     }
     if(inventory && item && item.category) {
       if(getTopSubstitute(inventory, item) !== undefined){

@@ -8,6 +8,7 @@ import { messages_en } from "../../messages/messages_en"
 interface ItemDialogProps {
   item: productItem
   closeItemDialog: () => void;
+  inventory: undefined | {[key:string]: any}[]
 }
 
 interface ItemDialogState {
@@ -42,6 +43,7 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
           >
             <ItemDialogContent
               subText={messages_en.itemDialogSubText}
+              inventory={this.props.inventory}
               item={this.props.item}/>
         </TearsheetNarrow>
       </>

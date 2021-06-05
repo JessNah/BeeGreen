@@ -115,6 +115,25 @@ export function processCart(cart, inventory) {
     cart.sort(compare);
 }
 
+export function processItem(item, inventory) {
+    if(inventory === undefined){
+        return item;
+    }
+    const i = inventoryContains(inventory, item.name);
+    if(i > -1){
+        console.log("modifying item " + item.name + " with " + i);
+        console.log(inventory[i]);
+        const inventoryItem = inventory[i];
+        item.score = inventoryItem.totalScore;
+        item.details = inventoryItem.details;
+        item.comments = inventoryItem.comments;
+        item.stats = inventoryItem.stats;
+        item.category = inventoryItem.category;
+        findTop3(item);
+    }
+    return item;
+}
+
 function findTop3(item) {
     let sortable = [];
     if(item.stats["Farm_normalized"]){
