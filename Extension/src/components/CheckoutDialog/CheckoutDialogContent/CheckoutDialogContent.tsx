@@ -41,8 +41,8 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
   render() {
     const bestItem = this.getBestItem(this.props.cart);
     const worstItem = this.getWorstItem(this.props.cart);
-    const bestScore = (100 - Math.floor(bestItem.score * 10)) + "%"; 
-    const worstScore = (100 - Math.floor(worstItem.score * 10)) + "%"; 
+    const bestScore = (Math.floor(bestItem.score * 10)) + "%"; 
+    const worstScore = (Math.floor(worstItem.score * 10)) + "%"; 
     return (
       <>
         <div className={"beegreen--checkout-dialog-content-top-text"}>

@@ -42,9 +42,19 @@ class ItemDialog extends Component<ItemDialogProps, ItemDialogState> {
     if(inventory && item && item.category) {
       if(getTopSubstitute(inventory, item) !== undefined){
         substitute_1 = getTopSubstitute(inventory, item);
+        //manually set substitute's top 3 metrics to match that of main item.
+        substitute_1.top3Metrics = {};
+        for (const property in item.top3Metrics) {
+          substitute_1.top3Metrics[property] = Math.round(substitute_1.stats[property + "_normalized"] * 10);
+        }
       }
       if(getTopSubstitute(inventory, item, true) !== undefined){
         substitute_2 = getTopSubstitute(inventory, item, true);
+        //manually set substitute's top 3 metrics to match that of main item.
+        substitute_2.top3Metrics = {};
+        for (const property in item.top3Metrics) {
+          substitute_2.top3Metrics[property] = Math.round(substitute_2.stats[property + "_normalized"] * 10);
+        }
       }
     }
     return (

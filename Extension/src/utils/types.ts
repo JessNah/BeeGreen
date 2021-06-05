@@ -8,4 +8,6 @@ export interface productItem {
     top3Metrics?: {[key:string]: any},
     category?: string,
     details?: string
+    stats?: {[key:string]: any},
+    comments?: {[key:string]: any}[]
   }

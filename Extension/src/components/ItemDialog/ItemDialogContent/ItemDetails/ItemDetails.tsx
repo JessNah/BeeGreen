@@ -33,14 +33,22 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
     if(!item){
       return null;
     }
+    this.props.item.top3Metrics = Object.keys(this.props.item.top3Metrics).sort().reduce(
+      (obj, key) => { 
+        obj[key] = this.props.item.top3Metrics[key]; 
+        return obj;
+      }, 
+      {}
+    );
     return (
       <>
         <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grad">
-          <div style={{width: (100 - Math.floor(item.score * 10)) + "%"}} className="beegreen--item-details-stat-bar">
-            {(100 - Math.floor(item.score * 10)) + "%"}
+          <div style={{width: (Math.floor(item.score * 10)) + "%"}} className="beegreen--item-details-stat-bar">
+            {(Math.floor(item.score * 10)) + "%"}
           </div>
         </div>
-        <div>{messages_en.itemDetailsCarbonEmissions}</div>
+        <div>{(this.props.item.stats && this.props.item.stats.Total_emissions) ? 
+          (this.props.item.stats.Total_emissions + " Kg CO2 - per kg product") : messages_en.itemDetailsCarbonEmissions}</div>
         { this.props.item.top3Metrics && Object.keys(this.props.item.top3Metrics).map((field: string, index) => {
           return (
             <div>
@@ -49,7 +57,7 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
               </div>
               <div>
                 <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grey">
-                  <div style={{width: this.props.item.top3Metrics[field] + "%"}}
+                  <div style={{width: (this.props.item.top3Metrics[field]) + "%"}}
                     className={"beegreen--item-details-stat-bar-1 " + this.getBarClass(this.props.item.top3Metrics[field])}/>
                 </div>
               </div>

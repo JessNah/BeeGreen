@@ -278,12 +278,12 @@ export function getTopSubstitute(inventory, item, second) {
         }
         findTop3(bestItem2);
         bestItem2.score = bestItem2.totalScore;
-        return bestItem2;
+        return {...bestItem2};
     }
     if(!bestItem){
         return undefined;
     }
     findTop3(bestItem);
     bestItem.score = bestItem.totalScore;
-    return bestItem;
+    return {...bestItem};
 }
