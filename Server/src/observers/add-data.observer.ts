@@ -34,6 +34,7 @@ export class AddDataObserver implements LifeCycleObserver {
     finalNormalized = normalizeField('Transport', finalNormalized, uniqueTypes, []);
     finalNormalized = normalizeField('Packaging', finalNormalized, uniqueTypes, []);
     finalNormalized = normalizeField('Retail', finalNormalized, uniqueTypes, []);
+    finalNormalized = normalizeField('Land_use_change', finalNormalized, uniqueTypes, []);
     let purchaseArray = [{
       purchaseDate: '2020-04-14',
       buyerUsername: 'KimPeppermint',
@@ -122,6 +123,7 @@ export class AddDataObserver implements LifeCycleObserver {
             Transport:  parseFloat(row["Transport"]),
             Packaging:  parseFloat(row["Packaging"]),
             Retail:  parseFloat(row["Retail"]),
+            Land_use_change: parseFloat(row["Land_use_change"]),
             Total_emissions:  parseFloat(row["Total_emissions"]),
           }
         });

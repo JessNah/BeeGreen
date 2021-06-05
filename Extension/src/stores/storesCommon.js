@@ -151,6 +151,9 @@ function findTop3(item) {
     if(item.stats["Retail_normalized"]){
         sortable.push([["Retail"], item.stats["Retail_normalized"]]);
     }
+    if(item.stats["Land_use_change_normalized"]){
+        sortable.push([["Land_use_change"], item.stats["Land_use_change_normalized"]]);
+    }
     sortable.sort(function(a, b) {
         return a[1] - b[1];
     });

@@ -100,6 +100,18 @@ export const normalizeField = (field: string, inventoryArray: InventoryItem[], u
       avg += typedArr[j].stats[field] as number;
     }
     avg = avg / typedArr.length;
+    let diff = 0;
+    if(min < 0){ //offscale to account for negatives.
+      diff = 0 - min;
+      min = min + diff;
+      max = max + diff;
+      //reassess average
+      avg = 0;
+      for(let j = 0; j < typedArr.length; j++){
+        avg += (typedArr[j].stats[field] + diff) as number;
+      }
+      avg = avg / typedArr.length;
+    }
     if(max !== min){
       //TODO: REVIEW MIN
       min = 0; //if we leave min as min, then lowest value is always 0% bad
@@ -116,6 +128,9 @@ export const normalizeField = (field: string, inventoryArray: InventoryItem[], u
     for(let j = 0; j < typedArr.length; j++){
       const typedObj:{[key:string]:any} = {...typedArr[j]};
       if(typedObj){
+        if(diff !== 0){ //handle offset
+          typedObj.stats[field] = typedObj.stats[field] + diff;
+        }
         if(min === max){
           //likely single item.
           if(typedObj.stats[field] > 10){

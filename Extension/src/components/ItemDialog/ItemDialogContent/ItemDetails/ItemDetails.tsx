@@ -53,7 +53,7 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
           return (
             <div>
               <div className={"beegreen--item-details-stat-bar-1-label"}>
-                {field + ": " + this.props.item.top3Metrics[field] + "%"}
+                {field.replace(/_/g, ' ') + ": " + this.props.item.top3Metrics[field] + "%"}
               </div>
               <div>
                 <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grey">
