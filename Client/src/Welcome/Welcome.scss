@@ -77,3 +77,87 @@
   margin-top: 120px;
   text-align: left;
 }
+
+.BannerWrapperFirst {
+  margin-top: 120px;
+}
+
+.BannerWrapperWelcome {
+  width: 100%;
+  padding: 80px;
+  background-color: #e6f1eb;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.BannerWrapperWelcome2 {
+  width: 100%;
+  padding: 80px;
+  background-color: white;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.BannerWrapperWelcome3{
+  width: 100%;
+  padding: 80px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: rgb(243, 243, 243);
+}
+
+.BannerLeft {
+  width: 50%;
+  max-width: 50%;
+}
+.BannerLeftText {
+  width: 50%;
+  max-width: 50%;
+  padding-left: 80px;
+}
+
+.BannerRight {
+  width: 50%;
+  max-width: 50%;
+}
+
+.BannerRight1Header {
+  font-weight: 600;
+  color: #61b789;
+  font-size: 46px;
+  text-align: left;
+  padding-right: 60px;
+}
+
+.BannerRight1SubText {
+  font-weight: 300;
+  color: #232323;
+  font-size: 22px;
+  text-align: left;  
+  padding-top: 16px;
+  margin-bottom: 40px;
+}
+
+.BannerButton {
+  background-color: #1ba545;
+  display: block;
+}
+
+.Banner1Img {
+  padding-left:10px;
+  width: 400px;
+  height: 400px;
+  padding-top: -40px;
+  margin-top: -120px;
+}
+
+.Banner2Img {
+  margin-top: -30px;
+  width: 400px;
+  height: 400px;
+  padding-top: -40px;
+  margin-left: -150px;
+}
