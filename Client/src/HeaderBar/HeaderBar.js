@@ -13,6 +13,7 @@ import {
   SideNavMenuItem,
 } from 'carbon-components-react';
 import cx from 'classnames';
+import { messages_en } from "../Messages/messages_en";
 
 SideNav.displayName = 'SideNav';
 SideNavMenu.displayName = 'SideNavMenu';
@@ -48,13 +49,13 @@ class HeaderBar extends React.Component {
           Green
         </HeaderName>
         <HeaderNavigation aria-label="IBM [Platform]">
-          {!this.state.loggedIn && <HeaderMenuItem href="#">Sign Up</HeaderMenuItem> }
+          {!this.state.loggedIn && <HeaderMenuItem href="#">{messages_en.signUp}</HeaderMenuItem> }
           { this.state.loggedIn &&
-              <HeaderMenuItem href="#">Your shopping at a glance</HeaderMenuItem>
+              <HeaderMenuItem href="#">{messages_en.shoppingDashboardHeaderBtn}</HeaderMenuItem>
           }
-          <HeaderMenuItem href="#">Contribute to our public database</HeaderMenuItem>
+          <HeaderMenuItem href="#">{messages_en.contributeToDbHeaderBtn}</HeaderMenuItem>
           { this.state.loggedIn &&
-            <HeaderMenu aria-label="Profile" menuLinkName="Profile">
+            <HeaderMenu aria-label={messages_en.profileHeaderBtn} menuLinkName="Profile">
               <HeaderMenuItem href="#">Sub-link 1</HeaderMenuItem>
               <HeaderMenuItem href="#">Sub-link 2</HeaderMenuItem>
               <HeaderMenuItem href="#">Sub-link 3</HeaderMenuItem>

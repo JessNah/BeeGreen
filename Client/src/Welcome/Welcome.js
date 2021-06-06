@@ -4,6 +4,7 @@ import {ReactComponent as ReactSvg} from '../assets/undraw_add_to_cart_vkjp.svg'
 import withAnimationEaseIn from "../Utilities/withAnimationEaseIn/withAnimationEaseIn.js";
 import withAnimationEaseOut from "../Utilities/withAnimationEaseOut/withAnimationEaseOut.js";
 import { Bee32 } from "@carbon/icons-react"
+import { messages_en } from "../Messages/messages_en";
 
 class Welcome extends Component {
 
@@ -13,7 +14,7 @@ class Welcome extends Component {
 			<React.Fragment>
 				<div className={"HeaderGradient"}>
 					<div className={"ApplicationName"}>
-						Welcome to Bee Green
+						{messages_en.welcomeToApp}
 						<Bee32
 							style={{
 								marginLeft: "8px",
@@ -22,17 +23,19 @@ class Welcome extends Component {
 							}}
 						/>
 					</div>
-					If we all make a small change, we can make a big impact.
+					{messages_en.appTagLine}
 				</div>
 				<div className={"ImageWrapper"}>
 					<div className="Phone_Graphic_Handle">
-						<Img className={"WelcomeImage"} style={{width: 800}}/>
+						<Img className={"WelcomeImage"} style={{width: 900}}/>
 					</div>: 
+				</div>
+				<div className={"CommunityWrapper"}>
+					{messages_en.communityTextHeader}
 				</div>
 			</React.Fragment>
 		);
 	}
-
 }
 
 export default Welcome;

@@ -6,13 +6,17 @@
 .HeaderGradient {
   @include carbon--type-style('expressive-heading-06');
   color: white; //$ui-background;
-  width: 100%;
+  // width: 100%;
   background: linear-gradient( 135deg, #1ba545, #9fd0c1);
   padding: 160px; //was 220px
   // border-bottom-right-radius: 200px;
   // border-bottom-left-radius: 50% 40%;
   border-bottom-right-radius: 50% 40%;
   margin-bottom:40px;
+
+  max-width: 45%;
+  text-align: left;
+  font-size: 3rem;
 }
 @media (max-width: 1000px) {
   .HeaderGradient {
@@ -44,12 +48,14 @@
 .ImageWrapper{
     position: absolute;
     top: 180px;
-    left: calc(50% - 400px);
+    // left: calc(50% - 400px);
+    left: calc(50% - 150px);
 }
 
 .WelcomeImage{
   svg {
-    width: 800px !important;
+    // width: 800px !important;
+    width: 900px !important;
   }
 }
 
@@ -57,4 +63,17 @@
   @include carbon--type-style('expressive-heading-04');
   color: white;
   margin-bottom: 40px;
+
+  text-align: left;
+}
+
+.CommunityWrapper {
+  max-width: 550px;
+  // margin-left: 250px;
+  margin-left: 160px;
+  font-weight: 600;
+  color: #61b789;
+  font-size: 46px;
+  margin-top: 120px;
+  text-align: left;
 }
