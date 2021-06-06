@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search20, Notification20, AppSwitcher20 } from '@carbon/icons-react';
+import { withRouter } from "react-router-dom";
 import {
   Header,
   HeaderName,
@@ -51,7 +52,7 @@ class HeaderBar extends React.Component {
         <HeaderNavigation aria-label="IBM [Platform]">
           {!this.state.loggedIn && <HeaderMenuItem href="#">{messages_en.signUp}</HeaderMenuItem> }
           { this.state.loggedIn &&
-              <HeaderMenuItem href="#">{messages_en.shoppingDashboardHeaderBtn}</HeaderMenuItem>
+              <HeaderMenuItem onClick={() => {this.props.history.push("/dashboard/")}}>{messages_en.shoppingDashboardHeaderBtn}</HeaderMenuItem>
           }
           <HeaderMenuItem href="#">{messages_en.contributeToDbHeaderBtn}</HeaderMenuItem>
           { this.state.loggedIn &&
@@ -82,4 +83,4 @@ class HeaderBar extends React.Component {
     );
   }
 }
-export default HeaderBar;
+export default withRouter(HeaderBar);

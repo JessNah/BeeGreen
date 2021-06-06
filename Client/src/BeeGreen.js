@@ -17,8 +17,8 @@ class BeeGreen extends Component {
 					<HeaderBar/>
 				</header>
 				<Switch>
+						<Route path={"/dashboard/"} render={()=> React.cloneElement(<DashBoard/>, {loggedIn: this.state.loggedIn})} />
 						<Route exact path={"/" || !this.state.loggedIn} render={()=> React.cloneElement(<HomePage/>, {loggedIn: this.state.loggedIn})} />
-						<Route path={"/test/"} render={()=> React.cloneElement(<DashBoard/>, {loggedIn: this.state.loggedIn})} />
 						<Redirect from='*' to='/' />
 					</Switch>
 			</React.Fragment>
