@@ -8,8 +8,10 @@ const DashBoard = (props) => {
 	console.log(props);
 	return (
 		<React.Fragment>
-			<Button>Hello React!</Button>
-			<Test/>
+			<div className={"DashboardWrapper"}>
+				<Button>Hello React!</Button>
+				<Test/>
+			</div>
 		</React.Fragment>
 	);
 }
