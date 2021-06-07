@@ -5,5 +5,60 @@
 
 .DashboardWrapper {
     margin-top: 40px;
-    padding: 60px;
+}
+
+.DashboardContent {
+    padding-left: 110px;
+    padding-top: 20px;
+}
+
+.DashboardTile {
+    background-color: white;
+    width: 400px;
+    height: 250px;
+    margin: 20px;
+    margin-right: 40px;
+    padding: 16px;
+    text-align: left;
+}
+
+.DashboardTilesWrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.DashboardTileHeader {
+    font-weight: 600;
+    color: #61b789;
+    font-size: 32px;
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.DashboardVictoryImg{
+    svg {
+        // width: 800px !important;
+        width: 800 !important;
+        max-height: 500px;
+    }
+}
+
+.DashboardTileVictory {
+    background-color: white;
+    width: 800px;
+    height: 400px;
+    margin: 20px;
+    margin-left: 100px;
+    margin-top: 30px;
+    padding: 16px;
+    text-align: left;
+}
+
+.DashboardBanner {    
+  width: 100%;
+  padding: 80px;
+  background-color: #e6f1eb;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

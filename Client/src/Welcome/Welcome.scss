@@ -7,7 +7,7 @@
   @include carbon--type-style('expressive-heading-06');
   color: white; //$ui-background;
   // width: 100%;
-  background: linear-gradient( 135deg, #1ba545, #9fd0c1);
+  background: linear-gradient( 135deg, #289449, #9fd0c1);
   padding: 160px; //was 220px
   // border-bottom-right-radius: 200px;
   // border-bottom-left-radius: 50% 40%;
@@ -142,7 +142,7 @@
 }
 
 .BannerButton {
-  background-color: #1ba545;
+  background-color: #289449;
   display: block;
 }
 
@@ -182,9 +182,9 @@
 
 .bx--progress-line {
   width: 180px;
-  background-color: #1ba545 !important;
+  background-color: #289449 !important;
 }
 
 .bx--progress-step svg {
-  fill: #1ba545;
+  fill: #289449;
 }
