@@ -1,0 +1,32 @@
+.beegreen--rating-bar-stat-bar-container {
+    width: 180px; /* Full width */
+    // background-color: #e5e5e5; /* Grey background */
+    // background: linear-gradient(270deg, rgba(66,190,101,1) 0%, rgba(241,194,27,1) 50%, rgba(250,77,86,1) 100%);
+    background: linear-gradient(270deg, rgba(250,77,86,1) 0%, rgba(241,194,27,1) 50%, rgba(66,190,101,1) 100%);
+    box-sizing: border-box;
+    border-radius: 4px 4px 4px 4px;
+    position: relative;
+}
+
+.beegreen--rating-bar-stat-bar {
+    box-sizing: border-box;
+    text-align: right; /* Right-align text */
+    padding-top: 0px; /* Add top padding */
+    padding-bottom: 0px; /* Add bottom padding */
+    // background-color: #0f62fe;
+    background: none;
+    color: white; /* White text color */
+    border-right: 7px solid #393939;
+    white-space: nowrap;
+    font-size: 12px;
+    height: 12px;
+}
+
+.beegreen--rating-bar-stat-bar-stat {
+    color: black;
+    font-weight: 600;
+    position: absolute;
+    margin-top: -16px;
+    text-align: right;
+    white-space: nowrap;
+}

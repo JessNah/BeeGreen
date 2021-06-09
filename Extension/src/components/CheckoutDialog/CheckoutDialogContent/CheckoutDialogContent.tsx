@@ -4,6 +4,7 @@ import { Tile, TooltipDefinition } from "carbon-components-react"
 import { productItem } from "../../../utils/types"
 import { Badge32, WarningAlt32 } from "@carbon/icons-react"
 import RatingTag from "../../RatingTag/RatingTag";
+import RatingBar from "../../RatingBar/RatingBar";
 import { messages_en } from "../../../messages/messages_en";
 
 interface CheckoutDialogContentProps {
@@ -86,11 +87,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
             </div>
           </div>
           <div className={"beegreen--checkout-dialog-content-tile-score"}>
-            <div className="beegreen--checkout-dialog-content-stat-bar-container">
-              <div style={{width: bestScore}} className="beegreen--checkout-dialog-content-stat-bar">
-                {bestScore}
-              </div>
-            </div>
+            <RatingBar scorePercent={bestScore} />
           </div>
         </Tile>
         <Tile>
@@ -113,9 +110,7 @@ class CheckoutDialogContent extends Component<CheckoutDialogContentProps, Checko
             </div>
           </div>
           <div className={"beegreen--checkout-dialog-content-tile-score"}>
-            <div className="beegreen--checkout-dialog-content-stat-bar-container">
-              <div style={{width: worstScore}}className="beegreen--checkout-dialog-content-stat-bar">{worstScore}</div>
-            </div>
+            <RatingBar scorePercent={worstScore} />
           </div>
           <TooltipDefinition
             className={"beegreen--checkout-dialog-content-suggest"}

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./ItemDetails.scss"
 import { productItem } from "../../../../utils/types"
 import { messages_en } from "../../../../messages/messages_en"
+import RatingBar from "../../../RatingBar/RatingBar";
 
 
 interface ItemDetailsProps {
@@ -45,11 +46,7 @@ class ItemDetails extends Component<ItemDetailsProps, ItemDetailsState> {
     );
     return (
       <>
-        <div className="beegreen--item-details-stat-bar-container beegreen--item-details-stat-bar-container-grad">
-          <div style={{width: (Math.floor(item.score * 10)) + "%"}} className="beegreen--item-details-stat-bar">
-            {(Math.floor(item.score * 10)) + "%"}
-          </div>
-        </div>
+        <RatingBar scorePercent={(Math.floor(item.score * 10)) + "%"} className={"beegreen--item-details-stat-bar-container-grad"} />
         <div>{(this.props.item.stats && this.props.item.stats.Total_emissions) ? 
           (this.props.item.stats.Total_emissions + " Kg CO2 - per kg product") : messages_en.itemDetailsCarbonEmissions}</div>
         { this.props.item.top3Metrics && Object.keys(this.props.item.top3Metrics).map((field: string, index) => {
