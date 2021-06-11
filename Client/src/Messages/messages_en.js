@@ -18,5 +18,6 @@ export const messages_en = {
     welcome4Progress2: "Shop as usual and add items to your cart",
     welcome4Progress3: "Let us tell you how you're doing and find recommendations for you",
     welcomeBanner4: "Visit our site to get a summary of the change you are making for our planet!",
-    welcomeBanner4Sub: "From our site you can get get a summary of how you're doing, contribute to grow our public database, set your preferences, and connect with other like-minded citizen heroes."
+    welcomeBanner4Sub: "From our site you can get get a summary of how you're doing, contribute to grow our public database, set your preferences, and connect with other like-minded citizen heroes.",
+    contributeHeader: "Made a difference and contribute to help grow our public database!"
 }

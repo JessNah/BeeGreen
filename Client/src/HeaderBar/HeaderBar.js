@@ -54,7 +54,7 @@ class HeaderBar extends React.Component {
           { this.state.loggedIn &&
               <HeaderMenuItem onClick={() => {this.props.history.push("/dashboard/")}}>{messages_en.shoppingDashboardHeaderBtn}</HeaderMenuItem>
           }
-          <HeaderMenuItem href="#">{messages_en.contributeToDbHeaderBtn}</HeaderMenuItem>
+          <HeaderMenuItem onClick={() => {this.props.history.push("/contribute/")}}>{messages_en.contributeToDbHeaderBtn}</HeaderMenuItem>
           { this.state.loggedIn &&
             <HeaderMenu aria-label={messages_en.profileHeaderBtn} menuLinkName="Profile">
               <HeaderMenuItem href="#">Sub-link 1</HeaderMenuItem>

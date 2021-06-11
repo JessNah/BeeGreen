@@ -1,0 +1,44 @@
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/_styles.scss';
+// @import '~carbon-components/scss/globals/scss/styles.scss';
+// uncomment above to be able to use color variables
+
+
+.ContributeWrapper {
+    display: flex;
+    justify-content: flex-start;
+    .bx--form-item {
+        display: flex;
+        margin-bottom: 16px;
+    }
+    .bx--dropdown__wrapper {
+        margin-bottom: 16px;
+    }
+    .bx--progress-step {
+        width: 240px !important;
+      }
+    .bx--progress-line {
+        width: 240px !important;
+    }
+}
+
+.ContributeLeft {
+    width: 50%;
+    display: inline-flex;
+    margin-top: 120px;
+    margin-left: 100px;
+    margin-right: -50px;
+}
+
+.ContributeRight {
+    width: 50%;    
+    margin-top: 0px;
+    padding: 100px;
+}
+
+.ContributeHeader {
+    font-weight: 600;
+    color: #61b789;
+    font-size: 32px;
+    text-align: left;
+    padding-bottom: 40px;
+}
