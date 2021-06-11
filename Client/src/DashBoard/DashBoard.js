@@ -5,6 +5,7 @@ import './DashBoard.scss';
 import {ReactComponent as ReactSvg} from '../assets/undraw_winners_ao2o.svg';
 import {ReactComponent as ReactSvg2} from '../assets/undraw_empty_street_sfxm.svg';
 import withAnimationEaseIn from "../Utilities/withAnimationEaseIn/withAnimationEaseIn.js";
+import RatingTag from "../RatingTag/RatingTag";
 
 
 const DashBoard = (props) => {
@@ -20,35 +21,39 @@ const DashBoard = (props) => {
 						<div className={"DashboardTileHeader"}>
 							You're on a roll!
 						</div>
-						<div>
-							Coffee
+						<div className={"TileText"}>
+							Your average cart ranks:
 						</div>
-						<div>
-							score
+						<RatingTag score={3} />
+						<div className={"TileText"}>
+							On average, you always take the effort to improve atleast 2 items in your cart!
 						</div>
-						<div>
-							56k CO emissions
+						<div className={"TileTextEmphasize"}>
+							Way to go you!
 						</div>
-						<div>
-							04/24/32
+						<div className={"TileText"}>
+							Just this month, you've used BeeGreen 11 times! 
 						</div>
-						<div>
-							Instacart
+						<div className={"TileText"}>
+							Your favorite store to use BeeGreen in is InstaCart.
+						</div>
+						<div className={"TileTextEmphasize"}>
+							Congratulations, over the last month, you saved 21 kg of CO2
 						</div>
 					</Tile>
 				</div>
 				<div className={"DashboardBanner"}>
 					<div>
-						<div>Online purchases this year</div>
-						<div>32</div>
+						<div className={"BannerHeader"}>Online purchases this year</div>
+						<div className={"BannerContent"}>11</div>
 					</div>
 					<div>
-						<div>Carbon saving substitutions made</div>
-						<div>76</div>
+						<div className={"BannerHeader"}>Carbon saving substitutions made</div>
+						<div className={"BannerContent"}>32</div>
 					</div>
 					<div>
-						<div>Average cart score</div>
-						<div>Good</div>
+						<div className={"BannerHeader"}>Average cart score</div>
+						<div className={"BannerContent"}>Good</div>
 					</div>
 				</div>
 				<div style={{display: "flex", paddingTop: "20px", paddingLeft: "30px", paddingBottom: "0px"}}>
@@ -56,20 +61,25 @@ const DashBoard = (props) => {
 						<div className={"DashboardTileHeader"}>
 							How you compare to others in your area
 						</div>
-						<div>
-							Coffee
+						<div className={"TileText"}>
+							Your favorite online store is InstaCart.
 						</div>
-						<div>
-							score
+						<div className={"TileText"}>
+							Your average InstaCart cart ranks:
 						</div>
-						<div>
-							56k CO emissions
+						<RatingTag score={3} />
+						<div className={"TileText"}>
+							Other InstaCart shoppers in your area have an average cart rank of:
 						</div>
-						<div>
-							04/24/32
+						<RatingTag score={7} />
+						<div className={"TileText"}>
+							Did you know that your average cart is 1.73x better than the national average in the US?
 						</div>
-						<div>
-							Instacart
+						<div className={"TileText"}>
+							Your overall online carbon score this month is 2.6x better than others in your area!
+						</div>
+						<div className={"TileTextEmphasize"}>
+							That's incredible! You are setting a standard!
 						</div>
 					</Tile>
 					<Img2 className={"DashboardVictoryImg"} style={{width: 700, maxHeight: "400px", marginLeft: "80px"}}/>
@@ -81,19 +91,19 @@ const DashBoard = (props) => {
 							This month shopping vs last month footprint
 						</div>
 						<div>
-							Coffee
+							
 						</div>
 						<div>
-							score
+							
 						</div>
 						<div>
-							56k CO emissions
+							
 						</div>
 						<div>
-							04/24/32
+							
 						</div>
 						<div>
-							Instacart
+							
 						</div>
 					</Tile>
 					<Tile className={"DashboardTile"}
@@ -102,19 +112,19 @@ const DashBoard = (props) => {
 							Your year at a glance
 						</div>
 						<div>
-							Coffee
+							
 						</div>
 						<div>
-							score
+							
 						</div>
 						<div>
-							56k CO emissions
+							
 						</div>
 						<div>
-							04/24/32
+						
 						</div>
 						<div>
-							Instacart
+							
 						</div>
 					</Tile>
 				</div>
