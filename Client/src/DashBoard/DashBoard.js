@@ -92,7 +92,7 @@ const DashBoard = (props) => {
 				<div className={"DashboardTilesWrapper DashboardContent"}>
 					<Tile className={"DashboardTile"}>
 						<div className={"DashboardTileHeader"}>
-							Your lowest scoring buy this year
+							Your most noteworthy buy this year
 						</div>
 						<div style={{display:"flex", justifyContent:"flex-start", paddingTop: "20px"}}>
 							<img src={di} style={{maxHeight: "80px", paddingRight: "30px", paddingLeft: "30px"}}/>
@@ -114,7 +114,7 @@ const DashBoard = (props) => {
 					</Tile>
 					<Tile className={"DashboardTile"}>
 						<div className={"DashboardTileHeader"}>
-							Your most noteworthy buy this year
+							Your lowest scoring buy this year							
 						</div>
 						<div style={{display:"flex", justifyContent:"flex-start", paddingTop: "20px"}}>
 							<img src={micro} style={{maxHeight: "90px", paddingRight: "30px", paddingLeft: "20px"}}/>
