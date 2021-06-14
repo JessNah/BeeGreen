@@ -60,11 +60,12 @@
 ----
 
 ## Overview
-
+Tackling climate change requires a concerted effort from each individual. Our shopping habits punish or reward food producers and distributors. We wish to empower consumers to make educated choices based on the greenhouse gas emissions, land use and other sustainability factors.
 ### Problem Background
+Shoppers are willing to spend more to purchase items produced sustainably. They lack the information to make these choices. Empowering consumers to make the best choices has the potential to change the landscape of retail and transport, and create more demand for sustainable products while reducing demand for eco-villains.
 
 ## The Solution
-
+A database with sustainability metrics on common consumer staples that can be queried from any shopping cart through a simple Chrome browser extension will deliver product comparisons and score the shopping cart. The consumer will be prompted to substitute more sustainable products for high emissions products. 
 ### Demo
 
 ## How it works
@@ -75,7 +76,7 @@
 
 ## Roadmap
 
-## Try out our Extension yourself!
+## Try the extension
 
 Do you want to try out our extension and get a preview of the experience, without needing to connect to a server and without having to set up a dev environment? Then follow these steps:
 
