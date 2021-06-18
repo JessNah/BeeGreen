@@ -1,9 +1,17 @@
+<!-- Header -->
+<a href="https://github.com/JessNah/BeeGreen">
+    <img src="Doc/Images/ReadMeHeader.png">
+</a>
+
+<br/>
+<br/>
+
 <!-- omit in toc -->
 <h1 align="center" style="font-size:42px;border-bottom:none;">
   Bee Green
 </h1>
 <h3 align="center" style="border-bottom: 1px solid #eaecef;">
-  Empower individuals to Bee Green together
+  Sustainability in the shopping cart, for conscious choices by consumers.
 </h3>
 
 
@@ -65,7 +73,7 @@
 
 ## The Solution
 
-### Demo
+[![Watch the video](Doc/Images/DemoThumbNail.jpg)](https://www.youtube.com/watch?v=gnIpaHCgKZY)
 
 ## How it works
 
