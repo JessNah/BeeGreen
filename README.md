@@ -79,9 +79,24 @@
 
 ## Architecture
 
+![Bee Green architecture diagram](/Doc/Images/Architecture.png)
+
+Bee Green combines a recommendation system (Watson Studio), Cloudant data storage to hold the carbon scoring dataset, and a React-Typescript website and chrome extension to get users the information they need as they shop on their favorite online stores. A LoopBack4 backend is used to get users the information they need from the dataset and support the website's queries.
+
+
 ## Technology
 
+- [IBM Cloud](https://www.ibm.com/cloud)
+- [Watson Studio](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html)
+- [IBM Cloudant](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-overview)
+- [Node.js](https://nodejs.org)
+- [React](https://reactjs.org//)
+- [TypeScript](https://www.typescriptlang.org/)
+- [LoopBack 4](https://loopback.io/doc/en/lb4/)
+
 ## Roadmap
+
+<img src="Doc/Images/RoadMap.png">
 
 ## Try out our Extension yourself!
 
