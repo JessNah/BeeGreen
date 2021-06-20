@@ -101,6 +101,15 @@ A proposed outcome of our solution is to create a community of climate activists
 
 ## How it works
 
+Users can install the Bee Green browser extension with a single click. 
+
+The extension then adds a side tab that appears when the user visits their shopping cart or an item inspection screen on online stores. If they choose to summon the Bee Green app by interacting with the tab, Bee Green will pop-up a dialog which will:
+
+1. At checkout level, inspect the whole cart and let the user know the overall cart score, as well as individual scorings assigned to each item. Users may then go into view reviews let by other users on the specific items, or view alternate recommendations for these items. From this dialog, users may also go and make a donation in an attempt to offset their cart's carbon impact.
+2. At the item level, the dialog which appears would then provide users with the information they need to decide if they would like to proceed with adding this item to their cart or view alternate item suggestions.
+
+Users may subsequently choose to visit the Bee Green website, wherein they can view an interactive dashboard to understand their shopping habbits and get a summary of the impact they are making. Additionally they may see how they compare to other users in their region.
+
 ## Architecture
 
 ![Bee Green architecture diagram](/Doc/Images/Architecture.png)
