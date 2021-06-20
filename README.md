@@ -71,9 +71,33 @@
 
 ### Problem Background
 
+Shopping sustainably is a dynamic endeavor. While people are willing to shop sustainably, there is little information to guide them, and no agreed-upon methodology for defining what "Green" or "Eco-Friendly" means. Manufacturers can exploit this lack of standards to paint a deceptively greener picture than reality. 
+
+
+This problem is similar to the evolution of "organic" labeling certifications and validation. The time is right to create initial standards as a lens through which to evaluate comparable products. How much water does it take to produce California rice, compared to Iowa rice? How much greenhouse gases do cows emit vs. turkeys? There is a need to benchmark these products starting with consumer staples, and grow the database as the methodology is refined. 
+
 ## The Solution
 
 [![Watch the video](Doc/Images/DemoThumbNail.jpg)](https://www.youtube.com/watch?v=gnIpaHCgKZY)
+
+### Bee Green
+
+We propose developing standardized sustainability scores derived from public data, that allow consumers to compare apples to apples, or laptops to laptops, for GHG emissions, excess packaging, distance traveled to market, and other factors required to produce and stock items in stores. 
+
+
+Our solution Bee Green is a browser plugin that works alongside online shopping applications to educate consumers on the environmental impact of their buying habits, driving behavioral change across society from the grassroots. The goal is to empower users to shop greener and influence retailers to stock the products consumers demand. 
+
+
+Upon first use, consumers are delighted to shop smarter, greener and address their feelings of guilt and powerlessness through a simple, unobtrusive service with a couple of clicks upon checkout. With repeated use it becomes habit-forming and a fun way to track and grow their influence with shopper comparison and gamification, eventually going viral and helping others relieve guilt and take action.
+
+
+The solution starts small with a few consumer staple items, then grows to include durables like computers and vehicles, driving long-term, high-impact change. The scope expands to producers, retailers, and transportation.  Change happens at the grass roots, and individuals become part of a larger movement to revolutionize societal behaviors and bring about change.
+
+
+Bee Green supports crowd-sourcing to build a public database. The next phase is to partner with retailers to share additional sustainability practices associated with their product mix, and to augment the data set. It will grow an online community of consumer-activists that work together to demand sustainable products. The third phase is a mobile app for in-store shopping, with augmented reality  that reveals carbon scores of products on the shelf. 
+
+
+A proposed outcome of our solution is to create a community of climate activists who act with their wallets. At all stages on the roadmap, Bee Green interfaces will surface key sustainability data in a digestible format, and at the appropriate time, to enable any consumer to be a climate activist. Armed with sustainability metrics, shoppers reward producers and transport companies who operate sustainably. Conversely, they also pass over those producers and transporters who do not operate sustainably, withholding their consumer purchasing power from these "eco-villains".
 
 ## How it works
 
@@ -81,7 +105,7 @@
 
 ![Bee Green architecture diagram](/Doc/Images/Architecture.png)
 
-Bee Green combines a recommendation system (Watson Studio), Cloudant data storage to hold the carbon scoring dataset, and a React-Typescript website and chrome extension to get users the information they need as they shop on their favorite online stores. A LoopBack4 backend is used to get users the information they need from the dataset and support the website's queries.
+Bee Green combines a recommendation and cataloging system (Watson Studio), Cloudant data storage to hold the carbon scoring dataset, and a React-Typescript website and chrome extension to get users the information they need as they shop on their favorite online stores. A LoopBack4 backend is used to get users the information they need from the dataset and support the website's queries.
 
 
 ## Technology
@@ -97,6 +121,26 @@ Bee Green combines a recommendation system (Watson Studio), Cloudant data storag
 ## Roadmap
 
 <img src="Doc/Images/RoadMap.png">
+
+Short term
+BROWSER EXTENSION - Shows sustainability metrics in shopping cart and recommends eco-friendly substitutions
+BUILD PUBLIC DATABASE - Allows crowd-sourcing to build public sustainability data metrics
+PERSONALISED DASHBOARD - Shows sustainability score, impact, relative metrics
+ONLINE STORE AGNOSTIC - Works with multiple online stores
+
+
+Mid-term
+BUILD ONLINE COMMUNITY - Shopper Activists work together to demand sustainable products
+Expanded SKU database - Collect additional data metrics from reliable sources
+ML INSIGHTS - Use ML to extract insights and sustainability trends from shopping bills
+PARTNER WITH STORES -  Show sustainability practices and supply chain details provided by stores
+
+
+Long-term
+REWARDS PROGRAM - Reward sustainable shoppers to encourage behaviour change
+AR MOBILE APP -  Overlays carbon scores on physical shelf items
+LIVE PRODUCT COMPARISON - Compare carbon scores for two products using AR
+LARGE PARTNERSHIPS - Provide metrics for governments and corporates for procurement
 
 ## Try out our Extension yourself!
 
