@@ -45,7 +45,6 @@
 - [Overview](#overview)
   - [Problem Background](#problem-background)
 - [The Solution](#the-solution)
-  - [Demo](#demo)
 - [How it works](#how-it-works)
 - [Architecture](#architecture)
 - [Technology](#technology)
