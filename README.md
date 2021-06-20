@@ -122,21 +122,21 @@ Bee Green combines a recommendation and cataloging system (Watson Studio), Cloud
 
 <img src="Doc/Images/RoadMap.png">
 
-Short term
+1. Short term
 BROWSER EXTENSION - Shows sustainability metrics in shopping cart and recommends eco-friendly substitutions
 BUILD PUBLIC DATABASE - Allows crowd-sourcing to build public sustainability data metrics
 PERSONALISED DASHBOARD - Shows sustainability score, impact, relative metrics
 ONLINE STORE AGNOSTIC - Works with multiple online stores
 
 
-Mid-term
+2. Mid-term
 BUILD ONLINE COMMUNITY - Shopper Activists work together to demand sustainable products
 Expanded SKU database - Collect additional data metrics from reliable sources
 ML INSIGHTS - Use ML to extract insights and sustainability trends from shopping bills
 PARTNER WITH STORES -  Show sustainability practices and supply chain details provided by stores
 
 
-Long-term
+3. Long-term
 REWARDS PROGRAM - Reward sustainable shoppers to encourage behaviour change
 AR MOBILE APP -  Overlays carbon scores on physical shelf items
 LIVE PRODUCT COMPARISON - Compare carbon scores for two products using AR
