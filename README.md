@@ -77,7 +77,7 @@ This problem is similar to the evolution of "organic" labeling certifications an
 
 ## The Solution
 
-[![Watch the video](Doc/Images/DemoThumbNail.jpg)](https://www.youtube.com/watch?v=gnIpaHCgKZY)
+[![Watch the video](Doc/Images/DemoThumbNail.jpg)](https://www.youtube.com/watch?v=1TKyskiDLvs)
 
 ### Bee Green
 
