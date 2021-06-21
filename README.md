@@ -21,9 +21,9 @@
 
 <!-- Quick Links -->
 <div align="center">
-<a href="https://youtu.be/Tf7JL9LKUZc">View Demo</a>
+<a href="https://www.youtube.com/watch?v=1TKyskiDLvs">View Demo</a>
 ·
-<a href="https://github.com/narayanacoder/BuildUP/issues">Report Bug</a>
+<a href="https://github.com/JessNah/BeeGreen/issues">Report Bug</a>
 </div>
 
 ----
