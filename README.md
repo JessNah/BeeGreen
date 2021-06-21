@@ -33,10 +33,10 @@
 
 ## Authors
 
-- [Linda Camillo](https://www.linkedin.com/in/linda-c-3625056/)
-- [Narayana Madineni](https://www.linkedin.com/in/narayana-m-696b6230/)
-- [Jessica Nahulan](https://www.linkedin.com/in/jessicanahulan/)
-- [Jessika Welch](https://www.linkedin.com/in/jessika-welch/)
+- [Linda Camillo](https://www.linkedin.com/in/linda-c-3625056/) (United States)
+- [Narayana Madineni](https://www.linkedin.com/in/narayana-m-696b6230/) (Australia)
+- [Jessica Nahulan](https://www.linkedin.com/in/jessicanahulan/) (Canada)
+- [Jessika Welch](https://www.linkedin.com/in/jessika-welch/) (United States)
 
 
 <!-- omit in toc -->
