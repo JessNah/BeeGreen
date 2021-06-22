@@ -126,6 +126,8 @@ Bee Green combines a recommendation and cataloging system (Watson Studio), Cloud
 - [React](https://reactjs.org//)
 - [TypeScript](https://www.typescriptlang.org/)
 - [LoopBack 4](https://loopback.io/doc/en/lb4/)
+- [Carbon Design System](https://www.carbondesignsystem.com/)
+- [Watson Discovery](https://www.ibm.com/ca-en/cloud/watson-discovery)
 
 ## Roadmap
 
