@@ -74,7 +74,6 @@ Shopping sustainably is a dynamic endeavor. While people are willing to shop sus
 
 
 This problem is similar to the evolution of "organic" labeling certifications and validation. The time is right to create initial standards as a lens through which to evaluate comparable products. How much water does it take to produce California rice, compared to Iowa rice? How much greenhouse gases do cows emit vs. turkeys? There is a need to benchmark these products starting with consumer staples, and grow the database as the methodology is refined. 
-
 ## The Solution
 
 [![Watch the video](Doc/Images/DemoThumbNail.jpg)](https://www.youtube.com/watch?v=1TKyskiDLvs)
@@ -96,7 +95,7 @@ The solution starts small with a few consumer staple items, then grows to includ
 Bee Green supports crowd-sourcing to build a public database. The next phase is to partner with retailers to share additional sustainability practices associated with their product mix, and to augment the data set. It will grow an online community of consumer-activists that work together to demand sustainable products. The third phase is a mobile app for in-store shopping, with augmented reality  that reveals carbon scores of products on the shelf. 
 
 
-A proposed outcome of our solution is to create a community of climate activists who act with their wallets. At all stages on the roadmap, Bee Green interfaces will surface key sustainability data in a digestible format, and at the appropriate time, to enable any consumer to be a climate activist. Armed with sustainability metrics, shoppers reward producers and transport companies who operate sustainably. Conversely, they also pass over those producers and transporters who do not operate sustainably, withholding their consumer purchasing power from these "eco-villains".
+A proposed outcome of our solution is to create a community of climate activists who act with their wallets. At all stages on the roadmap, Bee Green interfaces will surface key sustainability data in a digestible format, and at the appropriate time, to enable any consumer to be a climate activist. Armed with sustainability metrics, shoppers reward producers and transport companies who operate sustainably. Conversely, they also pass over those producers and transporters who do not operate sustainably, withholding their consumer purchasing power from these "eco-villains."
 
 ## How it works
 
@@ -112,6 +111,8 @@ Users may subsequently choose to visit the Bee Green website, wherein they can v
 ## Architecture
 
 ![Bee Green architecture diagram](/Doc/Images/Architecture.png)
+
+Architecture diagram above describes the flow for two different user paths: 1. shopping cart interaction using Bee Green browser extension, and 2. logging in to the Bee Green site to view personalised dashboard of statistics, history, and comparative analytics.
 
 Bee Green combines a recommendation and cataloging system (Watson Studio), Cloudant data storage to hold the carbon scoring dataset, and a React-Typescript website and chrome extension to get users the information they need as they shop on their favorite online stores. A LoopBack4 backend is used to get users the information they need from the dataset and support the website's queries.
 
@@ -130,25 +131,46 @@ Bee Green combines a recommendation and cataloging system (Watson Studio), Cloud
 
 <img src="Doc/Images/RoadMap.png">
 
-1. Short term
-BROWSER EXTENSION - Shows sustainability metrics in shopping cart and recommends eco-friendly substitutions
-BUILD PUBLIC DATABASE - Allows crowd-sourcing to build public sustainability data metrics
-PERSONALISED DASHBOARD - Shows sustainability score, impact, relative metrics
-ONLINE STORE AGNOSTIC - Works with multiple online stores
+1. Current: 
+Our submission empowers an individual to make sustainable choices while shopping online, contribute to public database of sustainability metrics, view a personalised dashboard of the accomplished impact and use the extension on multiple online stores. Our solution supports the following features:
+
+* Browser Extension -  User can opt-in and install our browser extension, Bee Green. When user adds items to the cart, Bee Green extension shows sustainability metrics in shopping cart for each item, and sorts them by sustainability scores. The sustainability scores are generated based on publicly available data and include details about greenhouse gases emissions associated with land use, animal feed, farm, processing, transport, packaging and retail processes. It also provides links to contribute towards initiatives such as http://climatehub.ca/ or donate towards planting a tree to offset carbon emissions and be guilt-free.
+* Product Matching Algorithm - Uses IBM Watson Studio to determine similarity between products, and recommends eco-friendly substitutions for products that do not have acceptable scores. This is a key trust-builder for Bee Green and will be validated through customer behavior and acceptance of the substitutions. 
+* Build Public Database - Allows crowd-sourcing to build public sustainability data metrics. Users can submit reviews about the carbon footprint of various product so that other users can benefit from the reviews. Additionally, users or companies may also submit their own reasonings and first hand account information that they may have towards a carbon scoring for an item already on the database or yet to be included, this information can then be processed and added as input to grow the database.
+* Personalised Dashboard - Shows sustainability score, impact, relative metrics such as average cart ranks, favorite store, product substitutions made, avoided carbon emissions, best and worst purchase based on carbon emissions, monthly, yearly and comparative metrics with similar shoppers in the area. 
+* Online Store Agnostic - Works with multiple online stores and product categories. Supports stores such as: Instacart, Amazon and Apple Store.
+
+IBM Cloud Technologies : IBM Watson Studio, IBM Cloudant, Loopback
+
+2. Mid term:
+Our solution will be expanded to include the following features:
 
 
-2. Mid-term
-BUILD ONLINE COMMUNITY - Shopper Activists work together to demand sustainable products
-Expanded SKU database - Collect additional data metrics from reliable sources
-ML INSIGHTS - Use ML to extract insights and sustainability trends from shopping bills
-PARTNER WITH STORES -  Show sustainability practices and supply chain details provided by stores
+* Build Online Community - Shopper Activists work together to demand sustainable products by sharing information and resources about retailers that embrace sustainability, and change their product mixes to accommodate new shopping patterns
+* Expanded SKU database - Collect additional data metrics from reliable sources to expand the depth and breadth of products scored. With time, the database grows and the extension will support a wide-range of products.
+* Leverage latest news and articles - Integrate Watson Discovery to help add value and expose public sentiment with respect to carbon emissions and certain brands and store items to the user. Watson Discovery can also help aid the ML system in determining the final rank score of an item by taking into account recent news and articles pertaining to the item.
+* ML Insights - Use machine learning to extract insights and sustainability trends from shopping cart behavior including substitution success rates, growth in sales of more sustainable products. IBM Machine learning can be leveraged to provide the insights.
+* Partner With Stores -  Show sustainability practices and supply chain details provided by stores. Return gamified insights to participating retailers. Promote stores that consistently offer sustainable choices on the dashboard. Provide endorsement symbols in the shopping cart for substitutions. Customise the substitution offerings based on retailer's insights and unique product mix.  Broaden and deepen the factors included in the product-matching algorithm's calculations. Including sustainability practices refines the matching algorithm to make better substitution recommendations.
 
+IBM Cloud Technologies : IBM App ID,  IBM Cloudant,  IBM Machine Learning, IBM Watson Discovery
 
-3. Long-term
-REWARDS PROGRAM - Reward sustainable shoppers to encourage behaviour change
-AR MOBILE APP -  Overlays carbon scores on physical shelf items
-LIVE PRODUCT COMPARISON - Compare carbon scores for two products using AR
-LARGE PARTNERSHIPS - Provide metrics for governments and corporates for procurement
+3. Long term:
+Our solution will be expanded to include the following features:
+
+* Rewards Program - Reward sustainable shoppers to reinforce behaviour change. Whenever a shopper shops sustainably by making substitutes, offer reward points that can be converted into tree plantation or other climate initiatives.
+* Augmented Reality Mobile App -  Overlays carbon scores on physical shelf items so shoppers can make their most informed and impactful decisions in the moment, in physical stores. There is no need to plan ahead to make sustainable choices. Removes friction from the process.
+* Live Product Comparison - Compare carbon scores for two products using augmented reality. When user points camera to two products, it can overlay carbon score comparison between the two products. Shelf placement generally supports competing products being placed in adjacent space. Bee Green will leverage that standard, and participating retailers can intentionally place the best products next to the worst in any category to dramatize the effect. Custom displays can further harness the power of comparison by featuring the most sustainable products in comparison with the worst, in perfect camera-ready format, for maximum impact. Over time, retailers will gradually phase out or improve the "eco-villains."
+* Large Partnerships - Provide metrics for governments and corporates for procurement at scale. Impactful decisions start with consumer-activists, shift to retailers, and expand to include large organizations, like any grassroots movement. 
+
+IBM Cloud Technologies :  IBM Cloudant,  Augmented Reality, Flutter 
+
+4. Business Model: 
+Once the extension reaches wider user-base, endorsements for partner stores can be charged.
+Retailers and producers can participate in cross-promotions and purchase custom store graphics that highlight their sustainable products. 
+Once the network effect has been achieved, the Bee Green brand equity can be leveraged as a product endorsement.
+
+This solution eliminates the future costs of excess plastic cleanup from our oceans, and greenhouse gas emissions from our atmosphere.
+
 
 ## Try out our Extension yourself!
 
