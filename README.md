@@ -167,7 +167,8 @@ Our solution will be expanded to include the following features:
 
 IBM Cloud Technologies :  IBM Cloudant,  Augmented Reality, Flutter 
 
-4. Business Model: 
+4. Business Model:
+ 
 Once the extension reaches wider user-base, endorsements for partner stores can be charged.
 Retailers and producers can participate in cross-promotions and purchase custom store graphics that highlight their sustainable products. 
 Once the network effect has been achieved, the Bee Green brand equity can be leveraged as a product endorsement.
