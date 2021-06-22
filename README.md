@@ -132,6 +132,7 @@ Bee Green combines a recommendation and cataloging system (Watson Studio), Cloud
 <img src="Doc/Images/RoadMap.png">
 
 1. Current: 
+
 Our submission empowers an individual to make sustainable choices while shopping online, contribute to public database of sustainability metrics, view a personalised dashboard of the accomplished impact and use the extension on multiple online stores. Our solution supports the following features:
 
 * Browser Extension -  User can opt-in and install our browser extension, Bee Green. When user adds items to the cart, Bee Green extension shows sustainability metrics in shopping cart for each item, and sorts them by sustainability scores. The sustainability scores are generated based on publicly available data and include details about greenhouse gases emissions associated with land use, animal feed, farm, processing, transport, packaging and retail processes. It also provides links to contribute towards initiatives such as http://climatehub.ca/ or donate towards planting a tree to offset carbon emissions and be guilt-free.
@@ -143,6 +144,7 @@ Our submission empowers an individual to make sustainable choices while shopping
 IBM Cloud Technologies : IBM Watson Studio, IBM Cloudant, Loopback
 
 2. Mid term:
+
 Our solution will be expanded to include the following features:
 
 
@@ -155,6 +157,7 @@ Our solution will be expanded to include the following features:
 IBM Cloud Technologies : IBM App ID,  IBM Cloudant,  IBM Machine Learning, IBM Watson Discovery
 
 3. Long term:
+
 Our solution will be expanded to include the following features:
 
 * Rewards Program - Reward sustainable shoppers to reinforce behaviour change. Whenever a shopper shops sustainably by making substitutes, offer reward points that can be converted into tree plantation or other climate initiatives.
