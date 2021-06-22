@@ -131,7 +131,7 @@ Bee Green combines a recommendation and cataloging system (Watson Studio), Cloud
 
 <img src="Doc/Images/RoadMap.png">
 
-1. Current: 
+### 1. Current: 
 
 Our submission empowers an individual to make sustainable choices while shopping online, contribute to public database of sustainability metrics, view a personalised dashboard of the accomplished impact and use the extension on multiple online stores. Our solution supports the following features:
 
@@ -143,7 +143,7 @@ Our submission empowers an individual to make sustainable choices while shopping
 
 IBM Cloud Technologies : IBM Watson Studio, IBM Cloudant, Loopback
 
-2. Mid term:
+### 2. Mid term:
 
 Our solution will be expanded to include the following features:
 
@@ -156,7 +156,7 @@ Our solution will be expanded to include the following features:
 
 IBM Cloud Technologies : IBM App ID,  IBM Cloudant,  IBM Machine Learning, IBM Watson Discovery
 
-3. Long term:
+### 3. Long term:
 
 Our solution will be expanded to include the following features:
 
@@ -167,7 +167,7 @@ Our solution will be expanded to include the following features:
 
 IBM Cloud Technologies :  IBM Cloudant,  Augmented Reality, Flutter 
 
-4. Business Model:
+### 4. Business Model:
  
 Once the extension reaches wider user-base, endorsements for partner stores can be charged.
 Retailers and producers can participate in cross-promotions and purchase custom store graphics that highlight their sustainable products. 
