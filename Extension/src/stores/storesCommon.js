@@ -185,6 +185,9 @@ function inventoryContains(inventory, itemName) {
         if(invName.includes(itName) || itName.includes(invName)){
             return i;
         }
+        if(invName.includes("apple") && itName.includes("macbook")){
+            continue;
+        }
         //handle plural
         const singInv = (invName.slice(-1) === "s") ? invName.slice(0, -1) : invName;
         const singItem = (itName.slice(-1) === "s") ? itName.slice(0, -1) : itName;
