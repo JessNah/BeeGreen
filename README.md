@@ -67,14 +67,19 @@
 ----
 
 ## Overview
-
+Tackling climate change requires a concerted effort from each individual. Our shopping habits punish or reward food producers and distributors. We wish to empower consumers to make educated choices based on the greenhouse gas emissions, land use and other sustainability factors.
 ### Problem Background
+Shoppers are willing to spend more to purchase items produced sustainably. They lack the information to make these choices. Empowering consumers to make the best choices has the potential to change the landscape of retail and transport, and create more demand for sustainable products while reducing demand for eco-villains.
 
 Shopping sustainably is a dynamic endeavor. While people are willing to shop sustainably, there is little information to guide them, and no agreed-upon methodology for defining what "Green" or "Eco-Friendly" means. Manufacturers can exploit this lack of standards to paint a deceptively greener picture than reality. 
 
 
 This problem is similar to the evolution of "organic" labeling certifications and validation. The time is right to create initial standards as a lens through which to evaluate comparable products. How much water does it take to produce California rice, compared to Iowa rice? How much greenhouse gases do cows emit vs. turkeys? There is a need to benchmark these products starting with consumer staples, and grow the database as the methodology is refined. 
 ## The Solution
+
+A database with sustainability metrics on common consumer staples that can be queried from any shopping cart through a simple Chrome browser extension will deliver product comparisons and score the shopping cart. The consumer will be prompted to substitute more sustainable products for high emissions products. 
+### Demo
+=======
 
 [![Watch the video](Doc/Images/DemoThumbNail.jpg)](https://www.youtube.com/watch?v=1TKyskiDLvs)
 
@@ -96,6 +101,7 @@ Bee Green supports crowd-sourcing to build a public database. The next phase is 
 
 
 A proposed outcome of our solution is to create a community of climate activists who act with their wallets. At all stages on the roadmap, Bee Green interfaces will surface key sustainability data in a digestible format, and at the appropriate time, to enable any consumer to be a climate activist. Armed with sustainability metrics, shoppers reward producers and transport companies who operate sustainably. Conversely, they also pass over those producers and transporters who do not operate sustainably, withholding their consumer purchasing power from these "eco-villains."
+
 
 ## How it works
 
@@ -131,6 +137,8 @@ Bee Green combines a recommendation and cataloging system (Watson Studio), Cloud
 
 ## Roadmap
 
+## Try the extension
+=======
 <img src="Doc/Images/RoadMap.png">
 
 ### Current: 
